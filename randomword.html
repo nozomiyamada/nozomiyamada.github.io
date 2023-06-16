@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Random Thai Word</title>
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <style type="text/css">
+  .bs-component + .bs-component {
+    margin-top: 1rem;
+  }
+  @media (min-width: 768px) {
+    .bs-docs-section {
+      margin-top: 8em;
+    }
+    .bs-component {
+      position: relative;
+    }
+    .bs-component .modal {
+      position: relative;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      left: auto;
+      z-index: 1;
+      display: block;
+    }
+    .bs-component .modal-dialog {
+      width: 90%;
+    }
+    .bs-component .popover {
+      position: relative;
+      display: inline-block;
+      width: 220px;
+      margin: 20px;
+    }
+    .nav-tabs {
+      margin-bottom: 15px;
+    }
+    .progress {
+      margin-bottom: 10px;
+    }
+  }
+  </style>
+  <script src="./js/words.js" charset="utf-8"></script>
+  <script type="text/javascript">
+		let all_words = [];
+		for(let genre in word_dic){
+			for(let word of word_dic[genre]){
+				all_words.push([genre,word])
+			}
+		}
+
+    function random_select(){
+			let index = Math.floor( Math.random() * all_words.length );
+			let genre = all_words[index][0];
+			let word = all_words[index][1]
+
+			all_words.splice( index, 1 );
+
+      let target = document.getElementById("result");
+      target.innerHTML += `${genre} : ${word}\n`; // append result
+      
+      let row_length = Number(target.getAttribute("rows"));
+      while(target.scrollHeight > target.offsetHeight){
+        row_length++;
+        target.setAttribute("rows", row_length)
+      }
+      return false;
+    }
+    function reset_all(){
+      document.getElementById("result").innerHTML = "";
+      document.getElementById("result").setAttribute("rows", 10);
+      document.getElementById("text").value = "";
+    }
+  </script>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="eliza.html">Random Thai Word</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="page-header" id="banner">
+    <div class="row my-4">
+      <div class="col-12" id=txt>
+				<h3 class="display-5">กด "select" จะสุ่มเลือกคำภาษาไทย</h3>
+				หมวด : คำ <br />
+				total 570 words
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-header">
+            <textarea class="form-control" id="result" rows="10" readonly></textarea>
+        </div>
+        <div class="card-body">
+					<p>
+						<input type="submit" class="btn btn-primary" value='Select' onClick="random_select();">
+						<input type="reset" class="btn btn-secondary" value='Reset' onClick="reset_all();">
+					</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <p><font color="white">&copy; 2019 Nozomi Yamada All Rights Reserved.</font></p>
+  </nav>
+</footer>
+
+</body>
+</html>

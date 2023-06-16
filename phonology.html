@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Phonology Tools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <script>
+    var current_mode = 'pair_en'; // first page
+    function select_mode(){
+      let PAIR_EN = document.getElementsByClassName('pair_en');
+      let PAIR_TH = document.getElementsByClassName('pair_th');
+      let PAIR = document.getElementsByClassName('minimalpair');
+      let TACTICS_TH = document.getElementsByClassName('tactics_th');
+      let selected = event.target.value;
+      if(selected==='pair_en'){
+        Array.from(PAIR).forEach(x => x.style.display = '');
+        Array.from(PAIR_EN).forEach(x => x.style.display = '');
+        Array.from(PAIR_TH).forEach(x => x.style.display = 'none');
+        Array.from(TACTICS_TH).forEach(x => x.style.display = 'none');
+        current_mode = 'pair_en';
+        document.getElementById('ignoretone').checked = false;
+        document.getElementById('input').placeholder = 'word';
+      }else if(selected==='pair_th'){
+        Array.from(PAIR).forEach(x => x.style.display = '');
+        Array.from(PAIR_EN).forEach(x => x.style.display = 'none');
+        Array.from(PAIR_TH).forEach(x => x.style.display = '');
+        Array.from(TACTICS_TH).forEach(x => x.style.display = 'none');
+        current_mode = 'pair_th';
+        document.getElementById('input').placeholder = 'คำไทย';
+      }else if(selected==='tactics_th'){
+        Array.from(PAIR).forEach(x => x.style.display = 'none');
+        Array.from(PAIR_EN).forEach(x => x.style.display = 'none');
+        Array.from(PAIR_TH).forEach(x => x.style.display = 'none');
+        Array.from(TACTICS_TH).forEach(x => x.style.display = '');
+        current_mode = 'tactics_th';
+      }
+    }
+  </script>
+</head>
+
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Nozomi</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="link.html">Links</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ipathai.html">タイ語入力</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tool.html">Math Tools</a>
+				</li>
+				<li class="nav-item active">
+          <a class="nav-link" href="phonology.html">Phonology</a>
+        </li>
+      </ul>
+      <!--
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      -->
+    </div>
+  </nav>
+</header>
+	
+<div class="container">
+
+  <div class="page-header">
+    <div class="row my-3">
+      <div class="col-6">
+        <h5>Select Mode</h5>
+        <select class="form-control" onchange="select_mode();">
+          <option value="pair_en" selected>Minimal Pair Searcher (EN)</option>
+          <option value="pair_th">Minimal Pair Searcher (TH)</option>
+          <option value="tactics_th">Phonotactics (TH)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-header pair_en">
+    <div class="row my-3">
+      <div class="col-12">
+        <h2 class="display-5">Minimal Pair Searcher (EN)</h2>
+        1. Search by word
+        <ol>
+          <li>Input an English word.</li>
+          <li>Press ENTER key.</li>
+        </ol>
+        2. Search by two phonemes
+        <ol>
+          <li>Select two phonemes from dropdown lists.</li>
+          <li>Select minimum & maximum length. (if greater than 6, it may take a long time)</li>
+          <li>Select positions (<span class="blue">initial</span>, <span class="green">middle</span>, <span class="golden">final</span>) of the two phonemes.</li>
+          <li>Press search button.</li>
+        </ol>
+        IPA can be copied to clipboard just by clicking<br><br>
+        other tools
+        <ul>
+          <li><a href="http://phonetictools.altervista.org/minimalpairfinder/" target="blank_">Minimal Pair Finder</a></li>
+          <li><a href="https://lessonpix.com/minPairs.php" target="blank_">Lesson Pix</a></li>
+          <li><a href="https://linguistics.ucla.edu/people/hayes/103/MinimalPairs/index.htm" target="blank_">UCLA Linguistics</a></li>
+          <li><a href="http://www.thai-language.com/minimal-sets">thai-language.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-header pair_th" style="display: none;">
+    <div class="row my-3">
+      <div class="col-12">
+        <h2 class="display-5">Minimal Pair Searcher (TH)</h2>
+        <p>If you ignore tone distinction, check "<span class="red">ignore tone</span>".</p>
+        1. Search by word
+        <ol>
+          <li>Input a Thai word.</li>
+          <li>Press ENTER key.</li>
+        </ol>
+        2. Search by two phonemes
+        <ol>
+          <li>Select two phonemes from dropdown lists.</li>
+          <li>Select minimum & maximum length. (if greater than 6, it may take a long time)</li>
+          <li>Select positions (<span class="blue">initial</span>, <span class="green">middle</span>, <span class="golden">final</span>) of the two phonemes.</li>
+          <li>Press search button.</li>
+        </ol>
+        <i>note</i>: long vowels (e.g. /aa/) and rising diphthongs (e.g. /ia/) are treated as one phonemes.<br>
+        IPA can be copied to clipboard just by clicking<br><br>
+
+        Other Tools
+        <ul>
+          <li><a href="http://phonetictools.altervista.org/minimalpairfinder/" target="blank_">Minimal Pair Finder</a></li>
+          <li><a href="https://lessonpix.com/minPairs.php" target="blank_">Lesson Pix</a></li>
+          <li><a href="https://linguistics.ucla.edu/people/hayes/103/MinimalPairs/index.htm" target="blank_">UCLA Linguistics</a></li>
+          <li><a href="http://www.thai-language.com/minimal-sets">thai-language.com</a></li>
+        </ul>
+
+        Original Data:
+        <ul>
+          <li>
+            <a href="http://sealang.net/thai/dictionary.htm" target="blank_">SEAlang Library Thai</a> based on <a href="http://sealang.net/thai/tdp.htm" target="blank_">Mary Haas Thai Dictionary Project</a><br>
+            maintained by Doug Cooper, Center for Research in Computational Linguistics, Bangkok
+          </li>
+          <li><a href="http://languagelog.ldc.upenn.edu/myl/GlobalTIMIT_IS2018_submitted.pdf" target="blank_">GlobalTIMIT</a> by Dr. Nattanun Chanchaochai, Dept. of Linguistics, Chulalongkorn University</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row pair_th"style="display: none;">
+    <div class="col-lg-12">
+      <input type="checkbox" id="ignoretone"><label for="ignoretone"><strong class="red">&nbsp;ignore tone</strong></label>
+    </div>
+  </div>
+
+  <div class="row minimalpair">
+    <div class="col-lg-4">
+      <div class="bs-component">
+				<h3>input word (not IPA)</h3>
+        <form onsubmit="find_minimal(current_mode); return false;">
+					<input type="text" class="form-control" id="input" placeholder="word" autocomplete="off">
+				</form>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="bs-component">
+				<h3>select 2 phonemes</h3>
+        <form onsubmit="find_minimal2(current_mode); return false;">
+          <table>
+            <tbody>
+              <tr>
+                <td class="pair_en">
+                  <select class="form-control" id='input_ipa1' style="min-width: 3rem;">
+                    <option value="i">i</option>
+                    <option value="ɪ">ɪ</option>
+                    <option value="u">u</option>
+                    <option value="ʊ">ʊ</option>
+                    <option value="e">e</option>
+                    <option value="ɛ">ɛ</option>
+                    <option value="æ">æ</option>
+                    <option value="o">o</option>
+                    <option value="ɔ">ɔ</option>
+                    <option value="a">a</option>
+                    <option value="ɑ">ɑ</option>
+                    <option value="ə">ə</option>
+                    <option value="ɝ">ɝ</option>
+                    <option value="j">j</option>
+                    <option value="w">w</option>
+                    <option value="ɹ">ɹ</option>
+                    <option value="ɫ">ɫ</option>
+                    <option value="p">p</option>
+                    <option value="b">b</option>
+                    <option value="m">m</option>
+                    <option value="f">f</option>
+                    <option value="v">v</option>
+                    <option value="θ">θ</option>
+                    <option value="ð">ð</option>
+                    <option value="t">t</option>
+                    <option value="d">d</option>
+                    <option value="n">n</option>
+                    <option value="s">s</option>
+                    <option value="z">z</option>
+                    <option value="ʃ">ʃ</option>
+                    <option value="ʒ">ʒ</option>
+                    <option value="ʧ">ʧ</option>
+                    <option value="ʤ">ʤ</option>
+                    <option value="k">k</option>
+                    <option value="ɡ">ɡ</option>
+                    <option value="ŋ">ŋ</option>
+                    <option value="h">h</option>
+                  </select>
+                </td>
+                <td class="pair_en">
+                  <select class="form-control" id='input_ipa2' style="min-width: 3rem;">
+                    <option value="i">i</option>
+                    <option value="ɪ">ɪ</option>
+                    <option value="u" selected>u</option>
+                    <option value="ʊ">ʊ</option>
+                    <option value="e">e</option>
+                    <option value="ɛ">ɛ</option>
+                    <option value="æ">æ</option>
+                    <option value="o">o</option>
+                    <option value="ɔ">ɔ</option>
+                    <option value="a">a</option>
+                    <option value="ɑ">ɑ</option>
+                    <option value="ə">ə</option>
+                    <option value="ɝ">ɝ</option>
+                    <option value="j">j</option>
+                    <option value="w">w</option>
+                    <option value="ɹ">ɹ</option>
+                    <option value="ɫ">ɫ</option>
+                    <option value="p">p</option>
+                    <option value="b">b</option>
+                    <option value="m">m</option>
+                    <option value="f">f</option>
+                    <option value="v">v</option>
+                    <option value="θ">θ</option>
+                    <option value="ð">ð</option>
+                    <option value="t">t</option>
+                    <option value="d">d</option>
+                    <option value="n">n</option>
+                    <option value="s">s</option>
+                    <option value="z">z</option>
+                    <option value="ʃ">ʃ</option>
+                    <option value="ʒ">ʒ</option>
+                    <option value="ʧ">ʧ</option>
+                    <option value="ʤ">ʤ</option>
+                    <option value="k">k</option>
+                    <option value="ɡ">ɡ</option>
+                    <option value="ŋ">ŋ</option>
+                    <option value="h">h</option>
+                  </select>
+                </td>
+                <td class="pair_th" style="display: none;">
+                  <select class="form-control" id='input_ipa1_th' style="min-width: 3rem;">
+                    <option value="i" selected>i</option>
+                    <option value="I">ii</option>
+                    <option value="e">e</option>
+                    <option value="E">ee</option>
+                    <option value="ɛ">ɛ</option>
+                    <option value="Y">ɛɛ</option>
+                    <option value="ʉ">ʉ</option>
+                    <option value="W">ʉʉ</option>
+                    <option value="u">u</option>
+                    <option value="U">uu</option>
+                    <option value="o">o</option>
+                    <option value="O">oo</option>
+                    <option value="ɔ">ɔ</option>
+                    <option value="X">ɔɔ</option>
+                    <option value="a">a</option>
+                    <option value="A">aa</option>
+                    <option value="ə">ə</option>
+                    <option value="Z">əə</option>
+                    <option value="J">ia</option>
+                    <option value="V">ua</option>
+                    <option value="R">ʉa</option>
+                    <option value="w">w</option>
+                    <option value="y">y</option>
+                    <option value="P">pʰ</option>
+                    <option value="p">p</option>
+                    <option value="b">b</option>
+                    <option value="m">m</option>
+                    <option value="f">f</option>
+                    <option value="T">tʰ</option>
+                    <option value="t">t</option>
+                    <option value="d">d</option>
+                    <option value="s">s</option>
+                    <option value="n">n</option>
+                    <option value="r">r</option>
+                    <option value="l">l</option>
+                    <option value="C">cʰ</option>
+                    <option value="c">c</option>
+                    <option value="K">kʰ</option>
+                    <option value="k">k</option>
+                    <option value="ŋ">ŋ</option>
+                    <option value="h">h</option>
+                    <option value="ʔ">ʔ</option>
+                  </select>
+                </td>
+                <td class="pair_th" style="display: none;">
+                  <select class="form-control" id='input_ipa2_th' style="min-width: 3rem;">
+                    <option value="i">i</option>
+                    <option value="I">ii</option>
+                    <option value="e" selected>e</option>
+                    <option value="E">ee</option>
+                    <option value="ɛ">ɛ</option>
+                    <option value="Y">ɛɛ</option>
+                    <option value="ʉ">ʉ</option>
+                    <option value="W">ʉʉ</option>
+                    <option value="u">u</option>
+                    <option value="U">uu</option>
+                    <option value="o">o</option>
+                    <option value="O">oo</option>
+                    <option value="ɔ">ɔ</option>
+                    <option value="X">ɔɔ</option>
+                    <option value="a">a</option>
+                    <option value="A">aa</option>
+                    <option value="ə">ə</option>
+                    <option value="Z">əə</option>
+                    <option value="J">ia</option>
+                    <option value="V">ua</option>
+                    <option value="R">ʉa</option>
+                    <option value="w">w</option>
+                    <option value="y">y</option>
+                    <option value="P">pʰ</option>
+                    <option value="p">p</option>
+                    <option value="b">b</option>
+                    <option value="m">m</option>
+                    <option value="f">f</option>
+                    <option value="T">tʰ</option>
+                    <option value="t">t</option>
+                    <option value="d">d</option>
+                    <option value="s">s</option>
+                    <option value="n">n</option>
+                    <option value="r">r</option>
+                    <option value="l">l</option>
+                    <option value="C">cʰ</option>
+                    <option value="c">c</option>
+                    <option value="K">kʰ</option>
+                    <option value="k">k</option>
+                    <option value="ŋ">ŋ</option>
+                    <option value="h">h</option>
+                    <option value="ʔ">ʔ</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="form-control" id='minlength' style="min-width: 3rem;" onchange="change_max();">
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="form-control" id='maxlength' style="min-width: 3rem;">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5" selected>5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="checkbox" id="initial" checked><label for="initial" class=blue>&nbsp;initial&nbsp;</label>
+                  <input type="checkbox" id="middle" checked><label for="middle" class="green">&nbsp;middle&nbsp;</label>
+                  <input type="checkbox" id="final" checked><label for="final" class="golden">&nbsp;final&nbsp;</label>
+                </td>
+                <td>
+                  <input type="submit" class="btn btn-outline-secondary" onclick="find_minimal2(current_mode);return false;" value="search">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+				</form><br>
+      </div>
+		</div>
+	</div>
+
+	<div class="row minimalpair">
+    <div class="col-lg-12">
+      <div class="bs-component">
+				<h3>Results</h3>
+				<table class="table table-hover">
+					<tbody id="result_table">
+						<tr>
+							<th>IPA of input</th>
+							<th>minimal pair (IPA)</th>
+							<th>minimal pair (word)</th>
+						</tr>
+					</tbody>
+				</table>
+      </div>
+		</div>
+  </div>
+  
+  <div class="page-header tactics_th" style="display: none;">
+    <div class="row my-3">
+      <div class="col-12">
+        <h2 class="display-5">Phonotactics (TH)</h2>
+        How to use
+        <ol>
+          <li>Select a pattern of phonotactics.</li>
+          <li>
+            Select the number of syllables of words: 1, 1-2, 1-3, all words<br>
+            ("all words" is not recommended for count because the data include not only words but also phrases)<br>
+          </li>
+          <li>Select a vowel. (only for patterns including vowel)</li>
+          <li>You can search "not existing" pattern instead.</li>
+          <li>Press search button or ENTER key.</li>
+        </ol>
+        Phonemes in Thai
+        <ol>
+          <li>
+            onset: 21 + 12 (+ 4)<br>
+            <span class="blue">b p pʰ m f d t tʰ n s r l c cʰ k kʰ ŋ w y h ʔ</span><br>
+            <span class="blue">(br) pr pl pʰr pʰl (fr) (fl) (dr) tr tʰr kr kl kw kʰr kʰl kʰw</span>
+          </li>
+          <li>
+            vowel: 9 + 9 + 3<br>
+            <span class="green">a e i o u ɔ ə ɛ ʉ / aa ee ii oo uu ɔɔ əə ɛɛ ʉʉ / ia ua ʉa</span>
+          </li>
+          <li>
+            coda: 9 (+ 4)<br>
+            <span class="golden"
+            >p m t n k ŋ w y ʔ (s) (f) (l) (c)</span>
+          </li>
+        </ol>
+        possible onset + vowel pattern = 21 * 21 + 12 * 21 = 441 + 252 = 693<br>
+        possible vowel + coda pattern = 21 * 9 = 189<br>
+        possible syllable pattern = 33 * 21 * 9 = 6237<br>
+      </div>
+    </div>
+  </div>
+
+  <div class="row tactics_th" style="display: none;">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <form onsubmit="find_tactics(); return false;">
+          <table>
+            <tr>
+              <td>
+                <select class="form-control" id="tactics_mode" onchange="show_select_vowel();">
+                  <option value="1" selected>word-initial onset (single consonant)</option>
+                  <option value="2">word-initial onset (cluster)</option>
+                  <option value="3">word-initial onset (both)</option>
+                  <option value="4">word-initial onset (single consonant) + vowel</option>
+                  <option value="5">word-initial onset (cluster) + vowel</option>
+                  <option value="6">word-initial onset (both) + vowel</option>
+                  <option value="7">word-final coda</option>
+                  <option value="8">vowel + word-final coda</option>
+                </select>
+              </td>
+              <td>
+                <select class="form-control" id="syl_number">
+                  <option value="1" selected>only monosyllabic words</option>
+                  <option value="2">monosyllabic + disyallbic</option>
+                  <option value="3">mono + di + tri</option>
+                  <option value="10">all words</option>
+                </select>
+              </td>
+              <td style="display: none;" id="select_vowel_td">
+                <select class="form-control" id="select_vowel">
+                  <option value="AEIOJRUVWXYZaeiouɔəɛʉ">all</option>
+                  <option value="i">i</option>
+                  <option value="I">ii</option>
+                  <option value="e">e</option>
+                  <option value="E">ee</option>
+                  <option value="ɛ">ɛ</option>
+                  <option value="Y">ɛɛ</option>
+                  <option value="ʉ">ʉ</option>
+                  <option value="W">ʉʉ</option>
+                  <option value="u">u</option>
+                  <option value="U">uu</option>
+                  <option value="o">o</option>
+                  <option value="O">oo</option>
+                  <option value="ɔ">ɔ</option>
+                  <option value="X">ɔɔ</option>
+                  <option value="a">a</option>
+                  <option value="A">aa</option>
+                  <option value="ə">ə</option>
+                  <option value="Z">əə</option>
+                  <option value="J">ia</option>
+                  <option value="V">ua</option>
+                  <option value="R">ʉa</option>
+                </select>
+              </td>
+              <td>
+                <input type="checkbox" id="notexist"><label for="notexist">&nbsp;not existing&nbsp;</label>
+              </td>
+              <td>
+                <input type="submit" class="btn btn-outline-secondary" onclick="find_tactics();return false;" value="search">
+              </td>
+            </tr>
+          </table></br>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row tactics_th" style="display: none;">
+    <div class="col-lg-6">
+      <div class="bs-component">
+        <h5>tone insensitive</h5>
+				<table class="table table-hover">
+					<tbody id="tactics_result1">
+						<tr>
+							<th>rank</th>
+              <th>phoneme(s)</th>
+              <th>count</th>
+              <th>%</th>
+              <th>cum %</th>
+						</tr>
+					</tbody>
+				</table>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="bs-component">
+        <h5>tone sensitive</h5>
+				<table class="table table-hover">
+					<tbody id="tactics_result2">
+						<tr>
+							<th>rank</th>
+              <th>phoneme(s)</th>
+              <th>count</th>
+              <th>%</th>
+              <th>cum %</th>
+						</tr>
+					</tbody>
+        </table>
+      </div>
+		</div>
+  </div>
+	
+</div><br>
+
+
+<footer>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<p><font color="white">&copy; 2020 Nozomi Yamada All Rights Reserved.</font></p>
+  </nav>
+  <script type="text/javascript" src="./js/jquery-3.5.1.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+    $('body [data-toggle="popover"]').popover();
+    $('body [data-toggle="tooltip"]').tooltip();
+  </script>
+  <script src="js/minimalpair.js"></script>
+  <script src="js/minimalpair_th.js"></script>
+  <script src='js/statistics.js'></script>
+  <script src='js/math_func.js'></script>
+</footer>
+
+<script>
+  function change_max(){
+    var minlength = document.getElementById('minlength').value;
+    var elem = document.getElementById('maxlength');
+    var max = elem.value;
+    elem.innerHTML = '';
+    for(var i=minlength; i<=10; i++){
+      elem.innerHTML += `<option value="${i}">${i}</option>`
+    }
+    elem.selectedIndex = ((max - minlength)>=0)? max - minlength : 0;
+  }
+
+	function find_minimal(current_mode){
+		let word = document.getElementById('input').value.trim().toLowerCase(); // delete space, lowercase
+		document.getElementById('result_table').innerHTML = '<tr><th>IPA of input</th><th>minimal pair (IPA)</th><th>minimal pair (word)</th></tr>';
+    let ignoretone = document.getElementById('ignoretone').checked;
+    // DICTIONARY
+    if(current_mode==='pair_en'){
+      var word2ipa_dic = WORD2IPA;
+      var ipa2word_dic = IPA2WORD;
+    }else if(current_mode==='pair_th'){
+      var word2ipa_dic = WORD2IPA_TH;
+      var ipa2word_dic = IPA2WORD_TH;
+    }
+    if((word in word2ipa_dic) === false){ // if no entry
+			document.getElementById('result_table').insertAdjacentHTML('beforeend', '<td colspan="3">INPUT WORD NOT FOUND</td>');
+		}else{
+      var found_minimal = false; // whether minimal pair is already found or not
+      for(ipa of word2ipa_dic[word]){ // iterate candidate IPA
+        let ipa_to_check = (ignoretone)? ignore_tone(ipa) : ipa; // for THAI
+        for(var i=0; i<ipa_to_check.length; i++){ // change i-th character
+          if(ipa_to_check[i].match(/[12345]/)){continue;} // if the char is tone symbol, continue (only THAI)
+          var pat = new RegExp('^' + ipa_to_check.slice(0,i) + '.' + ipa_to_check.slice(i+1)+'$');
+          for(key in ipa2word_dic){
+            let key_to_check = (ignoretone)? ignore_tone(key) : key; // for THAI
+            if(key_to_check.match(pat) && ipa!=key && !key_to_check[i].match(/[12345]/)){ // if match and not the same one
+              let words = ipa2word_dic[key];
+              if(current_mode==='pair_en'){
+                var key_replaced = key.replace(/ʧ/g,'tʃ').replace(/ʤ/g,'dʒ');
+                var ipa_replaced = ipa.replace(/ʧ/g,'tʃ').replace(/ʤ/g,'dʒ');
+              }else{
+                var key_replaced = reverse_vowel(reverse_asp(key));
+                var ipa_replaced = reverse_vowel(reverse_asp(ipa));
+              }
+              if(i===0){ // initial
+                var insert_html = `<tr class="table-primary"><td class="ipacopy" onclick="copy_to_clipboard();">${ipa_replaced}</td><td class="ipacopy" onclick="copy_to_clipboard();">${key_replaced}</td><td>${words.join(', ')}</td>`;
+              }else if(i===ipa_to_check.length-1 || (i===ipa_to_check.length-2 && ipa_to_check[i+1].match(/[12345]/))){ // final
+                var insert_html = `<tr class="table-warning"><td class="ipacopy" onclick="copy_to_clipboard();">${ipa_replaced}</td><td class="ipacopy" onclick="copy_to_clipboard();">${key_replaced}</td><td>${words.join(', ')}</td>`;
+              }else{ // middle
+                var insert_html = `<tr class="table-success"><td class="ipacopy" onclick="copy_to_clipboard();">${ipa_replaced}</td><td class="ipacopy" onclick="copy_to_clipboard();">${key_replaced}</td><td>${words.join(', ')}</td>`;
+              }
+              document.getElementById('result_table').insertAdjacentHTML('beforeend', insert_html); 
+              found_minimal = true;
+            }
+          }
+        }
+      }
+      if(found_minimal===false){ // input word exists, but minimal pair is not found
+        if(current_mode==='pair_en'){
+          var ipa_replaced = ipa.replace(/ʧ/g,'tʃ').replace(/ʤ/g,'dʒ');
+        }else{
+          var ipa_replaced = reverse_vowel(reverse_asp(ipa));
+        }
+        document.getElementById('result_table').insertAdjacentHTML('beforeend', `<td class="ipacopy" onclick="copy_to_clipboard();">${ipa_replaced}</td><td colspan="2">MINIMAL PAIR NOT FOUND</td>`);
+      }
+    }
+  }
+
+  function find_minimal2(current_mode){
+    // GET VALUES & INITIALIZE
+    let is_initial = document.getElementById("initial").checked;
+    let is_middle = document.getElementById("middle").checked;
+    let is_final = document.getElementById("final").checked;
+    let minlength = document.getElementById('minlength').value;
+    let maxlength = document.getElementById('maxlength').value;
+    let ignoretone = document.getElementById('ignoretone').checked;
+    document.getElementById('result_table').innerHTML = '<tr><th>IPA 1</th><th>IPA 2</th><th>minimal pair (word)</th></tr><tr id="initial_row" style="display:none;"></tr><tr id="middle_row" style="display:none;"></tr><tr id="final_row" style="display:none;"></tr>'
+    // SELECT LANGUAGE
+    if(current_mode==='pair_en'){
+      var word2ipa_dic = WORD2IPA;
+      var ipa2word_dic = IPA2WORD;
+      var ipa1 = document.getElementById('input_ipa1').value;
+      var ipa2 = document.getElementById('input_ipa2').value;
+    }else if(current_mode==='pair_th'){
+      var word2ipa_dic = WORD2IPA_TH;
+      var ipa2word_dic = IPA2WORD_TH;
+      var ipa1 = document.getElementById('input_ipa1_th').value;
+      var ipa2 = document.getElementById('input_ipa2_th').value;
+    }
+    let candidates1 = Object.keys(ipa2word_dic).filter(x => x.match(ipa1) && ignore_tone(x).length<=maxlength && ignore_tone(x).length>=minlength); // All IPA contain input ipa1
+    let candidates2 = Object.keys(ipa2word_dic).filter(x => x.match(ipa2) && ignore_tone(x).length<=maxlength && ignore_tone(x).length>=minlength); // All IPA contain input ipa2
+    let found_minimal = false; // whether minimal pair is already found or not
+    for(cand1 of candidates1){ // iterate candidate IPA
+      var cand1_to_check = (ignoretone)? ignore_tone(cand1) : cand1;
+      // INITIAL POSITION
+      if(is_initial===true && cand1_to_check[0]===ipa1){
+        var pattern1 = ipa2 + cand1_to_check.slice(1);
+        for(cand2 of candidates2){
+          var pattern2 = (ignoretone)? ignore_tone(cand2) : cand2;
+          if(pattern1 === pattern2 && cand1!==cand2){
+            words1 = ipa2word_dic[cand1];
+            words2 = ipa2word_dic[cand2];
+            if(current_mode==='pair_en'){
+              var cand1_replaced = cand1.replace(/ʧ/g,'tʃ').replace(/ʤ/g,'dʒ');
+              var cand2_replaced = cand2.replace(/ʧ/g,'tʃ').replace(/ʤ/g,'dʒ');
+            }else{
+              var cand1_replaced = reverse_vowel(reverse_asp(cand1));
+              var cand2_replaced = reverse_vowel(reverse_asp(cand2));
+            }
+            var insert_html = `<tr class="table-primary"><td class="ipacopy" onclick="copy_to_clipboard();">${cand1_replaced}</td><td class="ipacopy" onclick="copy_to_clipboard();">${cand2_replaced}</td><td>${words1.join(', ')} / ${words2.join(', ')}</td>`;
+            document.getElementById('initial_row').insertAdjacentHTML('beforebegin', insert_html); 
+            found_minimal = true;
+          }
+        }
+      }
+      // middle position
+      if(is_middle===true){
+        for(var i=1; i<cand1_to_check.length-1; i++){ // change i-th character
+          if(cand1_to_check[i]!==ipa1){continue;}
+          if(i===cand1_to_check.length-2 && cand1_to_check[i+1].match(/[12345]/)){continue;} // if last char is vowel, continue
+          var pattern1 = cand1_to_check.slice(0,i) + ipa2 + cand1_to_check.slice(i+1);
+          for(cand2 of candidates2){
+            var pattern2 = (ignoretone)? ignore_tone(cand2) : cand2;
+            if(pattern1===pattern2 && cand1!==cand2){
+              words1 = ipa2word_dic[cand1];
+              words2 = ipa2word_dic[cand2];
+              if(current_mode==='pair_en'){
+                var cand1_replaced = cand1.replace(/ʧ/g,'tʃ').replace(/ʤ/g,'dʒ');
+                var cand2_replaced = cand2.replace(/ʧ/g,'tʃ').replace(/ʤ/g,'dʒ');
+              }else{
+                var cand1_replaced = reverse_vowel(reverse_asp(cand1));
+                var cand2_replaced = reverse_vowel(reverse_asp(cand2));
+              }
+              var insert_html = `<tr class="table-success"><td class="ipacopy" onclick="copy_to_clipboard();">${cand1_replaced}</td><td class="ipacopy" onclick="copy_to_clipboard();">${cand2_replaced}</td><td>${words1.join(', ')} / ${words2.join(', ')}</td>`;
+              document.getElementById('middle_row').insertAdjacentHTML('beforebegin', insert_html); 
+              found_minimal = true;
+            }
+          }
+        }
+      }
+      // final position
+      if(is_final===true){
+        var final = cand1_to_check.slice(-1)[0];
+        var penultimate = cand1_to_check[cand1_to_check.length-2];
+        var pattern1 = (final.match(/[12345]/))? cand1_to_check.slice(0,cand1_to_check.length-2)+ipa2+final : cand1_to_check.slice(0,cand1_to_check.length-1)+ipa2;
+        for(cand2 of candidates2){
+          var pattern2 = (ignoretone)? ignore_tone(cand2) : cand2;
+          if(pattern1===pattern2 && cand1!==cand2){
+            words1 = ipa2word_dic[cand1];
+            words2 = ipa2word_dic[cand2];
+            if(current_mode==='pair_en'){
+              var cand1_replaced = cand1.replace(/ʧ/g,'tʃ').replace(/ʤ/g,'dʒ');
+              var cand2_replaced = cand2.replace(/ʧ/g,'tʃ').replace(/ʤ/g,'dʒ');
+            }else{
+              var cand1_replaced = reverse_vowel(reverse_asp(cand1));
+              var cand2_replaced = reverse_vowel(reverse_asp(cand2));
+            }
+            var insert_html = `<tr class="table-warning"><td class="ipacopy" onclick="copy_to_clipboard();">${cand1_replaced}</td><td class="ipacopy" onclick="copy_to_clipboard();">${cand2_replaced}</td><td>${words1.join(', ')} / ${words2.join(', ')}</td>`;
+            document.getElementById('final_row').insertAdjacentHTML('beforebegin', insert_html); 
+            found_minimal = true;
+          }
+        }
+      }
+    }
+    if(found_minimal===false){
+      document.getElementById('result_table').insertAdjacentHTML('beforeend', '<td colspan="3">NOT FOUND</td>');
+    }
+  }
+
+  ////////////////////  phonotactics  ////////////////////
+
+  function show_select_vowel(){
+    let mode = document.getElementById('tactics_mode').value;
+    if(mode==4 || mode==5 || mode==6 || mode==8){
+      document.getElementById('select_vowel_td').style.display = '';
+    }else{
+      document.getElementById('select_vowel_td').style.display = 'none';
+      document.getElementById('select_vowel').selectedIndex = 0;
+    }
+  }
+
+  function find_tactics(){
+    let ONSETS = ["b", "p", "P", "m", "f", "d", "t", "T", "n", "s", "r", "l", "c", "C", "k", "K", "ŋ", "w", "y", "h", "ʔ"];
+    let CLUSTERS = ["pr", "pl", "Pr", "Pl", "tr", "Tr", "kr", "kl", "kw", "Kr", "Kl", "Kw"];
+    let CODAS = ["p", "m", "t", "n", "k", "ŋ", "w", "y", "ʔ"];
+    let VOWELS = document.getElementById('select_vowel').value.split('');
+    let IPAs = Object.keys(IPA2WORD_TH);
+    let syl_max = Number(document.getElementById('syl_number').value); // syl_max = 0 : not existing word
+    let mode = document.getElementById('tactics_mode').value; 
+    let isnotexist = document.getElementById('notexist').checked; 
+    let selected_vowel = new RegExp(`[${document.getElementById('select_vowel').value}]`);
+    document.getElementById('tactics_result1').innerHTML = '<tr><th>rank</th><th>phoneme(s)</th><th>count</th><th>%</th><th>cum %</th></tr>';
+    document.getElementById('tactics_result2').innerHTML = '<tr><th>rank</th><th>phoneme(s)</th><th>count</th><th>%</th><th>cum %</th></tr>';
+    
+    if(mode==1 || mode==4){
+      var candidates = IPAs.filter(x => x[1].match(selected_vowel) && (x.match(/[AEIOJRUVWXYZaeiouɔəɛʉ]/g)||[]).length <= syl_max);
+    }else if(mode==2 || mode==5){
+      var candidates = IPAs.filter(x => x[2].match(selected_vowel) && (x.match(/[AEIOJRUVWXYZaeiouɔəɛʉ]/g)||[]).length <= syl_max);
+    }else if(mode==3 || mode==6){
+      var candidates = IPAs.filter(x => (x[1].match(selected_vowel) || x[2].match(selected_vowel)) && (x.match(/[AEIOJRUVWXYZaeiouɔəɛʉ]/g)||[]).length <= syl_max);
+    }else if(mode==7 || mode==8){
+      var candidates = IPAs.filter(x => (x[x.length-3].match(selected_vowel) || x[x.length-2].match(selected_vowel)) && (x.match(/[AEIOJRUVWXYZaeiouɔəɛʉ]/g)||[]).length <= syl_max);
+    }
+    let count1 = {}; let count2 = {}; // {'kaa':[23, [กา, การ]], } key is IPA pattern, value is [count, [words]]
+
+    for(ipa of candidates){
+      var orth = IPA2WORD_TH[ipa][0];
+      if(mode==1){
+        var pattern = ipa[0];  // first character
+        add_dict(pattern, count1, orth);
+      }else if(mode==2){
+        var pattern = ipa.slice(0,2);  // cluster = first two character
+        add_dict(pattern, count1, orth);
+      }else if(mode==3){
+        var pattern = ipa.match(/(.{1,2})[AEIOJRUVWXYZaeiouɔəɛʉ]/)[1]; // either 1 or 2
+        add_dict(pattern, count1, orth);
+      }else if(mode==4){
+        var pattern1 = ipa.slice(0,2);
+        var pattern2 = ipa.slice(0,3);
+        add_dict(pattern1, count1, orth);
+        add_dict(pattern2, count2, orth);
+      }else if(mode==5){
+        var pattern1 = ipa.slice(0,3);
+        var pattern2 = ipa.slice(0,4);
+        add_dict(pattern1, count1, orth);
+        add_dict(pattern2, count2, orth);
+      }else if(mode==6){
+        var pattern1 = ipa.match(/(.{1,2}[AEIOJRUVWXYZaeiouɔəɛʉ])/)[1];
+        var pattern2 = ipa.match(/(.{1,2}[AEIOJRUVWXYZaeiouɔəɛʉ][12345])/)[1];
+        add_dict(pattern1, count1, orth);
+        add_dict(pattern2, count2, orth);
+      }else if(mode==7){
+        var pattern = ipa.match(/[AEIOJRUVWXYZaeiouɔəɛʉ][12345](.?)$/)[1]; // final vowel
+        if(pattern==""){pattern = 'ไม่มี';}
+        add_dict(pattern, count1, orth);
+      }else if(mode==8){
+        var pattern1 = ignore_tone(ipa).match(/([AEIOJRUVWXYZaeiouɔəɛʉ].?)$/)[1]; // final vowel
+        var pattern2 = ipa.match(/([AEIOJRUVWXYZaeiouɔəɛʉ][12345].?)$/)[1];;
+        add_dict(pattern1, count1, orth);
+        add_dict(pattern2, count2, orth);
+      }
+    }
+    if(mode==1){
+      var notexist1 = new Set(ONSETS.filter(x => !(x in count1)));
+    }else if(mode==2){
+      var notexist1 = new Set(CLUSTERS.filter(x => !(x in count1)));
+    }else if(mode==3){
+      var notexist1 = new Set(ONSETS.concat(CLUSTERS).filter(x => !(x in count1)));
+    }else if(mode==4){
+      let possible1 = flatten(cartesian(ONSETS, VOWELS, (x,y)=>x+y));
+      let possible2 = flatten(cartesian(possible1, [1,2,3,4,5], (x,y)=>x+y));
+      var notexist1 = new Set(possible1.filter(x => !(x in count1)));
+      var notexist2 = new Set(possible2.filter(x => !(x in count2)));
+    }else if(mode==5){
+      let possible1 = flatten(cartesian(CLUSTERS, VOWELS, (x,y)=>x+y));
+      let possible2 = flatten(cartesian(possible1, [1,2,3,4,5], (x,y)=>x+y));
+      var notexist1 = new Set(possible1.filter(x => !(x in count1)));
+      var notexist2 = new Set(possible2.filter(x => !(x in count2)));
+    }else if(mode==6){
+      let possible1 = flatten(cartesian(ONSETS.concat(CLUSTERS), VOWELS, (x,y)=>x+y));
+      let possible2 = flatten(cartesian(possible1, [1,2,3,4,5], (x,y)=>x+y));
+      var notexist1 = new Set(possible1.filter(x => !(x in count1)));
+      var notexist2 = new Set(possible2.filter(x => !(x in count2)));
+    }else if(mode==7){
+      var notexist1 = new Set(CODAS.filter(x => !(x in count1)));
+    }else if(mode==8){
+      let possible1 = flatten(cartesian(VOWELS, CODAS, (x,y)=>x+y));
+      let possible2 = flatten(cartesian([1,2,3,4,5], CODAS, (x,y)=>x+y));
+      possible2 = flatten(cartesian(VOWELS, possible2, (x,y)=>x+y));
+      var notexist1 = new Set(possible1.filter(x => !(x in count1)));
+      var notexist2 = new Set(possible2.filter(x => !(x in count2)));
+    }
+    if(isnotexist==false){
+      // tone insensitive
+      count1_raw = sort_count(count1); // convert to array & sort, count = [[IPA, [count, [words]]],,]
+      let total1 = sum(count1_raw.map(x => x[1][0]));
+      count1 = count1_raw.map(x => [reverse(x[0]), x[1][0]]); // reverse aspiration & vowel, exclude word list
+      count1 = count1.map(x => [x[0], x[1], x[1]/total1*100]); // count1 = [IPA, count, %]
+      count1 = count1.map((x, i) => [x[0], x[1], round(x[2], 2), round(sum(count1.map(x => x[2]).slice(0,i+1)), 2)]); // count1 = [IPA, count, %, cum%]
+      for(var i=1; i<=count1.length; i++){
+        var row = count1[i-1];
+        var insert_html = `<tr><td>${i}</td><td data-toggle="tooltip" data-placement="right" title="${count1_raw[i-1][1][1].join(' ')}">${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td></tr>`;
+        document.getElementById('tactics_result1').insertAdjacentHTML('beforeend', insert_html);
+      }
+      $(document.getElementById('tactics_result1')).find('[data-toggle="tooltip"]').tooltip();
+      // tone sensitive
+      if(mode==4 || mode==5 || mode==6 || mode==8){
+        count2_raw = sort_count(count2); // convert to array & sort
+        let total2 = sum(count2_raw.map(x => x[1][0]));
+        count2 = count2_raw.map(x => [reverse(x[0]), x[1][0]]); // reverse aspiration & vowel
+        count2 = count2.map(x => [x[0], x[1], x[1]/total2*100]); // %
+        count2 = count2.map((x, i) => [x[0], x[1], round(x[2], 2), round(sum(count2.map(x => x[2]).slice(0,i+1)), 2)]);
+        for(var i=1; i<=count2.length; i++){
+          var row = count2[i-1];
+          var insert_html = `<tr><td>${i}</td><td data-toggle="tooltip" data-placement="right" title="${count2_raw[i-1][1][1].join(' ')}">${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td></tr>`;
+          document.getElementById('tactics_result2').insertAdjacentHTML('beforeend', insert_html);
+        }
+        $(document.getElementById('tactics_result2')).find('[data-toggle="tooltip"]').tooltip();
+      }
+    }else if(isnotexist==true){
+      notexist1 = sorted(Array.from(notexist1).map(x => reverse(x)));
+      for(var i=1; i<=notexist1.length; i++){
+        var insert_html = `<tr><td>${i}</td><td>${notexist1[i-1]}</td><td></td><td></td><td></td></tr>`;
+        document.getElementById('tactics_result1').insertAdjacentHTML('beforeend', insert_html);
+      }
+      if(mode==4 || mode==5 || mode==6 || mode==8){
+        notexist2 = sorted(Array.from(notexist2).map(x => reverse(x)));
+        for(var i=1; i<=notexist2.length; i++){
+          var insert_html = `<tr><td>${i}</td><td>${notexist2[i-1]}</td><td></td><td></td><td></td></tr>`;
+          document.getElementById('tactics_result2').insertAdjacentHTML('beforeend', insert_html);
+        }
+      }
+    }
+
+    
+  }
+
+  function sort_count(obj){ // obj = {'kaa':[23, [กา, การ]], } sort by count
+    let arr = Object.keys(obj).map(key => [key, obj[key]]); // convert into array [[key, value],,] = [[IPA, [count, [words]]],,]
+    return arr.sort((x, y) => y[1][0]-x[1][0]);
+  }
+
+  function add_dict(pattern, dict, orth){
+      if(pattern in dict){
+        dict[pattern][0] += 1; // add count
+        if(dict[pattern][1].length<100){dict[pattern][1].push(orth);} // add word to list, if <100 
+      }else{
+        dict[pattern] = [1, [orth]]
+      }
+    }
+
+  ////////// function for converting character //////////
+  
+  function ignore_tone(text){
+    return text.replace(/1/g,'').replace(/2/g,'').replace(/3/g,'').replace(/4/g,'').replace(/5/g,'');
+  }
+
+  function reverse_asp(w){
+    w = w.replace(/K/g,'kʰ');
+    w = w.replace(/P/g,'pʰ');
+    w = w.replace(/T/g,'tʰ');
+    w = w.replace(/C/g,'cʰ');
+    return w;
+  }
+
+  function reverse_vowel(w){
+    w = w.replace(/A1/g,"aa");
+    w = w.replace(/A2/g,"àa");
+    w = w.replace(/A3/g,"âa");
+    w = w.replace(/A4/g,"áa");
+    w = w.replace(/A5/g,"ǎa");
+    w = w.replace(/a1/g,"a");
+    w = w.replace(/a2/g,"à");
+    w = w.replace(/a3/g,"â");
+    w = w.replace(/a4/g,"á");
+    w = w.replace(/a5/g,"ǎ");
+    w = w.replace(/E1/g,"ee");
+    w = w.replace(/E2/g,"èe");
+    w = w.replace(/E3/g,"êe");
+    w = w.replace(/E4/g,"ée");
+    w = w.replace(/E5/g,"ěe");
+    w = w.replace(/e1/g,"e");
+    w = w.replace(/e2/g,"è");
+    w = w.replace(/e3/g,"ê");
+    w = w.replace(/e4/g,"é");
+    w = w.replace(/e5/g,"ě");
+    w = w.replace(/I1/g,"ii");
+    w = w.replace(/I2/g,"ìi");
+    w = w.replace(/I3/g,"îi");
+    w = w.replace(/I4/g,"íi");
+    w = w.replace(/I5/g,"ǐi");
+    w = w.replace(/J1/g,"ia");
+    w = w.replace(/J2/g,"ìa");
+    w = w.replace(/J3/g,"îa");
+    w = w.replace(/J4/g,"ía");
+    w = w.replace(/J5/g,"ǐa");
+    w = w.replace(/i1/g,"i");
+    w = w.replace(/i2/g,"ì");
+    w = w.replace(/i3/g,"î");
+    w = w.replace(/i4/g,"í");
+    w = w.replace(/i5/g,"ǐ");
+    w = w.replace(/O1/g,"oo");
+    w = w.replace(/O2/g,"òo");
+    w = w.replace(/O3/g,"ôo");
+    w = w.replace(/O4/g,"óo");
+    w = w.replace(/O5/g,"ǒo");
+    w = w.replace(/o1/g,"o");
+    w = w.replace(/o2/g,"ò");
+    w = w.replace(/o3/g,"ô");
+    w = w.replace(/o4/g,"ó");
+    w = w.replace(/o5/g,"ǒ");
+    w = w.replace(/U1/g,"uu");
+    w = w.replace(/U2/g,"ùu");
+    w = w.replace(/U3/g,"ûu");
+    w = w.replace(/U4/g,"úu");
+    w = w.replace(/U5/g,"ǔu");
+    w = w.replace(/V1/g,"ua");
+    w = w.replace(/V2/g,"ùa");
+    w = w.replace(/V3/g,"ûa");
+    w = w.replace(/V4/g,"úa");
+    w = w.replace(/V5/g,"ǔa");
+    w = w.replace(/u1/g,"u");
+    w = w.replace(/u2/g,"ù");
+    w = w.replace(/u3/g,"û");
+    w = w.replace(/u4/g,"ú");
+    w = w.replace(/u5/g,"ǔ");
+    w = w.replace(/W1/g,"ʉʉ");
+    w = w.replace(/W2/g,"ʉ̀ʉ");
+    w = w.replace(/W3/g,"ʉ̂ʉ");
+    w = w.replace(/W4/g,"ʉ́ʉ");
+    w = w.replace(/W5/g,"ʉ̌ʉ");
+    w = w.replace(/R1/g,"ʉa");
+    w = w.replace(/R2/g,"ʉ̀a");
+    w = w.replace(/R3/g,"ʉ̂a");
+    w = w.replace(/R4/g,"ʉ́a");
+    w = w.replace(/R5/g,"ʉ̌a");
+    w = w.replace(/ʉ1/g,"ʉ");
+    w = w.replace(/ʉ2/g,"ʉ̀");
+    w = w.replace(/ʉ3/g,"ʉ̂");
+    w = w.replace(/ʉ4/g,"ʉ́");
+    w = w.replace(/ʉ5/g,"ʉ̌");
+    w = w.replace(/X1/g,"ɔɔ");
+    w = w.replace(/X2/g,"ɔ̀ɔ");
+    w = w.replace(/X3/g,"ɔ̂ɔ");
+    w = w.replace(/X4/g,"ɔ́ɔ");
+    w = w.replace(/X5/g,"ɔ̌ɔ");
+    w = w.replace(/ɔ1/g,"ɔ");
+    w = w.replace(/ɔ2/g,"ɔ̀");
+    w = w.replace(/ɔ3/g,"ɔ̂");
+    w = w.replace(/ɔ4/g,"ɔ́");
+    w = w.replace(/ɔ5/g,"ɔ̌");
+    w = w.replace(/Y1/g,"ɛɛ");
+    w = w.replace(/Y2/g,"ɛ̀ɛ");
+    w = w.replace(/Y3/g,"ɛ̂ɛ");
+    w = w.replace(/Y4/g,"ɛ́ɛ");
+    w = w.replace(/Y5/g,"ɛ̌ɛ");
+    w = w.replace(/ɛ1/g,"ɛ");
+    w = w.replace(/ɛ2/g,"ɛ̀");
+    w = w.replace(/ɛ3/g,"ɛ̂");
+    w = w.replace(/ɛ4/g,"ɛ́");
+    w = w.replace(/ɛ5/g,"ɛ̌");
+    w = w.replace(/Z1/g,"əə");
+    w = w.replace(/Z2/g,"ə̀ə");
+    w = w.replace(/Z3/g,"ə̂ə");
+    w = w.replace(/Z4/g,"ə́ə");
+    w = w.replace(/Z5/g,"ə̌ə");
+    w = w.replace(/ə1/g,"ə");
+    w = w.replace(/ə2/g,"ə̀");
+    w = w.replace(/ə3/g,"ə̂");
+    w = w.replace(/ə4/g,"ə́");
+    w = w.replace(/ə5/g,"ə̌");
+    return w;
+  }
+
+  function reverse_long_v(w){
+    w = w.replace(/A/g,"aa");
+    w = w.replace(/E/g,"ee");
+    w = w.replace(/I/g,"ii");
+    w = w.replace(/O/g,"oo");
+    w = w.replace(/U/g,"uu");
+    w = w.replace(/W/g,"ʉʉ");
+    w = w.replace(/X/g,"ɔɔ");
+    w = w.replace(/Y/g,"ɛɛ");
+    w = w.replace(/Z/g,"əə");
+    w = w.replace(/J/g,"ia");
+    w = w.replace(/V/g,"ua");
+    w = w.replace(/R/g,"ʉa");
+    return w;
+  }
+
+  function reverse(w){
+    return reverse_long_v(reverse_vowel(reverse_asp(w)));
+  }
+
+  function copy_to_clipboard(){
+    var temp_elem = document.createElement("textarea");
+    temp_elem.textContent = event.target.innerText;
+    var body_elem = document.getElementsByTagName("body")[0];
+    body_elem.appendChild(temp_elem);
+    temp_elem.select();
+    document.execCommand("Copy");
+    temp_elem.remove();
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:url" content="https://nozomiyamada.github.io/tool.html/" />
+  <meta property="og:title" content="Math & Statistics Tools" />
+  <meta property="og:description" content="Math & Statistics Tools" />
+  <title>Math & Statistics Tools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <script type="text/javascript" src="js/Chart.bundle.min.js"></script>
+  
+</head>
+
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Nozomi</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="link.html">Links</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ipathai.html">タイ語入力</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="tool.html">Math Tools<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="phonology.html">Phonology</a>
+        </li>
+      </ul>
+      <!--
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      -->
+    </div>
+  </nav>
+</header>
+
+<br>
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Math & Statistics Tools</h1>
+      <h5>source code -> <a href="https://github.com/nozomiyamada/JS_mathtool" target="_blank">GitHub</a></h5>
+      <p>You can try all functions on the console (for Google Chrome, press F12 key to open)<br>
+        Each answer displayed below can be copied to clipboard just by clicking.<br>
+        <span onclick="show_function();" class="function_list"><strong>[list of JS functions]</strong></span>
+        <div id='functions' style="display: none;">
+          <ul>
+            <li><code>gcd2(a,b)</code></li>
+            <li><code>gcd(nums)</code></li>
+            <li><code>lcm2(a,b)</code></li>
+            <li><code>lcm(nums)</code></li>
+            <li><code>combination(n,k)</code></li>
+            <li><code>permutation(n,k)</code></li>
+            <li><code>round(num,decimal=0)</code></li>
+            <li><code>sum(nums)</code></li>
+            <li><code>mean(nums)</code></li>
+            <li><code>median(nums)</code></li>
+            <li><code>variance(nums, unbiased=true)</code></li>
+            <li><code>std(nums, unbiased=true)</code></li>
+            <li><code>sem(nums)</code></li>
+            <li><code>skewness(nums, regularize=false)</code></li>
+            <li><code>cov(nums1, nums2, unbiased=true)</code></li>
+            <li><code>corr(cov12, s1, s2)</code></li>
+            <li><code>corr_arr(arr1, arr2)</code></li>
+            <li><code>regression(arr1, arr2)</code></li>
+            <li><code>chi2(arr1, arr2, yates=false)</code></li>
+            <li><code>chi2_independence(arr1,arr2)</code></li>
+            <li><code>welch(mu1,mu2,s1,s2,n1,n2)</code></li> 
+            <li><code>welch_arr(arr1, arr2)</code></li>
+            <li><code>effect_size(arr1, arr2)</code></li>
+            <li><code>convert_base(num, base_from, base_to)</code></li>
+            <li><code>Euler_const</code></li>
+            <li><code>gauss_legendre(func,a,b,split=1000,n=5)</code></li>
+            <li><code>newton(func,func_prime,y,x0,iter=15)</code></li>
+            <li><code>brent(func,y,a0,b0,iter=100,epsiron=1e-15)</code></li>
+            <li><code>erf(z,split=1e3,n=5)</code></li>
+            <li><code>erf2(z, N=100)</code></li>
+            <li><code>erfc(z,split=1e3,n=5)</code></li>
+            <li><code>inv_erf(y,iter=30)</code></li>
+            <li><code>inv_erf2(y, N=300)</code></li>
+            <li><code>fact(n)</code></li>
+            <li><code>gamma(s,split=1e3,n=5)</code></li>
+            <li><code>incomplete_gamma(s,x,split=1e3,n=5)</code></li>
+            <li><code>inv_gamma(y,iter=30)</code></li>
+            <li><code>inv_incomplete_gamma(s,y,x0=s,iter=30)</code></li>
+            <li><code>gamma2(s,N=1e6)</code></li>
+            <li><code>beta(a,b,split=1e3,n=5)</code></li>
+            <li><code>incomplete_beta(a,b,x,split=1e3,n=5)</code></li>
+            <li><code>regularized_beta(a,b,x,split=1e3,n=5)</code></li>
+            <li><code>inv_regularized_beta(a,b,y,iter=30)</code></li>
+            <li><code>sigmoid(x)</code></li>
+            <li><code>z_to_p(z, taylor=false)</code></li>
+            <li><code>p_to_z(p, taylor=false)</code></li>
+            <li><code>t_to_p(t, df)</code></li>
+            <li><code>p_to_t(p, df)</code></li>
+            <li><code>chi_to_p(chi, df)</code></li>
+            <li><code>p_to_chi(p, df)</code></li>
+            <li><code>f_to_p(F, df1, df2)</code></li>
+            <li><code>p_to_f(p, df1, df2)</code></li>
+            <li><code>poisson(lambda, k)</code></li>
+            <li><code>poisson_cum(lambda, k)</code></li>
+            <li><code>poisson_to_p(lambda, k, split=100)</code></li>
+          </ul>
+        </div>
+      </p>
+    </div>
+  </div>
+  
+  <!------------------------------ LIST OF TESTS ------------------------------>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('test_list');">＋ What do you want to do?</h2>
+    </div>
+  </div>
+  <div class="row" id="test_list" style="display: none;">
+    <div class="col-lg-12">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <th>name of test</th>
+            <th>description</th>
+            <th style="width: 20%">hypotheses</th>
+          </tr>
+          <tr>
+            <th>z-test
+              <br><span class="badge badge-pill badge-danger">parametric</span> 
+              <br><span class="badge badge-pill badge-secondary pointer" data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="จัดสอบแล้วคะแนนเป็นการแจกแจงแบบปกติโดยมีค่าเฉลี่ย μ<sub>0</sub>=60 และ SD σ=5.2<br>ทีนี้ ค่าเฉลี่ยของกลุ่มหนึง μ<sub>1</sub>=68 ต่างกันกับค่าเฉลี่ยของปราชากรหรือไม่">example</span>
+            </th>
+            <td>to determine whether two <b>means</b> are different
+              <br>(to determine whether two samples come from the same population)
+              <ul>
+                <li>population must be normal distribution</li>
+                <li>sample number is large enough</li>
+                <li>population SD <i>σ</i> are required</li>
+              </ul>
+            </td>
+            <td>H<sub>0</sub> : μ<sub>0</sub> = μ<sub>1</sub><br>H<sub>1</sub> : μ<sub>0</sub> ≠ μ<sub>1</sub></td>
+          </tr>
+          <tr>
+            <th>Welch's t-test
+              <br><span class="badge badge-pill badge-danger">parametric</span> 
+              <br><span class="badge badge-pill badge-secondary pointer" data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="วัดขนาดของกลุ่ม A (20 อัน) กับกลุ่ม B (15 อัน) แล้วได้ค่าเฉลี่ย μ<sub>0</sub>=30 และ μ<sub>1</sub>=26<br>ทีนี้ μ<sub>0</sub> กับ μ<sub>1</sub> ต่างกันหรือไม่">example</span>
+            </th>
+            <td>to determine whether two <b>means</b> are different
+              <ul>
+                <li>df (degree of freedom) = sample number - 1</li>
+                <li>use sample SD <i>s</i> instead of population SD</li>
+                <li>for Welch's t-test, the assumption of equal variances are NOT required</li>
+                <li>increasing sample size results in decreasing p-value</li>
+                <li>effect size (Cohen d) is useful to know how much they differ</li>
+              </ul>
+            </td>
+            <td>H<sub>0</sub> : μ<sub>0</sub> = μ<sub>1</sub><br>H<sub>1</sub> : μ<sub>0</sub> ≠ μ<sub>1</sub></td>
+          </tr>
+          <tr>
+            <th>Mann-Whitney U-test
+              <br><span class="badge badge-pill badge-primary">nonparametric</span>
+              <br><span class="badge badge-pill badge-secondary pointer" data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="ทำแบบสอบถามเกี่ยวกับนิยาย มีผู้ชาย 15 คนและผู้หญิง 16 คน ให้ลงคะแนนตามความพอใจ (เต็ม 100)<br>ทีนี้ ความพอใจของผู้ชายกับผู้หญิงต่างกันหรือไม่">example</span> 
+            </th>
+            <td>to determine whether two <b>medians</b> are different
+              <ul>
+                <li>can deal with ordinal scale</li>
+                <li>the assumption of normal distribution are NOT required</li>
+                <li>is often used instead of t-test</li>
+              </ul>
+              </td>
+            <td>H<sub>0</sub> : medians of the two data are identical P(x<sub>i</sub>≧y<sub>j</sub>)=1/2<br>H<sub>1</sub> : medians of the two data are NOT identical P(x<sub>i</sub>≧y<sub>j</sub>)≠1/2</td>
+          </tr>
+          <tr>
+            <th>paired t-test
+              <br><span class="badge badge-pill badge-danger">parametric</span> 
+              <br><span class="badge badge-pill badge-secondary pointer" data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="วัดความดันโลหิตของ 20 คน ทั้งก่อนกินยา (a) กับหลังกินยา (b)<br>ทีนี้ a กับ b ต่างกันหรือไม่ (เฉลี่ยของผลต่าง μ=b-a เป็น 0 หรือไม่)">example</span>
+            </th>
+            <td>to determine whether <b>two paired data</b> are different
+              <ul>
+                <li>only "differences" of the two data are required</li>
+              </ul>
+            </td>
+            <td>H<sub>0</sub> : μ = 0<br>H<sub>1</sub> : μ ≠ 0</td>
+          </tr>
+          <tr>
+            <th>Wilcoxon signed-rank test
+              <br><span class="badge badge-pill badge-primary">nonparametric</span>
+              <br><span class="badge badge-pill badge-secondary pointer" data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="ทำแบบสอบถามเกี่ยวกับนิยาย มีผู้ชาย 15 คนและผู้หญิง 16 คน ให้ลงคะแนนตามความพอใจ (เต็ม 100)<br>ทีนี้ ความพอใจของผู้ชายกับผู้หญิงต่างกันหรือไม่">example</span> 
+            </th>
+            <td>to determine whether <b>two paired data</b> are different
+              <ul>
+                <li>can deal with ordinal scale</li>
+                <li>the assumption of normal distribution are NOT required</li>
+                <li>is often used instead of paired t-test</li>
+              </ul>
+            </td>
+            <td>H<sub>0</sub> : μ = 0<br>H<sub>1</sub> : μ ≠ 0</td>
+          </tr>
+          <tr>
+            <th>F-test
+              <br><span class="badge badge-pill badge-danger">parametric</span> 
+              <br><span class="badge badge-pill badge-secondary pointer" data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="ความกระจายของคะแนนสอบของคลาส A กับคลาส B ต่างกันหรือไม่">example</span>
+            </th>
+            <td>to determine whether two <b>variances</b> are different
+              <ul>
+                <li>df (degree of freedom) = sample number - 1</li>
+                <li>for Welch's t-test, the assumption of equal variances are NOT required</li>
+              </ul>
+            </td>
+            <td>H<sub>0</sub> : s<sub>0</sub><sup>2</sup> = s<sub>1</sub><sup>2</sup><br>H<sub>1</sub> : s<sub>0</sub><sup>2</sup> ≠ s<sub>1</sub><sup>2</sup></td>
+          </tr>
+          <tr>
+            <th>Pearson's correlation
+              <br><span class="badge badge-pill badge-danger">parametric</span> 
+            </th>
+            <td>to measure how much two data correlates
+              <ul>
+                <li>X and Y must have the same length</li>
+                <li>X and Y must be interval/ratio scale</li>
+                <li><b>linear</b> correlation is assumed</li>
+                <li>If the true correlation is not linear, it may not help</li>
+              </ul>
+            </td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>Spearman's rank correlation
+              <br><span class="badge badge-pill badge-primary">nonparametric</span> 
+            </th>
+            <td>to measure how much two data correlates
+              <ul>
+                <li>X and Y must have the same length</li>
+                <li>X and Y must can be ordinal scale</li>
+              </ul>
+            </td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>Shapiro-Wilk test
+              <br>(test of normality)
+              <br><span class="badge badge-pill badge-danger">parametric</span>
+            </th>
+            <td>to determine whether samples are normally distributed
+              <ul>
+                <li>if normally distributed, Q-Q plot will be linear</li>
+              </ul>
+            </td>
+            <td>H<sub>0</sub> : normally distributed<br>H<sub>1</sub> : NOT normally distributed</td>
+          </tr>
+          <tr>
+            <th>χ<sup>2</sup> test<br>(goodness of fit)
+              <br><span class="badge badge-pill badge-primary">nonparametric</span> 
+              <br><span class="badge badge-pill badge-secondary pointer" data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="มีลูกเต๋าอันหนึ่ง ทอย 120 ครั้งแล้ว ได้ distribution (21,25,17,23,15,19)<br>ทีนี้ ผลที่ได้มาตามความน่าจะเป็นที่เท่ากัน (1/6) หรือไม่">example</span>
+            </th>
+            <td>to determine whether distribution of samples follows an ideal distribution
+              <ul>
+                <li>data must have two sets of distributions</li>
+                <li>one is distribution of observed numbers, the other is ideal (expected) distribution</li>
+                <li>distribution can have any number of groups/categories</li>
+              </ul>
+            <td>H<sub>0</sub> : observed distribution is identical to ideal distribution<br>H<sub>1</sub> : observed distribution is NOT identical to ideal distribution</td>
+          </tr>
+          <tr>
+            <th>χ<sup>2</sup> test<br>(independence)
+              <br><span class="badge badge-pill badge-primary">nonparametric</span> 
+              <br><span class="badge badge-pill badge-secondary pointer" data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="มีข้อมูลเกี่ยวกับจำนวนผู้ใช้เครือข่ายมือถือ 3 บริษัท ซึ่งแยกเป็น 3 รุ่น<br>ทีนี้ ระหว่างเครือข่ายกับรุ่นมีความสัมพันธ์หรือไม่">example</span>
+            </th>
+            <td>to determine whether two parameters are independent
+              <ul>
+                <li>data must have exactly two parameters (dimensions)</li>
+                <li>each dimension can have any number of groups/categories (m×n table)</li>
+                <li>each value of the table should be more than 5</li>
+                <li>If it is less than 5, you should apply Yates's correction</li>
+                <li>does not say which categories are different more</li>
+                <li>If you want to know it, <b>Residual Analysis</b> is required</li>
+              </ul>
+              <td>H<sub>0</sub> : two parameters are independent (no correlation)<br>H<sub>1</sub> : two parameters are dependent</td>
+          </tr>
+          <tr>
+            <th>1-way ANOVA
+              <br>(Analysis of Variance)
+              <br><span class="badge badge-pill badge-danger">parametric</span> 
+              <br><span class="badge badge-pill badge-secondary pointer" data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="เฉลี่ยของคะแนนสอบในคลาส A, B, C ต่างกันหรือไม่">example</span>
+            </th>
+            <td>to determine whether all <b>means</b> are different
+              <ul>
+                <li>must have three or more groups</li>
+                <li>ANOVA does not say which groups are different more</li>
+                <li>If you want to know it, <b>Multiple Comparisons</b> are required</li>
+              </ul>
+            </td>
+            <td>H<sub>0</sub> : all μ<sub>i</sub> are equal<br>H<sub>1</sub> : NOT all μ<sub>i</sub> are equal</td>
+          </tr>
+          <tr>
+            <th>2-way ANOVA<br>without replication
+              <br><span class="badge badge-pill badge-danger">parametric</span> 
+              <br><span class="badge badge-pill badge-secondary pointer" data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="มีข้อมูลคะแนนเฉลี่ยของ CU-TEP แต่ละชั้นปีและเพศ (มีทั้งหมด 8 กลุ่ม)<br>ทีนี้ ระหว่างชั้นปีหรือระหว่างเพศมีความต่างหรือไม่">example</span>
+            </th>
+            <td>to determine whether all <b>means</b> are different
+              <ul>
+                <li>must have two different dimensions</li>
+                <li>each dimension has two or more groups (total n×m groups)</li>
+                <li>the data of each group is only one value</li>
+                <li><b>no interaction</b> between rows and columns</li>
+                <li>does not say which groups are different more</li>
+                <li>If you want to know it, Multiple Comparisons are required</li>
+              </ul>
+            </td>
+            <td>H<sub>0</sub> : all μ<sub>i</sub> are equal<br>H<sub>1</sub> : NOT all μ<sub>i</sub> are equal</td>
+          </tr>
+          <tr>
+            <th>2-way ANOVA<br>with replication
+              <br><span class="badge badge-pill badge-danger">parametric</span> 
+              <br><span class="badge badge-pill badge-secondary pointer" data-toggle="tooltip" data-placement="right" data-html="true" 
+              title="มีข้อมูลคะแนน CU-TEP แต่ละชั้นปีและเพศ (มีทั้งหมด 8 กลุ่ม คะแนนของแต่ละคน)<br>ทีนี้ ระหว่างชั้นปีหรือระหว่างเพศมีความต่างหรือไม่">example</span>
+            </th>
+            <td>to determine whether all <b>means</b> are different
+              <ul>
+                <li>must have two different dimensions</li>
+                <li>each dimension has two or more groups (total n×m groups)</li>
+                <li>the data of each group can replicate (can have multiple values)</li>
+                <li>can calculate the interaction between rows and columns</li>
+                <li>does not say which groups are different</li>
+                <li>If you want to know it, Multiple Comparisons are required</li>
+              </ul>
+            </td>
+            <td>H<sub>0</sub> : all μ<sub>i</sub> are equal<br>H<sub>1</sub> : NOT all μ<sub>i</sub> are equal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> <!-- END OF TEST LIST -->
+  
+  <!------------------------------ BASIC STATISTICS ------------------------------>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_stats');">ー Basic Statistical Values</h2>
+    </div>
+  </div>
+  <div class="row" id="content_stats">
+    <div class="col-lg-12 mb-3">
+      <div class="card border-primary" style="min-height: 20rem;">
+        <!-- START OF FORM -->
+        <form onsubmit="show_stats();return false;">
+          <div class="card-header">basic values
+            <!-- UNBIASED SWITCH -->
+            <div class="custom-control custom-switch" style="float:right;">
+              <input type="checkbox" class="custom-control-input" name="is_unbiased" id="unbiased_switch" checked>
+              <label class="custom-control-label" for="unbiased_switch" data-toggle="tooltip" data-placement="top"
+              title="unbiased estimate of variance">UNBIASED</label>
+            </div>
+            <!-- 2 DATA SWITCH -->
+            <div class="custom-control custom-switch" style="float:right;">
+              <input type="checkbox" class="custom-control-input" name="is_twodata" id="twodata_switch" onchange="stats_second_row();">
+              <label class="custom-control-label" for="twodata_switch" data-toggle="tooltip" data-placement="top"
+              title="use 2 data for t-test & correlation">2 DATA　</label>
+            </div>
+          </div>
+          <div class="card-body">
+            <table class='table' style="table-layout: fixed;">
+              <tr id='stats_input_row1'>
+                <td colspan="6"><input type='text' class="form-control" id='stats_input1' placeholder="values with space or comma (PASTE 1 or 2 ROWS/COLUMNS TABLE HERE)" autocomplete="off"></td>
+              </tr>
+              <tr id='stats_input_row2' style="display: none;">
+                <td colspan="6"><input type='text' class="form-control" id='stats_input2' placeholder="values with space or comma" autocomplete="off"></td>
+              </tr>
+              <tr>
+                <td colspan="6">
+                  <button class="btn btn-outline-primary" onclick="show_stats();return false">calculate</button>
+                  <button class="btn btn-outline-primary" onclick="reset_stats.reset();return false">reset</button>
+                </td>
+              </tr>
+              <tr>
+                <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="degree of freedom">df=N-1</strong></td>
+                <td align="center"><strong>mean</strong></td>
+                <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="standard deviation">SD</strong></td>
+                <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="standard error of mean">SEM</strong></td>
+                <td align="center"><strong>median</strong></td>
+                <td align="center"><strong>skewness</strong></td>
+              </tr>
+              <tr class="table-active" id='stats_output_row1'>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+              </tr>
+              <tr class="table-active" id='stats_output_row2' style="display: none">
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+              </tr>
+              <tr id='stats_output_row3' style="display: none">
+                <td align="center"><strong>pooled SD</strong></td>
+                <td align="center"><strong>covariance</strong></td>
+                <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="Pearson's correlation">　r　</strong></td>
+                <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="Spearman's rank correlation">　ρ　</strong></td>
+                <td colspan="2" align="center"><strong>linear regression</strong></td>
+              </tr>
+              <tr class="table-active" id='stats_output_row4' style="display: none">
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output" id="stats_output_pooledSD">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="stats_output">-</strong></td>
+                <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard(onlynumber=false);"><strong class="stats_output">-</strong></td>
+              </tr>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div> <!-- END OF BASIC STATISTICS -->
+
+  <!------------------------------ SHAPIRO-WILK TEST ------------------------------>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_normality');" id="label_normality">＋ Normality Test</h2>
+    </div>
+  </div>
+
+  <div class="row" id='content_normality' style="display:none">
+    <div class="col-lg-6 mb-3">
+      <div class="card border-info mb-3" style="height: 100%;">
+        <div class="card-header">Shapiro-Wilk Test (N≦50)</div>
+        <div class="card-body">
+          <form onsubmit="show_normality();return false;">
+          <table class='table' style="table-layout: fixed;">
+            <tr>
+              <td colspan="3"><input type='text' class="form-control" id="normality_input" placeholder="data" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <button class="btn btn-outline-info" onclick="show_normality();return false">calculate</button>
+                <button class="btn btn-outline-info" onclick="reset_normality.reset(); make_qqplot([0]); return false">reset</button>
+              </td>
+            </tr>
+            <tr>
+              <td align="center"><strong>W</strong></td>
+              <td align="center"><strong>z-score</strong></td>
+              <td align="center"><strong>p-value</strong></td>
+            </tr>
+            <tr class="table-active" id="normality_output_row">
+              <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="normality_output">-</strong></td>
+              <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="normality_output">-</strong></td>
+              <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="normality_output">-</strong></td>
+            </tr>
+          </table>
+          </form>
+        </div>
+      </div> 
+    </div> <!-- END OF SHAPIRO-WILK -->
+
+    <div class="col-lg-6 mb-3">
+      <div class="card border-info" style="height: 100%;">
+        <div class="card-header">Q-Q plot</div>
+        <div class="card-body">
+          <div>
+            <canvas id="qqplot_canvas" >
+
+            </canvas>
+        </div>
+        </div>
+      </div>
+    </div> <!-- END OF QQPLOT -->
+  </div> <!-- END OF ROW TEST OF NORMALITY  -->
+
+  <!------------------------------ T-TEST & F-TEST ------------------------------>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_ttest');">ー Welch's t-test & F-test</h2>
+    </div>
+  </div>
+
+  <div class="row" id='content_ttest'>
+    <div class="col-lg-6 mb-3">
+      <div class="card border-info" style="min-height: 16rem;">
+        <div class="card-header">Welch's t-test</div>
+        <div class="card-body">
+          <form onsubmit="show_ttest();return false;">
+          <table class='table' style="table-layout: fixed;">
+            <tr>
+              <td colspan="2"><input type='text' class="form-control" id="ttest_input1" placeholder="mean1, SD1, n1" autocomplete="off"></td>
+              <td colspan="2"><input type='text' class="form-control" id="ttest_input2" placeholder="mean2, SD2, n2" autocomplete="off"></td>
+            </tr>
+
+            <tr>
+              <td colspan="4">
+                <button class="btn btn-outline-info" onclick="show_ttest();return false">calculate</button>
+                <button class="btn btn-outline-info" onclick="reset_ttest.reset();return false">reset</button>
+              </td>
+            </tr>
+            <tr>
+              <td align="center"><strong>t-value</strong></td>
+              <td align="center"><strong>df</strong></td>
+              <td align="center"><strong>p(|t|≤x)</strong></td>
+              <td align="center"><strong>Cohen d</strong></td>
+            </tr>
+            <tr class="table-active" id="ttest_output_row">
+              <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="ttest_output">-</strong></td>
+              <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="ttest_output">-</strong></td>
+              <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="ttest_output">-</strong></td>
+              <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="ttest_output">-</strong></td>
+            </tr>
+          </table>
+          </form>
+        </div>
+      </div> 
+    </div> <!-- Welch's t-test -->
+
+    <div class="col-lg-6 mb-3">
+      <div class="card border-info" style="min-height: 16rem;">
+        <div class="card-header">F-test of 2 variances</div>
+        <div class="card-body">
+          <form onsubmit="show_ftest();return false;">
+          <table class='table' style="table-layout: fixed;">
+            <tr>
+              <td colspan="3"><input type='text' class="form-control" id='ftest_input1' placeholder="SD1, df1" autocomplete="off"></td>
+              <td colspan="3"><input type='text' class="form-control" id='ftest_input2' placeholder="SD2, df2" autocomplete="off"></td>
+            </tr>
+
+            <tr>
+              <td colspan="6">
+                <button class="btn btn-outline-info" onclick="show_ftest();return false">calculate</button>
+                <button class="btn btn-outline-info" onclick="reset_ftest.reset();return false">reset</button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center"><strong>F-value</strong></td>
+              <td colspan="2" align="center"><strong>p(F≤x)</strong></td>
+              <td colspan="2" align="center"><strong>p(x≤F)</strong></td>
+            </tr>
+            <tr class="table-active" id="ftest_output_row">
+              <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong class="ftest_output">-</strong></td>
+              <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong class="ftest_output">-</strong></td>
+              <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong class="ftest_output">-</strong></td>
+            </tr>
+          </table>
+          </form>
+        </div>
+      </div>
+    </div> <!-- F-test -->
+    
+  </div> <!-- END OF T-TEST & F-TEST -->
+
+  <!------------------------------ NORM DIST & T DIST ------------------------------>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_normaldist');">ー Normal & t distribution</h2>
+    </div>
+  </div>
+
+  <div class="row" id="content_normaldist">
+    <div class="col-lg-3 mb-3">
+      <div class="card border-success mb-3" style="min-height: 16rem;">
+      <div class="card-header">z-score to p</div>
+        <div class="card-body">
+          <p align="center"><img style="height: 100px; display: inline-block;" src="image/z_to_p.png"></p>
+          <form onsubmit="z2p();return false;">
+          <table class='table'>
+            <tr><td><input type='text' class="form-control" id='z2p_input' placeholder="z ≥ 0" autocomplete="off"></td></tr>
+            <tr>
+              <td>
+              <button class="btn btn-outline-success" onclick="z2p();return false">calculate</button>
+              <button class="btn btn-outline-success" onclick="reset_z2p.reset();return false">reset</button>
+              </td>
+            </tr>
+            <tr class="table-active">
+              <td align="center" class="answer" onclick="copy_to_clipboard();"><strong id="z2p_output1" class='blue'>p(z≤x)</strong></td>
+            </tr>
+            <tr class="table-active">
+              <td align="center" class="answer" onclick="copy_to_clipboard();"><strong id="z2p_output2" class='red'>p(0≤x≤z)</strong></td>
+            </tr>
+          </table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 mb-3">
+      <div class="card border-success mb-3" style="min-height: 16rem;">
+        <div class="card-header">p to z-score</div>
+        <div class="card-body">
+          <p align="center"><img style="height: 100px; display: inline-block;" src="image/p_to_z.png"></p>
+          <form onsubmit="p2z();return false;">
+          <table class='table'>
+            <tr><td><input type='text' class="form-control" id='p2z_input' placeholder="p ≤ 0.5" autocomplete="off"></td></tr>
+            <tr>
+              <td>
+              <button class="btn btn-outline-success" onclick="p2z();return false">calculate</button>
+              <button class="btn btn-outline-success" onclick="reset_p2z.reset();return false">reset</button>
+              </td>
+            </tr>
+            <tr class="table-active">
+              <td align="center" class="answer" onclick="copy_to_clipboard();"><strong id="p2z_output1" class='blue'>z [p(z≤x)]</strong></td>
+            </tr>
+            <tr class="table-active">
+              <td align="center" class="answer" onclick="copy_to_clipboard();"><strong id="p2z_output2" class='red'>z [p(0≤x≤z)]</strong></td>
+            </tr>
+          </table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 mb-3">
+      <div class="card border-warning" style="min-height: 16rem;">
+        <div class="card-header">t-value to p</div>
+        <div class="card-body">
+          <p align="center"><img style="height: 100px; display: inline-block;" src="image/t_to_p.png"></p>
+          <form onsubmit="t2p();return false;">
+          <table class='table'>
+            <tr>
+              <td><input type='text' class="form-control" id='t2p_input_t' placeholder="t ≥ 0" autocomplete="off"></td>
+              <td><input type='text' class="form-control" id='t2p_input_df' placeholder="df" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+              <button class="btn btn-outline-warning" onclick="t2p();return false">calculate</button>
+              <button class="btn btn-outline-warning" onclick="reset_t2p.reset();return false">reset</button>
+              </td>
+            </tr>
+            <tr class="table-active">
+              <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="t2p_output1" class='blue'>p(t≤x)</strong></td>
+            </tr>
+            <tr class="table-active">
+              <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="t2p_output2" class='red'>p(0≤x≤t)</strong></td>
+            </tr>
+          </table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 mb-3">
+      <div class="card border-warning" style="min-height: 16rem;">
+        <div class="card-header">p to t-value</div>
+        <div class="card-body">
+          <p align="center"><img style="height: 100px; display: inline-block;" src="image/p_to_t.png"></p>
+          <form onsubmit="p2t();return false;">
+          <table class='table'>
+            <tr>
+              <td><input type='text' class="form-control" id='p2t_input_p' placeholder="p ≤ 0.5" autocomplete="off"></td>
+              <td><input type='text' class="form-control" id='p2t_input_df' placeholder="df" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+              <button class="btn btn-outline-warning" onclick="p2t();return false">calculate</button>
+              <button class="btn btn-outline-warning" onclick="reset_p2t.reset();return false">reset</button>
+              </td>
+            </tr>
+            <tr class="table-active">
+              <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="p2t_output1" class='blue'>t [p(t≤x)]</strong></td>
+            </tr>
+            <tr class="table-active">
+              <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="p2t_output2" class='red'>t [p(0≤x≤t)]</strong></td>
+            </tr>
+          </table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- END OF NORM DIST & T DIST-->
+
+  <!------------------------------ CHI DIST & F DIST ------------------------------>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_chidist');">ー χ<sup>2</sup> & F distribution</h2>
+    </div>
+  </div>
+
+  <div class="row" id="content_chidist">
+
+    <div class="col-lg-3 mb-3">
+      <div class="card border-success" style="min-height: 16rem;">
+        <div class="card-header">χ<sup>2</sup> to p</div>
+        <div class="card-body">
+          <p align="center"><img style="height: 100px; display: inline-block;" src="image/chi_to_p.png"></p>
+          <form onsubmit="chi2p();return false;">
+            <table class='table'>
+              <tr>
+                <td><input type='text' class="form-control" id='chi2p_input_chi' placeholder="chi2" autocomplete="off"></td>
+                <td><input type='text' class="form-control" id='chi2p_input_df' placeholder="df" autocomplete="off"></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                <button class="btn btn-outline-success" onclick="chi2p();return false">calculate</button>
+                <button class="btn btn-outline-success" onclick="reset_chi2p.reset();return false">reset</button>
+                </td>
+              </tr>
+              <tr class="table-active">
+                <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="chi2p_output_up" class='blue'>p(χ<sup>2</sup>≤x)</strong></td>
+              </tr>
+              <tr class="table-active">
+                <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="chi2p_output_low" class='red'>p(x≤χ<sup>2</sup>)</strong></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 mb-3">
+      <div class="card border-success" style="min-height: 16rem;">
+        <div class="card-header">p to χ<sup>2</sup></div>
+        <div class="card-body">
+          <p align="center"><img style="height: 100px; display: inline-block;" src="image/p_to_chi.png"></p>
+          <form onsubmit="p2chi();return false;">
+            <table class='table'>
+              <tr>
+                <td><input type='text' class="form-control" id='p2chi_input_p' placeholder="p ≤ 0.5" autocomplete="off"></td>
+                <td><input type='text' class="form-control" id='p2chi_input_df' placeholder="df" autocomplete="off"></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                <button class="btn btn-outline-success" onclick="p2chi();return false">calculate</button>
+                <button class="btn btn-outline-success" onclick="reset_p2chi.reset();return false">reset</button>
+                </td>
+              </tr>
+              <tr class="table-active">
+                <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="p2chi_output_up" class='blue'>χ<sup>2</sup></strong></td>
+              </tr>
+              <tr class="table-active">
+                <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="p2chi_output_low" class='red'>χ<sup>2</sup></strong></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 mb-3">
+      <div class="card border-warning" style="min-height: 16rem;">
+        <div class="card-header">F-value to p</div>
+        <div class="card-body">
+          <p align="center"><img style="height: 100px; display: inline-block;" src="image/f_to_p.png"></p>
+          <form onsubmit="f2p();return false;">
+            <table class='table'>
+              <tr>
+                <td><input type='text' class="form-control" id='f2p_input_f' placeholder="F" autocomplete="off"></td>
+                <td><input type='text' class="form-control" id='f2p_input_df' placeholder="df1 df2" autocomplete="off"></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                <button class="btn btn-outline-warning" onclick="f2p();return false">calculate</button>
+                <button class="btn btn-outline-warning" onclick="reset_f2p.reset();return false">reset</button>
+                </td>
+              </tr>
+              <tr class="table-active">
+                <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="f2p_output_up" class='blue'>p(F≤x)</strong></td>
+              </tr>
+              <tr class="table-active">
+                <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="f2p_output_low" class='red'>p(x≤F)</strong></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 mb-3">
+      <div class="card border-warning" style="min-height: 16rem;">
+        <div class="card-header">p to F-value</div>
+        <div class="card-body">
+          <p align="center"><img style="height: 100px; display: inline-block;" src="image/p_to_f.png"></p>
+          <form onsubmit="p2f();return false;">
+            <table class='table'>
+              <tr>
+                <td><input type='text' class="form-control" id='p2f_input_p' placeholder="p ≤ 0.5" autocomplete="off"></td>
+                <td><input type='text' class="form-control" id='p2f_input_df' placeholder="df1 df2" autocomplete="off"></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                <button class="btn btn-outline-warning" onclick="p2f();return false">calculate</button>
+                <button class="btn btn-outline-warning" onclick="reset_p2f.reset();return false">reset</button>
+                </td>
+              </tr>
+              <tr class="table-active">
+                <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="p2f_output_up" class='blue'>F-value</strong></td>
+              </tr>
+              <tr class="table-active">
+                <td colspan="2" align="center" class="answer" onclick="copy_to_clipboard();"><strong id="p2f_output_low" class='red'>F-value</strong></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> <!-- END OF chi2 & F distribution-->
+
+  
+
+  <!------------------------------ CHI2 TEST (FITNESS) ------------------------------>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_chi2fit');">＋ χ<sup>2</sup> test (goodness of fit)</h2>
+    </div>
+  </div>
+
+  <div class="row" id="content_chi2fit" style="display: none;">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="card border-primary mb-3" style="min-height: 20rem;">
+          <div class="card-header">χ<sup>2</sup> test (goodness of fit)</div>
+          <div class="card-body">
+            <form onsubmit="show_chi2fit();return false;">
+            <table class='table' style="table-layout: fixed;">
+              <thead>1st row: observations,　2nd row: expected ratio,　e.g. 1:2:3</thead>
+              <tr id="chi2fit_input_row1">
+                <td><input type="text" class="form-control chi2fit_input1" id="chi2fit_input11" placeholder="value" autocomplete="off"></td>
+                <td><input type="text" class="form-control chi2fit_input1" autocomplete="off"></td>
+              </tr>
+              <tr id="chi2fit_input_row2">
+                <td><input type="text" class="form-control chi2fit_input2" placeholder="value" autocomplete="off"></td>
+                <td><input type="text" class="form-control chi2fit_input2" autocomplete="off"></td>
+              </tr>
+              <tr id="chi2fit_output_row_E_label">
+                <td align="center"><strong>E<sub>1</sub></strong></td>
+                <td align="center"><strong>E<sub>2</sub></strong></td>
+              </tr>
+              <tr id="chi2fit_output_row_E" class="table-active">
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="chi2fit_output">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="chi2fit_output">-</strong></td>
+              </tr>
+              <tr>
+                <td id="chi2fit_btns" colspan="2">
+                  <button class="btn btn-outline-primary" onclick="show_chi2fit();return false">calculate</button>
+                  <button class="btn btn-outline-primary" onclick="reset_chi2fit.reset();return false">reset</button>
+                  <button class="btn btn-outline-primary" onclick="add_column_chi2fit(add=true);return false">+ column</button>
+                  <button class="btn btn-outline-primary" onclick="add_column_chi2fit(add=false);return false">- column</button>
+                </td>
+              </tr>
+            </table>
+            <table class='table' style="table-layout: fixed;">
+              <tr id="chi2fit_output_row_label">
+                <td align="center"><strong>χ<sup>2</sup></strong></td>
+                <td align="center"><strong>df</strong></td>
+                <td align="center"><strong>upper p</strong></td>
+                <td></td>
+              </tr>
+              <tr class="table-active" id='chi2fit_output_row'>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='chi2fit_output' id="chi2fit_output_chi">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='chi2fit_output' id="chi2fit_output_df">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='chi2fit_output' id="chi2fit_output_p">-</strong></td>
+                <td></td>
+              </tr>
+            </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div> <!--row chi2fit test -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_chi2ind');">＋ χ<sup>2</sup> test (independence) & Residual Analysis</h2>
+    </div>
+  </div>
+
+  <div class="row" id="content_chi2ind" style="display: none;">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="card border-primary mb-3" style="min-height: 20rem;">
+          <div class="card-header">χ<sup>2</sup> test (independence) & Residual Analysis</div>
+          <div class="card-body">
+            <form onsubmit="show_chi2ind();return false;">
+            <table class='table' style="table-layout: fixed;">
+              <tbody>
+                <tr class="chi2ind_input_row">
+                  <td><input type="text" class="form-control chi2ind_input" id="chi2ind_input11" placeholder="value, PASTE TABLE HERE" autocomplete="off"></td>
+                  <td><input type="text" class="form-control chi2ind_input" autocomplete="off"></td>
+                </tr>
+                <tr class="chi2ind_input_row">
+                  <td><input type="text" class="form-control chi2ind_input" autocomplete="off"></td>
+                  <td><input type="text" class="form-control chi2ind_input" autocomplete="off"></td>
+                </tr>
+                <tr id='chi2ind_output_row_res_label'>
+                  <td id='chi2ind_res_label' colspan="2">Adjusted Residuals</td>
+                </tr>
+                <tr class="table-active chi2ind_output_row_res">
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="chi2ind_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="chi2ind_output">-</strong></td>
+                </tr>
+                <tr class="table-active chi2ind_output_row_res">
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="chi2ind_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="chi2ind_output">-</strong></td>
+                </tr>
+                <tr id="chi2ind_btns_row">
+                  <td id="chi2ind_btns" colspan="2">
+                    <button class="btn btn-outline-primary" onclick="show_chi2ind();return false">calculate</button>
+                    <button class="btn btn-outline-primary" onclick="reset_chi2ind.reset();return false">reset</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_chi2ind(add=true,row=true);return false">+ row</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_chi2ind(add=false,row=true);return false">- row</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_chi2ind(add=true,row=false);return false">+ column</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_chi2ind(add=false,row=false);return false">- column</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class='table' style="table-layout: fixed;">
+              <tr id="chi2ind_output_row_label">
+                <td align="center"><strong>χ<sup>2</sup></strong></td>
+                <td align="center"><strong>df</strong></td>
+                <td align="center"><strong>upper p</strong></td>
+                <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="Cramer's association coefficient">Cramer V</strong></td>
+              </tr>
+              <tr class="table-active" id='chi2ind_output_row'>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='chi2ind_output' id="chi2ind_output_chi">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='chi2ind_output' id="chi2ind_output_df">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='chi2ind_output' id="chi2ind_output_p">-</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='chi2ind_output' id="chi2ind_output_V">-</strong></td>
+              </tr>
+            </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div> <!--row chi2ind test -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_anova');">＋ 1-way ANOVA</h2>
+    </div>
+  </div>
+
+  <div class="row" id="content_anova" style="display: none;">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="card border-primary mb-3" style="min-height: 20rem;">
+          <div class="card-header">1-way ANOVA</div>
+          <div class="card-body">
+            <form onsubmit="show_anova();return false;">
+            <table class='table' style="table-layout: fixed;" >
+              <tbody id='anova_table'>
+                <tr class='anova_input_row'>
+                  <td colspan="6"><input type='text' class="form-control anova_input" id="anova_input1" placeholder="values of group1 with space or comma, PASTE TABLE HERE" autocomplete="off"></td>
+                </tr>
+                <tr class='anova_input_row'>
+                  <td colspan="6"><input type='text' class="form-control anova_input" placeholder="values of group2 with space or comma" autocomplete="off"></td>
+                </tr>
+                <tr class="anova_input_row">
+                  <td colspan="6"><input type="text" class="form-control anova_input" placeholder="values of group3 with space or comma" autocomplete="off"></td>
+                </tr>
+                <tr id='anova_btns'>
+                  <td colspan="6">
+                    <button class="btn btn-outline-primary" onclick="show_anova();return false">calculate</button>
+                    <button class="btn btn-outline-primary" onclick="reset_anova.reset();return false">reset</button>
+                    <button class="btn btn-outline-primary" onclick="add_row_anova(add=true);return false">+ group</button>
+                    <button class="btn btn-outline-primary" onclick="add_row_anova(add=false);return false">- group</button>
+                    <button class="btn btn-outline-primary" onclick="transpose_anova();return false">transpose</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center"><strong>Group</strong></td>
+                  <td align="center"><strong>Count</strong></td>
+                  <td align="center"><strong>Sum</strong></td>
+                  <td align="center"><strong>Mean</strong></td>
+                  <td align="center"><strong>Variance</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="standard deviation">SD</strong></td>
+                </tr>
+                <tr class="table-active anova_output_row">
+                  <td align="center"><strong>[1]</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                </tr>
+                <tr class="table-active anova_output_row">
+                  <td align="center"><strong>[2]</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                </tr>
+                <tr class="table-active anova_output_row">
+                  <td align="center"><strong>[3]</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova_output'>-</strong></td>
+                </tr>
+                <tr id='anova_result_label'>
+                  <td align="center"><strong>Source</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="sum of squares">SS</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="degree of freedom">df</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="mean of squares">MS</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="F-value">F</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="p-value">p</strong></td>
+                </tr>
+                <tr class="table-active" id='anova_output_result1'>
+                  <td align="center"><strong>Between</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='anova_output'>-</strong></td>
+                </tr>
+                <tr class="table-active" id='anova_output_result2'>
+                  <td align="center"><strong>Within</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='anova_output'>-</strong></td>
+                </tr>
+                <tr class="table-active" id='anova_output_result3'>
+                  <td align="center"><strong>Total</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='anova_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();"><strong class='anova_output' data-toggle="tooltip" data-placement="bottom" title="correlation ratio">-</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div> <!--row ANOVA -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_anova2');">＋ 2-way ANOVA w/o replication</h2>
+    </div>
+  </div>
+
+  <div class="row" id="content_anova2" style="display: none;">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="card border-primary mb-3" style="min-height: 20rem;">
+          <div class="card-header">2-way ANOVA w/o replication</div>
+          <div class="card-body">
+            <form onsubmit="show_anova2();return false;">
+            <table class="table" style="table-layout: fixed;">
+              <tbody id='anova2_table'>
+                <tr class="anova2_input_row">
+                  <td><input type="text" class="form-control anova2_input" id="anova2_input1" placeholder="Row1:Column1, PASTE TABLE DATA HERE" autocomplete="off"></td>
+                  <td><input type="text" class="form-control anova2_input" placeholder="Row1:Column2" autocomplete="off"></td>
+                </tr>
+                <tr class="anova2_input_row">
+                  <td><input type="text" class="form-control anova2_input" placeholder="Row2:Column1" autocomplete="off"></td>
+                  <td><input type="text" class="form-control anova2_input" placeholder="Row2:Column2" autocomplete="off"></td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table" style="table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td colspan="6">
+                    <button class="btn btn-outline-primary" onclick="show_anova2();return false">calculate</button>
+                    <button class="btn btn-outline-primary" onclick="reset_anova2.reset();return false">reset</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_anova2(add=true,row=true);return false">+ row</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_anova2(add=false,row=true);return false">- row</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_anova2(add=true,row=false);return false">+ column</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_anova2(add=false,row=false);return false">- column</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center"><strong>Group</strong></td>
+                  <td align="center"><strong>Count</strong></td>
+                  <td align="center"><strong>Sum</strong></td>
+                  <td align="center"><strong>Mean</strong></td>
+                  <td align="center"><strong>Variance</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="standard deviation">SD</strong></td>
+                </tr>
+                <tr class="table-active anova2_output_row">
+                  <td align="center"><strong>[Row 1]</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                </tr>
+                <tr class="table-active anova2_output_row">
+                  <td align="center"><strong>[Row 2]</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                </tr>
+                <tr><td colspan="6"></td></tr>
+                <tr class="table-active anova2_output_col">
+                  <td align="center"><strong>[Col 1]</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                </tr>
+                <tr class="table-active anova2_output_col">
+                  <td align="center"><strong>[Col 2]</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>
+                </tr>
+                <tr>
+                  <td align="center"><strong>Source</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="sum of squares">SS</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="degree of freedom">df</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="mean of squares">MS</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="F-value">F</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="p-value">p</strong></td>
+                </tr>
+                <tr class="table-active" id='anova2_output_result1'>
+                  <td align="center"><strong>Row</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                </tr>
+                <tr class="table-active" id='anova2_output_result2'>
+                  <td align="center"><strong>Column</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                </tr>
+                <tr class="table-active" id='anova2_output_result3'>
+                  <td align="center"><strong>Error</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2_output'>-</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div> <!--row 2-way ANOVA -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_anova2r');">＋ 2-way ANOVA with replication</h2>
+    </div>
+  </div>
+
+  <div class="row" id="content_anova2r" style="display: none;">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="card border-primary mb-3" style="min-height: 20rem;">
+          <div class="card-header">2-way ANOVA with replication</div>
+          <div class="card-body">
+            <form onsubmit="show_anova2();return false;">
+            <table class="table" style="table-layout: fixed;">
+              <tbody id='anova2r_table'>
+                <tr class="anova2r_input_row">
+                  <td><input type="text" class="form-control anova2r_input" id="anova2r_input1" placeholder="Row1:Column1, values with space or comma" autocomplete="off"></td>
+                  <td><input type="text" class="form-control anova2r_input" placeholder="Row1:Column2" autocomplete="off"></td>
+                </tr>
+                <tr class="anova2r_input_row">
+                  <td><input type="text" class="form-control anova2r_input" placeholder="Row2:Column1" autocomplete="off"></td>
+                  <td><input type="text" class="form-control anova2r_input" placeholder="Row2:Column2" autocomplete="off"></td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table" style="table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td colspan="6">
+                    <button class="btn btn-outline-primary" onclick="show_anova2r();return false">calculate</button>
+                    <button class="btn btn-outline-primary" onclick="reset_anova2r.reset();return false">reset</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_anova2r(add=true,row=true);return false">+ row</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_anova2r(add=false,row=true);return false">- row</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_anova2r(add=true,row=false);return false">+ column</button>
+                    <button class="btn btn-outline-primary" onclick="add_rowcol_anova2r(add=false,row=false);return false">- column</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center"><strong>Group</strong></td>
+                  <td align="center"><strong>Count</strong></td>
+                  <td align="center"><strong>Sum</strong></td>
+                  <td align="center"><strong>Mean</strong></td>
+                  <td align="center"><strong>Variance</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="standard deviation">SD</strong></td>
+                </tr>
+                <tr class="table-active anova2r_output_row">
+                  <td align="center"><strong>[Row 1]</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                </tr>
+                <tr class="table-active anova2r_output_row">
+                  <td align="center"><strong>[Row 2]</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                </tr>
+                <tr><td colspan="6"></td></tr>
+                <tr class="table-active anova2r_output_col">
+                  <td align="center"><strong>[Col 1]</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                </tr>
+                <tr class="table-active anova2r_output_col">
+                  <td align="center"><strong>[Col 2]</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>
+                </tr>
+                <tr>
+                  <td align="center"><strong>Source</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="sum of squares">SS</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="degree of freedom">df</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="mean of squares">MS</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="F-value">F</strong></td>
+                  <td align="center"><strong data-toggle="tooltip" data-placement="bottom" title="p-value">p</strong></td>
+                </tr>
+                <tr class="table-active" id='anova2r_output_result1'>
+                  <td align="center"><strong>Row</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                </tr>
+                <tr class="table-active" id='anova2r_output_result2'>
+                  <td align="center"><strong>Column</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                </tr>
+                <tr class="table-active" id='anova2r_output_result3'>
+                  <td align="center"><strong>Interaction</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                </tr>
+                <tr class="table-active" id='anova2r_output_result4'>
+                  <td align="center"><strong>Error</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                  <td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class='anova2r_output'>-</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div> <!--row 2-wayrep ANOVA -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_poisson');">＋ Poisson & Gamma Distribution</h2>
+    </div>
+  </div>
+  
+  <div class="row" id='content_poisson' style="display:none;">
+    <div class="col-lg-5">
+      <div class="bs-component">
+        <div class="card border-primary mb-3" style="min-height: 20rem;">
+          <div class="card-header">Poisson Distribution</div>
+          <div class="card-body">
+            <p align="center"><img style="height: 100px; display: inline-block;" src="image/poisson.png"></p>
+            <form onsubmit="show_poisson();return false;">
+            <table class='table'>
+              <tr>
+                <td><input type='text' class="form-control" id='poisson_input1' placeholder="mean times λ" autocomplete="off"></td>
+                <td><input type='text' class="form-control" id='poisson_input2' placeholder="times k" autocomplete="off"></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <button class="btn btn-outline-primary" onclick="show_poisson();return false">calculate</button>
+                  <button class="btn btn-outline-primary" onclick="reset_poisson.reset();return false">reset</button>
+                </td>
+              </tr>
+              <tr class="table-active">
+                <td align="center" class="answer" onclick="copy_to_clipboard();" data-toggle="tooltip" data-placement="bottom" title="click to copy"><strong id="poisson_output1">P(X=k)</strong></td>
+                <td align="center" class="answer" onclick="copy_to_clipboard();" data-toggle="tooltip" data-placement="bottom" title="click to copy"><strong id="poisson_output2">P(X≥k)</strong></td>
+              </tr>
+            </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <div class="bs-component">
+        <div class="card border-info mb-3" style="min-height: 20rem;">
+          <div class="card-header">Gamma Distribution</div>
+          <div class="card-body">
+            <p align="center"><img style="height: 100px; display: inline-block;" src="image/gamma.png"></p>
+            <form onsubmit="show_gamma();return false;">
+            <table class='table'>
+              <tr>
+                <td colspan="2"><input type='text' class="form-control" id='gamma_input1' placeholder="mean period θ" autocomplete="off"></td>
+                <td colspan="2"><input type='text' class="form-control" id='gamma_input2' placeholder="times k" autocomplete="off"></td>
+                <td colspan="2"><input type='text' class="form-control" id='gamma_input3' placeholder="time x" autocomplete="off"></td>
+              </tr>
+              <tr>
+                <td colspan="6">
+                  <button class="btn btn-outline-info" onclick="show_gamma();return false">calculate</button>
+                  <button class="btn btn-outline-info" onclick="reset_gamma.reset();return false">reset</button>
+                </td>
+              </tr>
+              <tr class="table-active">
+                <td colspan="3" align="center"><strong id="gamma_output1">P(x)</strong></td>
+                <td colspan="3" align="center"><strong id="gamma_output2">P(0~x)</strong></td>
+              </tr>
+            </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!--row Poisson % Gamma distribution-->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 onclick="show_hide('content_misc');">＋ misc</h2>
+    </div>
+  </div>
+
+  <div class="row" id='content_misc' style="display:none;">
+    <div class="col-lg-6">
+      <div class="bs-component">
+        <div class="card border-secondary mb-3" style="min-height: 16rem;">
+          <div class="card-header">Base Converter</div>
+          <div class="card-body">
+            <form onsubmit="convert();return false;">
+            <table class='table'>
+              <tr>
+                <td>
+                  <select class="form-control" id='base_from' style="min-width: 4rem;">
+                    <option value=10 selected>10</option>
+                    <option value=16>16</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
+                    <option value=7>7</option>
+                    <option value=8>8</option>
+                    <option value=9>9</option>
+                  </select>
+                </td>
+                <td><input type='text' class="form-control" id='num_to_convert' placeholder="from" autocomplete="off"></td>
+              </tr>
+              <tr>
+                <td>
+                  <select class="form-control" id='base_to' style="min-width: 4rem;">
+                    <option value=16 selected>16</option>
+                    <option value=10>10</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
+                    <option value=7>7</option>
+                    <option value=8>8</option>
+                    <option value=9>9</option>
+                  </select>
+                </td>
+                <td>
+                  <button class="btn btn-outline-secondary" onclick="convert();return false">convert</button>
+                  <button class="btn btn-outline-secondary" onclick="reset_base.reset();return false">reset</button>
+                </td>
+              </tr>
+              <tr class="table-active">
+                <td colspan="2" align="center"><strong id="answer">answer</strong></td>
+              </tr>
+            </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="bs-component">
+        <div class="card border-secondary mb-3" style="min-height: 16rem;">
+          <div class="card-header">GCD & LCM</div>
+          <div class="card-body">
+            <form onsubmit="show_gcd();return false;">
+              <table class='table'>
+                <tr>
+                  <td colspan="2"><input type='text' class="form-control" id='gcd_input' placeholder="integers with space" autocomplete="off"></td>
+                </tr>
+                <tr>
+                  <td>
+                    <select class="form-control" id='select_gcd' style="min-width: 6rem;">
+                      <option value="gcd" selected>GCD</option>
+                      <option value="lcm">LCM</option>
+                    </select>
+                  </td>
+                  <td>
+                    <button class="btn btn-outline-secondary" onclick="show_gcd();return false">search</button>
+                    <button class="btn btn-outline-secondary" onclick="reset_gcd.reset();return false">reset</button>
+                  </td>
+                </tr>
+                <tr class="table-active">
+                  <td colspan="2" align="center"><strong id="answer_gcd">answer</strong></td>
+                </tr>
+              </table>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- row GCD LCM-->
+
+</div> <!--container-->
+
+<footer>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<p><font color="white">&copy; 2020 Nozomi Yamada All Rights Reserved.</font></p>
+  </nav>
+  <!-- import JS libralies -->
+  <script src='./js/statistics.js'></script>
+  <script src='./js/math_func.js'></script>
+  <script src='./js/gcd_lcm.js'></script>
+  <script src='./js/misc.js'></script>
+  <!-- import JS for this page -->
+  <script src='./js/tool.js'></script>
+  <!-- import jQuery & bootstrap-->
+  <script type="text/javascript" src="./js/jquery-3.5.1.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+    $('body [data-toggle="popover"]').popover();
+    $('body [data-toggle="tooltip"]').tooltip();
+  </script>
+</footer>
+
+<!--------------------  JavaScript  -------------------->
+
+<script>
+
+
+
+
+////////////////////  CHI2 IND TEST ////////////////////
+
+function add_column_chi2ind(add=true){
+  let row = ['chi2ind_input_row1','chi2ind_input_row2','chi2ind_output_row_E_label','chi2ind_output_row_E'].map(x=>document.getElementById(x));
+  if(add==true && row[0].children.length<15){
+    row[0].innerHTML += '<td><input type="text" class="form-control chi2fit_input1" autocomplete="off"></td>';
+    row[1].innerHTML += '<td><input type="text" class="form-control chi2fit_input2" autocomplete="off"></td>';
+    row[2].innerHTML += `<td align="center"><strong>E<sub>${row[0].children.length}</sub></strong></td>`;
+    row[3].innerHTML += '<td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="chi2fit_output">-</strong></td>';
+  }else if(add==false && row[0].children.length>=3){
+    row.forEach(x => x.lastElementChild.remove());
+  }
+  document.getElementById('chi2fit_btns').colSpan = row[0].children.length;
+  document.getElementById('chi2ind_output_row_res_label').colSpan = row[0].children.length;
+  document.getElementById('chi2fit_output_row').colSpan = row[0].children.length;
+}
+
+
+function add_rowcol_chi2ind(add=true, row=true){
+  let row_n = document.getElementsByClassName('chi2ind_input_row').length;
+  let col_n = document.getElementsByClassName('chi2ind_input_row')[0].children.length;
+  if(add==true && row==true && row_n<15){
+    // add input row
+    let insert_html1 = '<tr class="chi2ind_input_row">'+'<td><input type="text" class="form-control chi2ind_input" autocomplete="off"></td>'.repeat(col_n)+'</tr>';
+    document.getElementById('chi2ind_output_row_res_label').insertAdjacentHTML("beforebegin",insert_html1);
+    // add output
+    let insert_html2 = '<tr class="table-active chi2ind_output_row_res">'+'<td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="chi2ind_output">-</strong></td>'.repeat(col_n)+'</tr>';
+    document.getElementById('chi2ind_btns_row').insertAdjacentHTML("beforebegin",insert_html2);
+  }else if(add==true && row==false && col_n<15){
+    // add input column
+    let insert_html1 = '<td><input type="text" class="form-control chi2ind_input" autocomplete="off"></td>';
+    Array.from(document.getElementsByClassName('chi2ind_input_row')).forEach(elem => elem.insertAdjacentHTML("beforeend",insert_html1));
+    // add output
+    let insert_html2 = '<td align="center" class="answer" onclick="copy_to_clipboard();"><strong class="chi2ind_output">-</strong></td>';
+    Array.from(document.getElementsByClassName('chi2ind_output_row_res')).forEach(elem => elem.insertAdjacentHTML("beforeend",insert_html2));
+    document.getElementById('chi2ind_btns').colSpan += 1;
+    document.getElementById('chi2ind_res_label').colSpan += 1;
+  }else if(add==false && row==true){
+    if(row_n>2){
+      document.getElementsByClassName('chi2ind_input_row')[row_n-1].remove();
+      document.getElementsByClassName('chi2ind_output_row_res')[row_n-1].remove();
+    }
+  }else if(add==false && row==false){
+    if(col_n>2){
+      Array.from(document.getElementsByClassName('chi2ind_input_row')).forEach(elem => elem.lastElementChild.remove());
+      Array.from(document.getElementsByClassName('chi2ind_output_row_res')).forEach(elem => elem.lastElementChild.remove());
+      document.getElementById('chi2ind_btns').colSpan -= 1;
+      document.getElementById('chi2ind_res_label').colSpan -= 1;
+    }
+  }
+}
+
+function paste_chi2ind(event){
+  let arrs = clipboard_to_matrix(event);
+  let row_n = document.getElementsByClassName('chi2ind_input_row').length;
+  let col_n = document.getElementsByClassName('chi2ind_input_row')[0].children.length;
+  let row_diff = arrs.length - row_n; let col_diff = arrs[0].length - col_n;
+  if(row_diff>=0){
+    for(var i=0;i<row_diff;i++){add_rowcol_chi2ind(add=true,row=true);}
+  }else{
+    for(var i=0;i<Math.abs(row_diff);i++){add_rowcol_chi2ind(add=false,row=true);}
+  }
+  if(col_diff>=0){
+    for(var i=0;i<col_diff;i++){add_rowcol_chi2ind(add=true,row=false);}
+  }else{
+    for(var i=0;i<Math.abs(col_diff);i++){add_rowcol_chi2ind(add=false,row=false);}
+  }
+  // PASTE
+  let input_rows = document.getElementsByClassName('chi2ind_input_row');
+  for(var i=0;i<input_rows.length;i++){
+    let inputs = input_rows[i].getElementsByClassName('chi2ind_input');
+    for(var j=0;j<inputs.length;j++){
+      inputs[j].value = arrs[i][j];
+    }
+  }
+  show_chi2ind();
+}
+const ELEM_CHI2IND_INPUT = document.getElementById('chi2ind_input11');
+ELEM_CHI2IND_INPUT.addEventListener("paste" , paste_chi2ind);
+
+function show_chi2ind(){
+  // MAKE MATRIX
+  let mat = [];
+  for(var row of document.getElementsByClassName('chi2ind_input_row')){
+    mat.push(Array.from(row.getElementsByClassName('chi2ind_input')).map(elem => Number(elem.value)));
+  }
+  [chi2_value, cramerV] = chi2_independence(mat);
+  residuals = adjusted_residual(mat);
+
+  for(var i=0;i<mat.length;i++){
+    for(var j=0;j<mat[0].length;j++){
+      var row = document.getElementsByClassName('chi2ind_output_row_res')[i];
+      row.getElementsByClassName('chi2ind_output')[j].innerText = round(residuals[i][j], 5);
+    }
+    let df = (mat.length-1) * (mat[0].length-1);
+    document.getElementById('chi2ind_output_chi').innerText = round(chi2_value,5);
+    document.getElementById('chi2ind_output_df').innerText = df;
+    document.getElementById('chi2ind_output_p').innerText = round(chi_to_p(chi2_value,df),5);
+    document.getElementById('chi2ind_output_V').innerText = round(cramerV,5);
+    document.getElementById('chi2p_input_chi').value = round(chi2_value,5);
+    document.getElementById('chi2p_input_df').value = df;
+    document.getElementById('p2chi_input_p').value = 0.05;
+    document.getElementById('p2chi_input_df').value = df;
+    chi2p(); p2chi();
+  }
+}
+
+////////////////////  1-way ANOVA  ////////////////////
+
+function add_row_anova(add=true){
+  if(add==true){
+    // add input row
+    let n = document.getElementsByClassName('anova_input_row').length;
+    let insert_html1 = `<tr class="anova_input_row"><td colspan="6"><input type="text" class="form-control anova_input"placeholder="values of group${n+1} with space or comma" autocomplete="off"></td></tr>`;
+    document.getElementById('anova_btns').insertAdjacentHTML ("beforebegin",insert_html1);
+    // add result row
+    let insert_html2 = `<tr class="table-active anova_output_row"><td align="center"><strong>[${n+1}]</strong></td>`+'<td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova_output">-</strong></td>'.repeat(5)+'</tr>';
+    document.getElementById('anova_result_label').insertAdjacentHTML('beforebegin',insert_html2);
+  }else if(add==false){
+    let input_rows = document.getElementsByClassName('anova_input_row');
+    let output_rows = document.getElementsByClassName('anova_output_row');
+    if(input_rows.length>3){
+      input_rows[input_rows.length-1].remove();
+      output_rows[output_rows.length-1].remove();
+    }
+  }
+}
+
+function transpose_anova(){
+  let arrs = [];
+  let input_rows = document.getElementsByClassName(`anova_input`);
+  for(row of input_rows){
+    if(row.value==''){return;}
+    var arr = row.value.trim().split(/\s+/).map(Number);
+    if(arr.length<2){return;}
+    if(arr.toString()!=='0' && !arr.includes(NaN)){arrs.push(arr);}
+  }
+  arrs = transpose(arrs);
+  let row_diff = arrs.length - input_rows.length;
+  if(row_diff>=0){
+    for(var i=0;i<row_diff;i++){add_row_anova(add=true);}
+  }else{
+    for(var i=0;i<Math.abs(row_diff);i++){add_row_anova(add=false);}
+  }
+  // PASTE
+  input_rows = document.getElementsByClassName('anova_input');
+  for(var i=0;i<input_rows.length;i++){
+    input_rows[i].value = arrs[i].join(' ');
+  }
+  show_anova();
+}
+
+function paste_anova(event){
+  arrs = clipboard_to_matrix(event);
+  if(transpose(arrs).length==1 || (arrs.length>arrs[0].length)){
+    arrs = transpose(arrs);
+  }
+  if(arrs.length==1 && typeof(arrs[0]=='object')){ // 1-dim vector
+    document.getElementById('anova_input1').value = arrs[0].join(' ');
+  }else{
+    // add rows
+    let input_rows = document.getElementsByClassName(`anova_input`);
+    let row_diff = arrs.length - input_rows.length;
+    if(row_diff>=0){
+      for(var i=0;i<row_diff;i++){add_row_anova(add=true);}
+    }else{
+      for(var i=0;i<Math.abs(row_diff);i++){add_row_anova(add=false);}
+    }
+    // PASTE
+    if(arrs.length)
+    input_rows = document.getElementsByClassName('anova_input');
+    for(var i=0;i<input_rows.length;i++){
+      try{input_rows[i].value = arrs[i].join(' ');}
+      catch{input_rows[i].value = ''}
+    }
+    show_anova();
+  }
+}
+
+const ELEM_ANOVA_INPUT = document.getElementById('anova_input1');
+ELEM_ANOVA_INPUT.addEventListener("paste" , paste_anova);
+
+function show_anova(){
+  let arrs = [];
+  let input_elems = document.getElementsByClassName(`anova_input`);
+  for(elem of input_elems){
+    var arr = elem.value.trim().split(/\s+/).map(Number); 
+    if(arr.toString()!=='0' && !arr.includes(NaN)){arrs.push(arr);}
+  }
+  // SHOW STATS
+  for(var k=0;k<arrs.length;k++){
+    var stats = [arrs[k].length, sum(arrs[k]), mean(arrs[k]), variance(arrs[k]), std(arrs[k])].map(x => round(x,5));
+    for(var i=0;i<5;i++){
+      document.getElementsByClassName(`anova_output_row`)[k].children[i+1].firstElementChild.innerText = stats[i];
+    }
+  }
+  // RESULTS OF ANOVA
+  [SS_between, df_between, SS_within, df_within, fvalue, p, eta] = anova(arrs);
+  let between = round([SS_between,df_between,SS_between/df_between,fvalue,p], 5);
+  let within = round([SS_within,df_within,SS_within/df_within] ,5);
+  let total = [round(SS_within+SS_between,5), df_between+df_within, 'η<sup>2</sup> = '+round(eta,5)];
+  for(var i=0;i<5;i++){
+    document.getElementById('anova_output_result1').children[i+1].firstElementChild.innerText = between[i];
+  }
+  for(var i=0;i<3;i++){
+    document.getElementById('anova_output_result2').children[i+1].firstElementChild.innerText = within[i];
+    document.getElementById('anova_output_result3').children[i+1].firstElementChild.innerHTML = total[i];
+  }
+  document.getElementById('f2p_input_f').value = round(fvalue,5);
+  document.getElementById('f2p_input_df').value = `${df_between} ${df_within}`;
+  document.getElementById('p2f_input_df').value = `${df_between} ${df_within}`;
+  document.getElementById('p2f_input_p').value = 0.05;
+  document.getElementById('p2f_input_df').value = `${df_between} ${df_within}`;
+  f2p(); p2f();
+}
+
+////////////////////  2-way ANOVA  ////////////////////
+
+function add_rowcol_anova2(add=true, row=true){
+  let row_n = document.getElementsByClassName('anova2_input_row').length;
+  let col_n = document.getElementsByClassName('anova2_input_row')[0].children.length;
+  if(add==true && row==true){
+    // add input row
+    let insert_html1 = '<tr class="anova2_input_row">'+'<td><input type="text" class="form-control anova2_input" autocomplete="off"></td>'.repeat(col_n)+'</tr>';
+    document.getElementById('anova2_table').insertAdjacentHTML("beforeend",insert_html1);
+    // add output
+    let insert_html2 = `<tr class="table-active anova2_output_row"><td align="center"><strong>[Row ${row_n+1}]</strong></td>`+'<td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>'.repeat(5)+'</tr>';
+    document.getElementsByClassName('anova2_output_row')[row_n-1].insertAdjacentHTML("afterend",insert_html2);
+  }else if(add==true && row==false){
+    // add input column
+    let insert_html1 = '<td><input type="text" class="form-control anova2_input" autocomplete="off">';
+    Array.from(document.getElementsByClassName('anova2_input_row')).forEach(elem => elem.insertAdjacentHTML("beforeend",insert_html1));
+    // add output
+    let insert_html2 = `<tr class="table-active anova2_output_col"><td align="center"><strong>[Col ${col_n+1}]</strong></td>`+'<td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2_output">-</strong></td>'.repeat(5)+'</tr>';
+    document.getElementsByClassName('anova2_output_col')[col_n-1].insertAdjacentHTML("afterend",insert_html2);
+  }else if(add==false && row==true){
+    if(row_n>2){
+      document.getElementsByClassName('anova2_input_row')[row_n-1].remove();
+      document.getElementsByClassName('anova2_output_row')[row_n-1].remove();
+    }
+  }else if(add==false && row==false){
+    if(col_n>2){
+      Array.from(document.getElementsByClassName('anova2_input_row')).forEach(elem => elem.lastElementChild.remove());
+      document.getElementsByClassName('anova2_output_col')[col_n-1].remove();
+    }
+  }
+}
+
+function paste_anova2(event){
+  let arrs = clipboard_to_matrix(event);
+  let row_n = document.getElementsByClassName('anova2_input_row').length;
+  let col_n = document.getElementsByClassName('anova2_input_row')[0].children.length;
+  let row_diff = arrs.length - row_n; let col_diff = arrs[0].length - col_n;
+  if(row_diff>=0){
+    for(var i=0;i<row_diff;i++){add_rowcol_anova2(add=true,row=true);}
+  }else{
+    for(var i=0;i<Math.abs(row_diff);i++){add_rowcol_anova2(add=false,row=true);}
+  }
+  if(col_diff>=0){
+    for(var i=0;i<col_diff;i++){add_rowcol_anova2(add=true,row=false);}
+  }else{
+    for(var i=0;i<Math.abs(col_diff);i++){add_rowcol_anova2(add=false,row=false);}
+  }
+  // PASTE
+  let input_rows = document.getElementsByClassName('anova2_input_row');
+  for(var i=0;i<input_rows.length;i++){
+    let inputs = input_rows[i].getElementsByClassName('anova2_input');
+    for(var j=0;j<inputs.length;j++){
+      inputs[j].value = arrs[i][j];
+    }
+  }
+  show_anova2();
+}
+const ELEM_ANOVA2_INPUT = document.getElementById('anova2_input1');
+ELEM_ANOVA2_INPUT.addEventListener("paste" , paste_anova2);
+
+function show_anova2(){
+  // MAKE MATRIX
+  let arrs = [];
+  for(var row of document.getElementsByClassName('anova2_input_row')){
+    arrs.push(Array.from(row.getElementsByClassName('anova2_input')).map(elem => Number(elem.value)));
+  }
+  let cols = transpose(arrs);
+  // SHOW STATS
+  for(var k=0;k<arrs.length;k++){
+    var stats = [arrs[k].length, sum(arrs[k]), mean(arrs[k]), variance(arrs[k]), std(arrs[k])].map(x => round(x,5));
+    for(var i=0;i<5;i++){
+      document.getElementsByClassName('anova2_output_row')[k].children[i+1].firstElementChild.innerText = stats[i];
+    }
+  }
+  for(var k=0;k<cols.length;k++){
+    var stats = [cols[k].length, sum(cols[k]), mean(cols[k]), variance(cols[k]), std(cols[k])].map(x => round(x,5));
+    for(var i=0;i<5;i++){
+      document.getElementsByClassName('anova2_output_col')[k].children[i+1].firstElementChild.innerText = stats[i];
+    }
+  }
+  // RESULTS OF ANOVA
+  [SS_row,df_row,F_row,p_row,SS_col,df_col,F_col,p_col,error,df_error] = anova2(arrs);
+  let result_row = [SS_row,df_row,SS_row/df_row,F_row,p_row].map(x => round(x,5));
+  let result_col = [SS_col,df_col,SS_col/df_col,F_col,p_col].map(x => round(x,5));
+  let result_err = [error,df_error,error/df_error].map(x => round(x,5));
+  for(var i=0;i<5;i++){
+    document.getElementById('anova2_output_result1').children[i+1].firstElementChild.innerText = result_row[i];
+    document.getElementById('anova2_output_result2').children[i+1].firstElementChild.innerText = result_col[i];
+  }
+  for(var i=0;i<3;i++){
+    document.getElementById('anova2_output_result3').children[i+1].firstElementChild.innerText = result_err[i];
+  }
+}
+
+////////////////////  2-way ANOVA REP ////////////////////
+
+function add_rowcol_anova2r(add=true, row=true){
+  let row_n = document.getElementsByClassName('anova2r_input_row').length;
+  let col_n = document.getElementsByClassName('anova2r_input_row')[0].children.length;
+  if(add==true && row==true){
+    // add input row
+    let insert_html1 = '<tr class="anova2r_input_row">'+'<td><input type="text" class="form-control anova2r_input" autocomplete="off"></td>'.repeat(col_n)+'</tr>';
+    document.getElementById('anova2r_table').insertAdjacentHTML("beforeend",insert_html1);
+    // add output
+    let insert_html2 = `<tr class="table-active anova2r_output_row"><td align="center"><strong>[Row ${row_n+1}]</strong></td>`+'<td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>'.repeat(5)+'</tr>';
+    document.getElementsByClassName('anova2r_output_row')[row_n-1].insertAdjacentHTML("afterend",insert_html2);
+  }else if(add==true && row==false){
+    // add input column
+    let insert_html1 = '<td><input type="text" class="form-control anova2r_input" autocomplete="off">';
+    Array.from(document.getElementsByClassName('anova2r_input_row')).forEach(elem => elem.insertAdjacentHTML("beforeend",insert_html1));
+    // add output
+    let insert_html2 = `<tr class="table-active anova2r_output_col"><td align="center"><strong>[Col ${col_n+1}]</strong></td>`+'<td align="center" class="answer" onclick="copy_to_clipboard();" ><strong class="anova2r_output">-</strong></td>'.repeat(5)+'</tr>';
+    document.getElementsByClassName('anova2r_output_col')[col_n-1].insertAdjacentHTML("afterend",insert_html2);
+  }else if(add==false && row==true){
+    if(row_n>2){
+      document.getElementsByClassName('anova2r_input_row')[row_n-1].remove();
+      document.getElementsByClassName('anova2r_output_row')[row_n-1].remove();
+    }
+  }else if(add==false && row==false){
+    if(col_n>2){
+      Array.from(document.getElementsByClassName('anova2r_input_row')).forEach(elem => elem.lastElementChild.remove());
+      document.getElementsByClassName('anova2r_output_col')[col_n-1].remove();
+    }
+  }
+}
+
+function show_anova2r(){
+  // MAKE TENSOR
+  let tensor = [];
+  for(var row of document.getElementsByClassName('anova2r_input_row')){
+    tensor.push(Array.from(row.getElementsByClassName('anova2r_input')).map(elem => elem.value.trim().split(/[,、\s]+/).map(Number)));
+  }
+  let cols = transpose(tensor);
+  [SS_row,df_row,F_row,p_row,SS_col,df_col,F_col,p_col,SS_int,df_int,F_int,p_int,error,df_error] = anova2rep(tensor);
+  // SHOW ROW STATS
+  for(var k=0;k<tensor.length;k++){
+    var stats = round([tensor[k].flat().length, sum(tensor[k].flat()), mean(tensor[k].flat()), variance(tensor[k].flat()), std(tensor[k].flat())], 5);
+    console.log(stats);
+    for(var i=0;i<5;i++){
+      document.getElementsByClassName('anova2r_output_row')[k].children[i+1].firstElementChild.innerText = stats[i];
+    }
+  }
+  // SHOW COLUMN STATS
+  for(var k=0;k<cols.length;k++){
+    var stats = round([cols[k].flat().length, sum(cols[k].flat()), mean(cols[k].flat()), variance(cols[k].flat()), std(cols[k].flat())], 5);
+    for(var i=0;i<5;i++){
+      document.getElementsByClassName('anova2r_output_col')[k].children[i+1].firstElementChild.innerText = stats[i];
+    }
+  }
+  // RESULTS OF ANOVA
+  let result_row = round([SS_row,df_row,SS_row/df_row,F_row,p_row], 5);
+  let result_col = round([SS_col,df_col,SS_col/df_col,F_col,p_col], 5);
+  let result_int = round([SS_int,df_int,SS_int/df_int,F_int,p_int], 5);
+  let result_err = round([error,df_error,error/df_error], 5);
+  for(var i=0;i<5;i++){
+    document.getElementById('anova2r_output_result1').children[i+1].firstElementChild.innerText = result_row[i];
+    document.getElementById('anova2r_output_result2').children[i+1].firstElementChild.innerText = result_col[i];
+    document.getElementById('anova2r_output_result3').children[i+1].firstElementChild.innerText = result_int[i];
+  }
+  for(var i=0;i<3;i++){
+    document.getElementById('anova2r_output_result4').children[i+1].firstElementChild.innerText = result_err[i];
+  }
+}
+
+////////////////////  POISSON & GAMMA  ////////////////////
+
+function show_poisson(){
+  var elem1 = document.getElementById('poisson_input1');
+  var elem2 = document.getElementById('poisson_input2');
+  if(!elem1.classList.contains('is-invalid') && !elem2.classList.contains('is-invalid')){
+    var l = Math.round(elem1.value); var k = Math.round(elem2.value);
+    p = poisson(l,k); cum = poisson_cum(l,k);
+    document.getElementById('poisson_output1').innerText = `P(X=${k})=` + round(p,5);
+    document.getElementById('poisson_output2').innerText = `P(X≥${k})=` + round(cum,5);
+  }
+}
+
+// validate poisson
+document.getElementById('poisson_input1').oninput = validation_poisson;
+document.getElementById('poisson_input2').oninput = validation_poisson;
+function validation_poisson(){
+  var l = document.getElementById('poisson_input1').value;
+  var k = document.getElementById('poisson_input2').value;
+  if(l!='' && Number(l)<0){
+    document.getElementById('poisson_input1').classList.add('is-invalid')
+  }else{
+    document.getElementById('poisson_input1').classList.remove('is-invalid')
+  }
+  if(k!='' && !Number.isInteger(Number(k))){
+    document.getElementById('poisson_input2').classList.add('is-invalid')
+  }else{
+    document.getElementById('poisson_input2').classList.remove('is-invalid')
+  }
+}
+
+
+  // validate gamma
+  document.getElementById('gamma_input1').oninput = validation_gamma;
+  document.getElementById('gamma_input2').oninput = validation_gamma;
+  document.getElementById('gamma_input3').oninput = validation_gamma;
+  function validation_gamma(){
+    var t = document.getElementById('gamma_input1').value;
+    var k = document.getElementById('gamma_input2').value;
+    var x = document.getElementById('gamma_input3').value;
+    if(t='' || Number(t)>=0){
+      document.getElementById('gamma_input1').classList.remove('is-invalid')
+    }else{
+      document.getElementById('gamma_input1').classList.add('is-invalid')
+    }
+    if(k='' || Number(k)>=0){
+      document.getElementById('gamma_input2').classList.remove('is-invalid')
+    }else{
+      document.getElementById('gamma_input2').classList.add('is-invalid')
+    }
+    if(x='' || Number(x)>=0){
+      document.getElementById('gamma_input3').classList.remove('is-invalid')
+    }else{
+      document.getElementById('gamma_input3').classList.add('is-invalid')
+    }
+  }
+  function show_gamma(){
+    var elem1 = document.getElementById('gamma_input1');
+    var elem2 = document.getElementById('gamma_input2');
+    var elem3 = document.getElementById('gamma_input3');
+    if(!elem1.classList.contains('is-invalid') && !elem2.classList.contains('is-invalid') && !elem3.classList.contains('is-invalid')){
+      var t = elem1.value;
+      var k = elem2.value;
+      var x = elem3.value;
+      var gamma_k = gamma(k);
+      var p = x**(k-1)*(Math.E**(-x/t))/gamma_k/(t**k);
+      var cum = incomplete_gamma(k,x/t)/gamma_k;
+      document.getElementById('gamma_output1').innerText = 'P(t) = ' + round(p,5);
+      document.getElementById('gamma_output2').innerText = 'P(x≥t) = ' + round(1-cum,5);
+    }
+  }
+
+
+
+////////////////////  RESET BUTTON  ////////////////////
+
+// focusID(string) - one element to be focused
+// inputIDs(array) - ID of input to be empty string
+// labelIDs(dict) - {ID: innerHTML}
+// labelsclass(dict) - {classname: innerHTML}
+// inputclass(array) - class of input to be empty string
+class ResetBtn{
+  constructor(focusID,inputIDs=[],labelIDs={},labelclass={},inputclass=[]){
+    this.focus = focusID;
+    this.inputIDs = inputIDs;
+    this.labelIDs = labelIDs;
+    this.labelclass = labelclass;
+    this.inputclass = inputclass;
+  }
+  reset(){
+    this.inputIDs.forEach(elemID => document.getElementById(elemID).value=''); 
+    Object.keys(this.labelIDs).forEach(elemID => document.getElementById(elemID).innerHTML=this.labelIDs[elemID]); 
+    for(var label in this.labelclass){ 
+      Array.from(document.getElementsByClassName(label)).forEach(elem => elem.innerHTML = this.labelclass[label]);
+    }
+    for(var input of this.inputclass){
+      Array.from(document.getElementsByClassName(input)).forEach(elem => elem.value = '');
+    }
+    document.getElementById(this.focus).focus(); // focus
+  }
+}
+let reset_base = new ResetBtn('num_to_convert',['num_to_convert'],{"answer":"answer"});
+let reset_gcd = new ResetBtn('gcd_input',['gcd_input'],{'answer_gcd':"answer"});
+let reset_stats = new ResetBtn('stats_input1',['stats_input1','stats_input2'],{},{"stats_output":'-'});
+let reset_ttest = new ResetBtn('ttest_input1',['ttest_input1','ttest_input2'],{},{'ttest_output':'-'});
+let reset_ftest = new ResetBtn('ftest_input1',['ftest_input1','ftest_input2'],{},{'ftest_output':'-'});
+let reset_normality = new ResetBtn('normality_input',['normality_input'],{},{'normality_output':'-'});
+let reset_z2p = new ResetBtn('z2p_input',['z2p_input'],{'z2p_output1':'p(z≤x)','z2p_output2':'p(0≤x≤z)'});
+let reset_p2z = new ResetBtn('p2z_input',['p2z_input'],{'p2z_output1':'z [p(z≤x)]','p2z_output2':'z [p(0≤x≤z)]'});
+let reset_t2p = new ResetBtn('t2p_input_t',['t2p_input_t','t2p_input_df'],{'t2p_output1':'p(t≤x)','t2p_output2':'p(0≤x≤t)'});
+let reset_p2t = new ResetBtn('p2t_input_p',['p2t_input_p','p2t_input_df'],{'p2t_output1':'t [p(t≤x)]','p2t_output2':'t [p(0≤x≤t)]'});
+let reset_chi2p = new ResetBtn('chi2p_input_chi',['chi2p_input_chi','chi2p_input_df'],{'chi2p_output_up':'p(χ<sup>2</sup>≤x)','chi2p_output_low':'p(x≤χ<sup>2</sup>)'});
+let reset_p2chi = new ResetBtn('p2chi_input_p',['p2chi_input_p','p2chi_input_df'],{'p2chi_output_up':'χ<sup>2</sup>','p2chi_output_low':'χ<sup>2</sup>'});
+let reset_f2p = new ResetBtn('f2p_input_f',['f2p_input_f','f2p_input_df'],{'f2p_output_up':'p(F≤x)','f2p_output_low':'p(x≤F)'});
+let reset_p2f = new ResetBtn('p2f_input_p',['p2f_input_p','p2f_input_df'],{'p2f_output_up':'F-value','p2f_output_low':'F-value'});
+let reset_chi2fit = new ResetBtn('chi2fit_input11',[],{},{'chi2fit_output':'-'},['chi2fit_input1','chi2fit_input2']);
+let reset_chi2ind = new ResetBtn('chi2ind_input11',[],{},{'chi2ind_output':'-'},['chi2ind_input']);
+let reset_anova = new ResetBtn('anova_input1',[],{},{'anova_output':'-'},['anova_input'])
+let reset_anova2 = new ResetBtn('anova2_input1',[],{},{'anova2_output':'-'},['anova2_input'])
+let reset_anova2r = new ResetBtn('anova2r_input1',[],{},{'anova2r_output':'-'},['anova2r_input'])
+let reset_poisson = new ResetBtn('poisson_input1',['poisson_input1','poisson_input1'],{'poisson_output1':'P(X=k)','poisson_output1':'P(X≥k)'})
+let reset_gamma = new ResetBtn('gamma_input1',['gamma_input1','gamma_input2','gamma_input3'],{'gamma_output1':'P(t)','gamma_output2':'P(t)'})
+
+////////////////////  SHOW/HIDE FUNCTIONS  ////////////////////
+
+function show_function(){
+  let elem = document.getElementById('functions');
+  elem.style.display = (elem.style.display=='none')? 'block':'none';
+}
+
+
+function show_hide(targetID){
+  let elem = document.getElementById(targetID);
+  if(elem.style.display=='none'){
+    $(elem).show('normal');
+    event.target.innerHTML = event.target.innerHTML.replace('＋', 'ー');
+  }else{
+    $(elem).hide('fast');
+    event.target.innerHTML = event.target.innerHTML.replace('ー', '＋');
+  }
+}
+
+function copy_to_clipboard(onlynumber=true){
+  var temp_elem = document.createElement("textarea");
+  temp_elem.textContent = (onlynumber)? Number(event.target.innerText.split('=').slice(-1)[0]):event.target.innerText;
+  console.log(temp_elem.textContent);
+  var body_elem = document.getElementsByTagName("body")[0];
+  body_elem.appendChild(temp_elem);
+  temp_elem.select();
+  document.execCommand("Copy");
+  temp_elem.remove();
+}
+
+
+/*
+let CLIP = '';
+document.addEventListener("paste", ccc);
+function ccc(event){
+  let clipboardData = event.clipboardData;
+  CLIP = clipboardData.getData("text/plain");
+}
+*/
+
+</script>
+
+</body>
+</html>
