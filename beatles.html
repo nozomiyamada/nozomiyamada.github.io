@@ -1,0 +1,253 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Beatles データベース</title>
+  <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+  <style>
+  iframe {
+    width: 100% !important;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="page-header">
+      <div class="row my-3">
+        <div class="col-12">
+          <h2>Beatles Database</h2>
+          <a href="chorus.html">→ コーラス音源ページ</a>　<a href="https://drive.google.com/drive/folders/168FQpNl4pWatAuLdyxcJAVD6YWNXTDGi" target="_blank">→ Google Drive</a><br>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-lg-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <button class="btn btn-danger" onclick="song_input.value='';song_input.focus();">clear</button>
+          </div>
+          <input type="input-group-text" class="form-control" list="songlist" id="song_input" placeholder="曲名で検索" oninput="make_list(this.value);" onchange="make_data(this.value);">
+          <datalist id="songlist"></datalist>
+        </div>
+      </div>
+      <div class="col-lg-12 mt-3">
+        <div class="card">
+          <div class="card-header">
+            6月以降候補曲＆やりかけ曲
+          </div>
+          <div class="card-body">
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('All I\'ve Got To Do')">All I've Got To Do</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('Dig A Pony')">Dig A Pony</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('Eight Days A Week')">Eight Days A Week</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('Hey Jude')">Hey Jude</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('I Call Your Name')">I Call Your Name</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('I\'ve Got A Feeling')">I've Got A Feeling</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('Let It Be')">Let It Be</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('No Reply')">No Reply</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('Nowhere Man')">Nowhere Man</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('Ob-La-Di, Ob-La-Da')">Ob-La-Di, Ob-La-Da</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('Paperback Writer')">Paperback Writer</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('Revolution')">Revolution</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('Sgt. Pepper\'s Lonely Hearts Club Band')">Sgt. Pepper's Lonely Hearts Club Band</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('She Said She Said')">She Said She Said</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('She\'s A Woman')">She's A Woman</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('Something')">Something</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('The Night Before')">The Night Before</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('Till There Was You')">Till There Was You</button>
+            <button type="button" class="btn btn-info mb-1" onclick="make_data('With A Little Help From My Friends')">With A Little Help From My Friends</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            過去曲
+          </div>
+          <div class="card-body">
+            
+            
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('A Hard Day\'s Night')">A Hard Day's Night</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('All My Loving')">All My Loving</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Baby\'s In Black')">Baby's In Black</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Back In The U.S.S.R.')">Back In The U.S.S.R.</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Birthday')">Birthday</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Can\'t Buy Me Love')">Can't Buy Me Love</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Come Together')">Come Together</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Day Tripper')">Day Tripper</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Don\'t Let Me Down')">Don't Let Me Down</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Drive My Car')">Drive My Car</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Get Back');">Get Back</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Help!')">Help!</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Hey Bulldog')">Hey Bulldog</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('I Feel Fine')">I Feel Fine</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('I Saw Her Standing There')">I Saw Her Standing There</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('I Want To Hold Your Hand')">I Want To Hold Your Hand</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('If I Fell')">If I Fell</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('In My Life')">In My Life</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Lady Madonna')">Lady Madonna</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Norwegian Wood')">Norwegian Wood</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('One After 909')">One After 909</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Penny Lane')">Penny Lane</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Please Mister Postman')">Please Mister Postman</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Please Please Me')">Please Please Me</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('She Loves You')">She Loves You</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Ticket To Ride')">Ticket To Ride</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('Two Of Us')">Two Of Us</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('We Can Work It Out')">We Can Work It Out</button>
+            <button type="button" class="btn btn-primary mb-1" onclick="make_data('You Can\'t Do That')">You Can't Do That</button>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            デュオレパートリー
+          </div>
+          <div class="card-body">
+            <details>
+              <summary>Open</summary>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('A Hard Day\'s Night')">A Hard Day's Night</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Across The Universe')">Across The Universe</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('All My Loving')">All My Loving</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('All Together Now')">All Together Now</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('And I Love Her')">And I Love Her</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Baby\'s In Black')">Baby's In Black</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Blackbird')">Blackbird</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Can\'t Buy Me Love')">Can't Buy Me Love</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Eight Days A Week')">Eight Days A Week</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('From Me To You')">From Me To You</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Help!')">Help!</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Here Comes The Sun')">Here Comes The Sun</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('I Feel Fine')">I Feel Fine</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('I Should Have Known Better')">I Should Have Known Better</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('If I Fell')">If I Fell</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('If I Needed Someone')">If I Needed Someone</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('I\'ll Be Back')">I'll Be Back</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('I\'ll Follow The Sun')">I'll Follow The Sun</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Let It Be')">Let It Be</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Michelle')">Michelle</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('No Reply')">No Reply</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Norwegian Wood')">Norwegian Wood</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Nowhere Man')">Nowhere Man</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('She Loves You')">She Loves You</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('This Boy')">This Boy</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Things We Said Today')">Things We Said Today</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('The Night Before')">The Night Before</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Ticket To Ride')">Ticket To Ride</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Two Of Us')">Two Of Us</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('We Can Work It Out')">We Can Work It Out</button>
+              <button type="button" class="btn btn-warning mb-1" onclick="make_data('Yes It Is')">Yes It Is</button>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-lg-12" id="vue_songdata">
+        <h3>{{song}} ({{album}}, {{year}})</h3>
+        BPM：{{bpm}}<br>
+        ボーカル：{{vocal}}<br>
+        コーラス：{{chorus}}<br>
+        使用楽器：{{instruments}}<br>
+        曲データ：<a v-bind:href="url" target="_blank">{{url}}</a><br>
+        ボーカル動画：<a v-bind:href="yt_vocal" target="_blank">{{yt_vocal}}</a><br><br>
+        <div id="spotify"></div><br>
+        <div id="player"></div><br>
+        <div v-html="lyrics"></div><br>
+        <div id="bandscore"></div><br>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script src="js/beatles.js"></script>
+  <script>
+
+    var vue = new Vue({
+      el: "#vue_songdata",
+      data: {
+        song: 'song',
+        album: 'album',
+        year: 'year',
+        vocal: '',
+        chorus: '',
+        url: 'https://beatlesdata.info/',
+        yt_vocal: '',
+        lyrics: ''
+      }
+    }) 
+
+    function make_list(present_input){
+      songlist.innerHTML = ""; // initialize
+      present_input = present_input.replace(/[’]/g, "'");
+      song_input.value = present_input;
+      input_replaced = present_input.toLowerCase();
+      // get present input
+      if(input_replaced.length >= 1){
+        var num_candidate = 0; 
+        for(var song of SONGNAMES){
+          song_replaced = song.toLowerCase();
+          pattern1 = new RegExp("^" + input_replaced); // initial match
+          if(song_replaced.match(pattern1)){
+            songlist.innerHTML += `<option value="${song}">${song}</option>`;
+            num_candidate += 1;
+            if(num_candidate >= 10){break;} // show only 10 candidates
+          }
+        }
+        for(var song of SONGNAMES){
+          song_replaced = song.toLowerCase();
+          pattern2 = new RegExp("^.+" + input_replaced); // non-initial match
+          if(song_replaced.match(pattern2)){
+            songlist.innerHTML += `<option value="${song}">${song}</option>`;
+            num_candidate += 1;
+            if(num_candidate >= 10){break;} // show only 10 candidates
+          }
+        }
+      }
+    }
+
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          width: '100%',
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+    function make_data(input){
+      if(input in SONGDATA){
+        song_input.value = input; // change the input form
+        data = SONGDATA[input];
+        vue.song = input;
+        vue.album = data[0]
+        vue.year = data[1];
+        vue.bpm = data[2];
+        vue.vocal = data[3];
+        vue.chorus = data[4];
+        vue.instruments = data[7];
+        vue.url = data[5];
+        vue.yt_vocal = (data[6]=='')? '' : 'https://youtu.be/' + data[6];
+        player.cueVideoById({videoId: data[8]}); // instrumental youtube
+        spotify.innerHTML = `<audio controls id="audioplayer"><source src="music/${input}.mp3"></audio><iframe width="100%" src="https://open.spotify.com/embed/track/${data[9]}" allow="autoplay; clipboard-write; encrypted-media; fullscreen"></iframe>`
+        vue.lyrics = data[10];
+        bandscore.innerHTML = (PDFs.includes(input))? `<iframe src="music/scores/${input}.pdf" width="100%" height="1200"></iframe>` : '';       
+        audioplayer.focus();
+      } 
+    }
+
+  </script>
+</body>
+</html>

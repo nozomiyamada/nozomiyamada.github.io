@@ -1,0 +1,21 @@
+body{
+	font-family: 'Nunito', 'Roboto', 'Sarabun', 'M PLUS Rounded 1c', sans-serif;
+	scroll-behavior: smooth;
+}
+
+h2{
+	color: darkblue;
+}
+
+h2:hover{cursor: pointer;}
+.blue{color: #2b7cff}
+.red{color: indianred}
+.pointer:hover{cursor: pointer;}
+.answer:hover{cursor: pointer;}
+
+.org {color:blue}
+.colorC {color:blue}
+.plc {color:orange}
+.colorL {color:orange}
+.per {color:darkgreen}
+.colorN {color:darkgreen}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>PA3 Chatbot</title>
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <style type="text/css">
+  .bs-component + .bs-component {
+    margin-top: 1rem;
+  }
+  @media (min-width: 768px) {
+    .bs-docs-section {
+      margin-top: 8em;
+    }
+    .bs-component {
+      position: relative;
+    }
+    .bs-component .modal {
+      position: relative;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      left: auto;
+      z-index: 1;
+      display: block;
+    }
+    .bs-component .modal-dialog {
+      width: 90%;
+    }
+    .bs-component .popover {
+      position: relative;
+      display: inline-block;
+      width: 220px;
+      margin: 20px;
+    }
+    .nav-tabs {
+      margin-bottom: 15px;
+    }
+    .progress {
+      margin-bottom: 10px;
+    }
+  }
+  </style>
+  <script src="./js/eliza.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    function response(input_text){
+      var response = select_res(input_text);
+      var target = document.getElementById("result");
+      
+      target.innerHTML += `>>>${input_text}\n(${response[0]}) ${response[1]}\n`; // append response
+      document.getElementById("text").value = ""; // clear input form
+      
+      let row_length = Number(target.getAttribute("rows"));
+      while(target.scrollHeight > target.offsetHeight){
+        row_length++;
+        target.setAttribute("rows", row_length)
+      }
+      return false;
+    }
+    function reset_res(){
+      document.getElementById("result").innerHTML = "";
+      document.getElementById("result").setAttribute("rows", 10);
+      document.getElementById("text").value = "";
+    }
+  </script>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="page-header" id="banner">
+    <div class="row my-4">
+      <div class="col-12">
+        <h3 class="display-5">PA3: Chatbot</h3>
+        สามารถทดสอบได้โดยไม่ต้องเปิด python console<br />
+        >>> <a href="https://docs.google.com/document/d/1AlfNAr1aDG0KgSsbYUOcOVpzQBgC-RomEbFRfZHKUbc/" target="_blank">PA3 Instruction (Google Doc)</a><br />
+        priority of responses:
+        <ol>
+          <li>Canned question-response</li>
+          <li>Yes/No question</li>
+          <li>Keyword to canned response</li>
+          <li>Reflecting</li>
+          <li>Give up</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card text-white bg-info mb-3">
+        <div class="card-header">
+            <textarea class="form-control" id="result" rows="10" readonly></textarea>
+        </div>
+        <div class="card-body">
+          <form name="input_form" onsubmit="return response(text.value);">
+              <p>
+                INPUT: <input type="text" class="form-control form-control-sm" placeholder="enter message" id="text" autocomplete="off"><br />
+                <input type="reset" class="btn btn-secondary" value='Reset' onClick="reset_res();">
+              </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
