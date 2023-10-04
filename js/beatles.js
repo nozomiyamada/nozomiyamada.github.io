@@ -259,6 +259,7 @@ const PDFs = [
 	"Getting Better",
 	"Good Day Sunshine",
 	"Got To Get You Into My Life",
+	"Happiness Is A Warm Gun",
 	"Hello, Goodbye",
 	"Help!",
 	"Helter Skelter",
@@ -326,6 +327,7 @@ const PDFs = [
 	"Tell Me Why",
 	"The Ballad Of John And Yoko",
 	"The Night Before",
+	"The Word",
 	"Things We Said Today",
 	"Think For Yourself",
 	"This Boy",
@@ -334,6 +336,7 @@ const PDFs = [
 	"Twist And Shout",
 	"Two Of Us",
 	"We Can Work It Out",
+	"When I Get Home",
 	"When I'm Sixty-Four",
 	"While My Guitar Gently Weeps",
 	"With A Little Help From My Friends",
@@ -344,6 +347,8 @@ const PDFs = [
 	"You Really Got A Hold On Me",
 	"You Won't See Me",
 	"You're Going To Lose That Girl",
+	"You've Got To Hide Your Love Away",
+	"You've Really Got A Hold On Me",
 	"Your Mother Should Know",
 ]
 
