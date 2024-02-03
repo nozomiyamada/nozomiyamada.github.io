@@ -13,9 +13,7 @@
   iframe {
     width: 100% !important;
   }
-  .played {color: red; font-weight: bold; cursor: pointer;}
-  .notplayed {color: black; font-weight: bold; cursor: pointer;}
-  .duoplayed {color: blue; font-weight: bold; cursor: pointer;}
+  li {color: black; font-weight: bold; cursor: pointer;}
   </style>
 </head>
 
@@ -40,30 +38,29 @@
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-lg-4 mt-3">
         <div class="card">
           <div class="card-header">
             <h5>Please Please Me</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/pleasepleaseme.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="played" onclick="make_data('I Saw Her Standing There')">I Saw Her Standing There</li>
-                <li class="notplayed" onclick="make_data('Misery')">Misery</li>
-                <li class="notplayed" onclick="make_data('Anna (Go To Him)')">Anna (Go To Him)</li>
-                <li class="notplayed" onclick="make_data('Chains')">Chains</li>
-                <li class="notplayed" onclick="make_data('Boys')">Boys</li>
-                <li class="duoplayed" onclick="make_data('Ask Me Why')">Ask Me Why</li>
-                <li class="played" onclick="make_data('Please Please Me')">Please Please Me</li>
-                <li class="notplayed" onclick="make_data('Love Me Do')">Love Me Do</li>
-                <li class="notplayed" onclick="make_data('P.S. I Love You')">P.S. I Love You</li>
-                <li class="notplayed" onclick="make_data('Baby It\'s You')">Baby It's You</li>
-                <li class="notplayed" onclick="make_data('Do You Want To Know A Secret')">Do You Want To Know A Secret</li>
-                <li class="notplayed" onclick="make_data('A Taste Of Honey')">A Taste Of Honey</li>
-                <li class="notplayed" onclick="make_data('There\'s A Place')">There's A Place</li>
-                <li class="notplayed" onclick="make_data('Twist And Shout')">Twist And Shout</li>
+                <li onclick="make_data('I Saw Her Standing There')">I Saw Her Standing There</li>
+                <li onclick="make_data('Misery')">Misery</li>
+                <li onclick="make_data('Anna (Go To Him)')">Anna (Go To Him)</li>
+                <li onclick="make_data('Chains')">Chains</li>
+                <li onclick="make_data('Boys')">Boys</li>
+                <li onclick="make_data('Ask Me Why')">Ask Me Why</li>
+                <li onclick="make_data('Please Please Me')">Please Please Me</li>
+                <li onclick="make_data('Love Me Do')">Love Me Do</li>
+                <li onclick="make_data('P.S. I Love You')">P.S. I Love You</li>
+                <li onclick="make_data('Baby It\'s You')">Baby It's You</li>
+                <li onclick="make_data('Do You Want To Know A Secret')">Do You Want To Know A Secret</li>
+                <li onclick="make_data('A Taste Of Honey')">A Taste Of Honey</li>
+                <li onclick="make_data('There\'s A Place')">There's A Place</li>
+                <li onclick="make_data('Twist And Shout')">Twist And Shout</li>
               </ol>
             </details>
           </div>
@@ -73,25 +70,23 @@
         <div class="card">
           <div class="card-header">
             <h5>With The Bealtes</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/withthebeatles.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="notplayed" onclick="make_data('It Won\'t Be Long')">It Won't Be Long</li>
-                <li class="duoplayed" onclick="make_data('All I\'ve Got To Do')">All I've Got To Do</li>
-                <li class="played" onclick="make_data('All My Loving')">All My Loving</li>
-                <li class="notplayed" onclick="make_data('Don\'t Bother Me')">Don't Bother Me</li>
-                <li class="notplayed" onclick="make_data('Little Child')">Little Child</li>
-                <li class="played" onclick="make_data('Till There Was You')">Till There Was You</li>
-                <li class="played" onclick="make_data('Please Mister Postman')">Please Mister Postman</li>
-                <li class="notplayed" onclick="make_data('Roll Over Beethoven')">Roll Over Beethoven</li>
-                <li class="notplayed" onclick="make_data('Hold Me Tight')">Hold Me Tight</li>
-                <li class="notplayed" onclick="make_data('You Really Got A Hold On Me')">You Really Got A Hold On Me</li>
-                <li class="notplayed" onclick="make_data('I Wanna Be Your Man')">I Wanna Be Your Man</li>
-                <li class="notplayed" onclick="make_data('Devil In Her Heart')">Devil In Her Heart</li>
-                <li class="notplayed" onclick="make_data('Not A Second Time')">Not A Second Time</li>
-                <li class="notplayed" onclick="make_data('Money (That\'s What I Want)')">Money (That's What I Want)</li>
+                <li onclick="make_data('It Won\'t Be Long')">It Won't Be Long</li>
+                <li onclick="make_data('All I\'ve Got To Do')">All I've Got To Do</li>
+                <li onclick="make_data('All My Loving')">All My Loving</li>
+                <li onclick="make_data('Don\'t Bother Me')">Don't Bother Me</li>
+                <li onclick="make_data('Little Child')">Little Child</li>
+                <li onclick="make_data('Till There Was You')">Till There Was You</li>
+                <li onclick="make_data('Please Mister Postman')">Please Mister Postman</li>
+                <li onclick="make_data('Roll Over Beethoven')">Roll Over Beethoven</li>
+                <li onclick="make_data('Hold Me Tight')">Hold Me Tight</li>
+                <li onclick="make_data('You Really Got A Hold On Me')">You Really Got A Hold On Me</li>
+                <li onclick="make_data('I Wanna Be Your Man')">I Wanna Be Your Man</li>
+                <li onclick="make_data('Devil In Her Heart')">Devil In Her Heart</li>
+                <li onclick="make_data('Not A Second Time')">Not A Second Time</li>
+                <li onclick="make_data('Money (That\'s What I Want)')">Money (That's What I Want)</li>
               </ol>
             </details>
           </div>
@@ -101,24 +96,22 @@
         <div class="card">
           <div class="card-header">
             <h5>A Hard Day's Night</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/aharddaysnight.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="played" onclick="make_data('A Hard Day\'s Night')">A Hard Day's Night</li>
-                <li class="duoplayed" onclick="make_data('I Should Have Known Better')">I Should Have Known Better</li>
-                <li class="played" onclick="make_data('If I Fell')">If I Fell</li>
-                <li class="notplayed" onclick="make_data('I\'m Happy Just To Dance With You')">I'm Happy Just To Dance With You</li>
-                <li class="duoplayed" onclick="make_data('And I Love Her')">And I Love Her</li>
-                <li class="duoplayed" onclick="make_data('Tell Me Why')">Tell Me Why</li>
-                <li class="played" onclick="make_data('Can\'t Buy Me Love')">Can't Buy Me Love</li>
-                <li class="notplayed" onclick="make_data('Any Time At All')">Any Time At All</li>
-                <li class="notplayed" onclick="make_data('I\'ll Cry Instead')">I'll Cry Instead</li>
-                <li class="duoplayed" onclick="make_data('Things We Said Today')">Things We Said Today</li>
-                <li class="notplayed" onclick="make_data('When I Get Home')">When I Get Home</li>
-                <li class="played" onclick="make_data('You Can\'t Do That')">You Can't Do That</li>
-                <li class="duoplayed" onclick="make_data('I\'ll Be Back')">I'll Be Back</li>
+                <li onclick="make_data('A Hard Day\'s Night')">A Hard Day's Night</li>
+                <li onclick="make_data('I Should Have Known Better')">I Should Have Known Better</li>
+                <li onclick="make_data('If I Fell')">If I Fell</li>
+                <li onclick="make_data('I\'m Happy Just To Dance With You')">I'm Happy Just To Dance With You</li>
+                <li onclick="make_data('And I Love Her')">And I Love Her</li>
+                <li onclick="make_data('Tell Me Why')">Tell Me Why</li>
+                <li onclick="make_data('Can\'t Buy Me Love')">Can't Buy Me Love</li>
+                <li onclick="make_data('Any Time At All')">Any Time At All</li>
+                <li onclick="make_data('I\'ll Cry Instead')">I'll Cry Instead</li>
+                <li onclick="make_data('Things We Said Today')">Things We Said Today</li>
+                <li onclick="make_data('When I Get Home')">When I Get Home</li>
+                <li onclick="make_data('You Can\'t Do That')">You Can't Do That</li>
+                <li onclick="make_data('I\'ll Be Back')">I'll Be Back</li>
               </ol>
             </details>
           </div>
@@ -131,25 +124,23 @@
         <div class="card">
           <div class="card-header">
             <h5>Beatles For Sale</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/forsale.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="played" onclick="make_data('No Reply')">No Reply</li>
-                <li class="notplayed" onclick="make_data('I\'m A Loser')">I'm A Loser</li>
-                <li class="played" onclick="make_data('Baby\'s In Black')">Baby's In Black</li>
-                <li class="notplayed" onclick="make_data('Rock And Roll Music')">Rock And Roll Music</li>
-                <li class="duoplayed" onclick="make_data('I\'ll Follow The Sun')">I'll Follow The Sun</li>
-                <li class="notplayed" onclick="make_data('Mr. Moonlight')">Mr. Moonlight</li>
-                <li class="notplayed" onclick="make_data('Kansas City | Hey-Hey-Hey-Hey')">Kansas City | Hey-Hey-Hey-Hey</li>
-                <li class="played" onclick="make_data('Eight Days A Week')">Eight Days A Week</li>
-                <li class="notplayed" onclick="make_data('Words Of Love')">Words Of Love</li>
-                <li class="notplayed" onclick="make_data('Honey Don\'t')">Honey Don't</li>
-                <li class="notplayed" onclick="make_data('Every Little Thing')">Every Little Thing</li>
-                <li class="notplayed" onclick="make_data('I Don\'t Want To Spoil The Party')">I Don't Want To Spoil The Party</li>
-                <li class="notplayed" onclick="make_data('What You\'re Doing')">What You're Doing</li>
-                <li class="duoplayed" onclick="make_data('Everybody\'s Trying To Be My Baby')">Everybody's Trying To Be My Baby</li>
+                <li onclick="make_data('No Reply')">No Reply</li>
+                <li onclick="make_data('I\'m A Loser')">I'm A Loser</li>
+                <li onclick="make_data('Baby\'s In Black')">Baby's In Black</li>
+                <li onclick="make_data('Rock And Roll Music')">Rock And Roll Music</li>
+                <li onclick="make_data('I\'ll Follow The Sun')">I'll Follow The Sun</li>
+                <li onclick="make_data('Mr. Moonlight')">Mr. Moonlight</li>
+                <li onclick="make_data('Kansas City | Hey-Hey-Hey-Hey')">Kansas City | Hey-Hey-Hey-Hey</li>
+                <li onclick="make_data('Eight Days A Week')">Eight Days A Week</li>
+                <li onclick="make_data('Words Of Love')">Words Of Love</li>
+                <li onclick="make_data('Honey Don\'t')">Honey Don't</li>
+                <li onclick="make_data('Every Little Thing')">Every Little Thing</li>
+                <li onclick="make_data('I Don\'t Want To Spoil The Party')">I Don't Want To Spoil The Party</li>
+                <li onclick="make_data('What You\'re Doing')">What You're Doing</li>
+                <li onclick="make_data('Everybody\'s Trying To Be My Baby')">Everybody's Trying To Be My Baby</li>
               </ol>
             </details>
           </div>
@@ -159,25 +150,23 @@
         <div class="card">
           <div class="card-header">
             <h5>Help!</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/help.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="played" onclick="make_data('Help!')">Help!</li>
-                <li class="duoplayed" onclick="make_data('The Night Before')">The Night Before</li>
-                <li class="notplayed" onclick="make_data('You\'ve Got To Hide Your Love Away')">You've Got To Hide Your Love Away</li>
-                <li class="notplayed" onclick="make_data('I Need You')">I Need You</li>
-                <li class="notplayed" onclick="make_data('Another Girl')">Another Girl</li>
-                <li class="duoplayed" onclick="make_data('You\'re Going To Lose That Girl')">You're Going To Lose That Girl</li>
-                <li class="played" onclick="make_data('Ticket To Ride')">Ticket To Ride</li>
-                <li class="notplayed" onclick="make_data('Act Naturally')">Act Naturally</li>
-                <li class="notplayed" onclick="make_data('It\'s Only Love')">It's Only Love</li>
-                <li class="notplayed" onclick="make_data('You Like Me Too Much')">You Like Me Too Much</li>
-                <li class="notplayed" onclick="make_data('Tell Me What You See')">Tell Me What You See</li>
-                <li class="notplayed" onclick="make_data('I\'ve Just Seen a Face')">I've Just Seen a Face</li>
-                <li class="notplayed" onclick="make_data('Yesterday')">Yesterday</li>
-                <li class="notplayed" onclick="make_data('Dizzy Miss Lizzy')">Dizzy Miss Lizzy</li>
+                <li onclick="make_data('Help!')">Help!</li>
+                <li onclick="make_data('The Night Before')">The Night Before</li>
+                <li onclick="make_data('You\'ve Got To Hide Your Love Away')">You've Got To Hide Your Love Away</li>
+                <li onclick="make_data('I Need You')">I Need You</li>
+                <li onclick="make_data('Another Girl')">Another Girl</li>
+                <li onclick="make_data('You\'re Going To Lose That Girl')">You're Going To Lose That Girl</li>
+                <li onclick="make_data('Ticket To Ride')">Ticket To Ride</li>
+                <li onclick="make_data('Act Naturally')">Act Naturally</li>
+                <li onclick="make_data('It\'s Only Love')">It's Only Love</li>
+                <li onclick="make_data('You Like Me Too Much')">You Like Me Too Much</li>
+                <li onclick="make_data('Tell Me What You See')">Tell Me What You See</li>
+                <li onclick="make_data('I\'ve Just Seen A Face')">I've Just Seen A Face</li>
+                <li onclick="make_data('Yesterday')">Yesterday</li>
+                <li onclick="make_data('Dizzy Miss Lizzy')">Dizzy Miss Lizzy</li>
               </ol>
             </details>
           </div>
@@ -187,25 +176,23 @@
         <div class="card">
           <div class="card-header">
             <h5>Rubber Soul</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/rubbersoul.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="played" onclick="make_data('Drive My Car')">Drive My Car</li>
-                <li class="played" onclick="make_data('Norwegian Wood')">Norwegian Wood</li>
-                <li class="duoplayed" onclick="make_data('You Won\'t See Me')">You Won't See Me</li>
-                <li class="played" onclick="make_data('Nowhere Man')">Nowhere Man</li>
-                <li class="notplayed" onclick="make_data('Think For Yourself')">Think For Yourself</li>
-                <li class="notplayed" onclick="make_data('The Word')">The Word</li>
-                <li class="notplayed" onclick="make_data('Michelle')">Michelle</li>
-                <li class="notplayed" onclick="make_data('What Goes On')">What Goes On</li>
-                <li class="notplayed" onclick="make_data('Girl')">Girl</li>
-                <li class="notplayed" onclick="make_data('I\'m Looking Through You')">I'm Looking Through You</li>
-                <li class="played" onclick="make_data('In My Life')">In My Life</li>
-                <li class="notplayed" onclick="make_data('Wait')">Wait</li>
-                <li class="duoplayed" onclick="make_data('If I Needed Someone')">If I Needed Someone</li>
-                <li class="notplayed" onclick="make_data('Run For Your Life')">Run For Your Life</li>
+                <li onclick="make_data('Drive My Car')">Drive My Car</li>
+                <li onclick="make_data('Norwegian Wood')">Norwegian Wood</li>
+                <li onclick="make_data('You Won\'t See Me')">You Won't See Me</li>
+                <li onclick="make_data('Nowhere Man')">Nowhere Man</li>
+                <li onclick="make_data('Think For Yourself')">Think For Yourself</li>
+                <li onclick="make_data('The Word')">The Word</li>
+                <li onclick="make_data('Michelle')">Michelle</li>
+                <li onclick="make_data('What Goes On')">What Goes On</li>
+                <li onclick="make_data('Girl')">Girl</li>
+                <li onclick="make_data('I\'m Looking Through You')">I'm Looking Through You</li>
+                <li onclick="make_data('In My Life')">In My Life</li>
+                <li onclick="make_data('Wait')">Wait</li>
+                <li onclick="make_data('If I Needed Someone')">If I Needed Someone</li>
+                <li onclick="make_data('Run For Your Life')">Run For Your Life</li>
               </ol>
             </details>
           </div>
@@ -218,25 +205,23 @@
         <div class="card">
           <div class="card-header">
             <h5>Revolver</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/revolver.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="notplayed" onclick="make_data('Taxman')">Taxman</li>
-                <li class="notplayed" onclick="make_data('Eleanor Rigby')">Eleanor Rigby</li>
-                <li class="notplayed" onclick="make_data('I\'m Only Sleeping')">I'm Only Sleeping</li>
-                <li class="notplayed" onclick="make_data('Love You To')">Love You To</li>
-                <li class="played" onclick="make_data('Here, There And Everywhere')">Here, There And Everywhere</li>
-                <li class="notplayed" onclick="make_data('Yellow Submarine')">Yellow Submarine</li>
-                <li class="notplayed" onclick="make_data('She Said She Said')">She Said She Said</li>
-                <li class="notplayed" onclick="make_data('Good Day Sunshine')">Good Day Sunshine</li>
-                <li class="notplayed" onclick="make_data('And Your Bird Can Sing')">And Your Bird Can Sing</li>
-                <li class="notplayed" onclick="make_data('For No One')">For No One</li>
-                <li class="notplayed" onclick="make_data('Doctor Robert')">Doctor Robert</li>
-                <li class="notplayed" onclick="make_data('I Want To Tell You')">I Want To Tell You</li>
-                <li class="notplayed" onclick="make_data('Got To Get You Into My Life')">Got To Get You Into My Life</li>
-                <li class="notplayed" onclick="make_data('Tomorrow Never Knows')">Tomorrow Never Knows</li>
+                <li onclick="make_data('Taxman')">Taxman</li>
+                <li onclick="make_data('Eleanor Rigby')">Eleanor Rigby</li>
+                <li onclick="make_data('I\'m Only Sleeping')">I'm Only Sleeping</li>
+                <li onclick="make_data('Love You To')">Love You To</li>
+                <li onclick="make_data('Here, There And Everywhere')">Here, There And Everywhere</li>
+                <li onclick="make_data('Yellow Submarine')">Yellow Submarine</li>
+                <li onclick="make_data('She Said She Said')">She Said She Said</li>
+                <li onclick="make_data('Good Day Sunshine')">Good Day Sunshine</li>
+                <li onclick="make_data('And Your Bird Can Sing')">And Your Bird Can Sing</li>
+                <li onclick="make_data('For No One')">For No One</li>
+                <li onclick="make_data('Doctor Robert')">Doctor Robert</li>
+                <li onclick="make_data('I Want To Tell You')">I Want To Tell You</li>
+                <li onclick="make_data('Got To Get You Into My Life')">Got To Get You Into My Life</li>
+                <li onclick="make_data('Tomorrow Never Knows')">Tomorrow Never Knows</li>
               </ol>
             </details>
           </div>
@@ -246,24 +231,22 @@
         <div class="card">
           <div class="card-header">
             <h5>Sgt.Pepper's</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/sgtpeppers.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="played" onclick="make_data('Sgt. Pepper\'s Lonely Hearts Club Band')">Sgt. Pepper's Lonely Hearts Club Band</li>
-                <li class="played" onclick="make_data('With A Little Help From My Friends')">With A Little Help From My Friends</li>
-                <li class="notplayed" onclick="make_data('Lucy In The Sky With Diamonds')">Lucy In The Sky With Diamonds</li>
-                <li class="notplayed" onclick="make_data('Getting Better')">Getting Better</li>
-                <li class="notplayed" onclick="make_data('Fixing A Hole')">Fixing A Hole</li>
-                <li class="notplayed" onclick="make_data('She\'s Leaving Home')">She's Leaving Home</li>
-                <li class="notplayed" onclick="make_data('Being For The Benefit Of Mr Kite!')">Being For The Benefit Of Mr Kite!</li>
-                <li class="notplayed" onclick="make_data('Within You Without You')">Within You Without You</li>
-                <li class="notplayed" onclick="make_data('When I\'m Sixty-Four')">When I'm Sixty-Four</li>
-                <li class="notplayed" onclick="make_data('Lovely Rita')">Lovely Rita</li>
-                <li class="notplayed" onclick="make_data('Good Morning Good Morning')">Good Morning Good Morning</li>
-                <li class="notplayed" onclick="make_data('Sgt. Pepper\'s Lonely Hearts Club Band (Reprise)')">Sgt. Pepper's Lonely Hearts Club Band (Reprise)</li>
-                <li class="duoplayed" onclick="make_data('A Day In The Life')">A Day In The Life</li>
+                <li onclick="make_data('Sgt. Pepper\'s Lonely Hearts Club Band')">Sgt. Pepper's Lonely Hearts Club Band</li>
+                <li onclick="make_data('With A Little Help From My Friends')">With A Little Help From My Friends</li>
+                <li onclick="make_data('Lucy In The Sky With Diamonds')">Lucy In The Sky With Diamonds</li>
+                <li onclick="make_data('Getting Better')">Getting Better</li>
+                <li onclick="make_data('Fixing A Hole')">Fixing A Hole</li>
+                <li onclick="make_data('She\'s Leaving Home')">She's Leaving Home</li>
+                <li onclick="make_data('Being For The Benefit Of Mr Kite!')">Being For The Benefit Of Mr Kite!</li>
+                <li onclick="make_data('Within You Without You')">Within You Without You</li>
+                <li onclick="make_data('When I\'m Sixty-Four')">When I'm Sixty-Four</li>
+                <li onclick="make_data('Lovely Rita')">Lovely Rita</li>
+                <li onclick="make_data('Good Morning Good Morning')">Good Morning Good Morning</li>
+                <li onclick="make_data('Sgt. Pepper\'s Lonely Hearts Club Band (Reprise)')">Sgt. Pepper's Lonely Hearts Club Band (Reprise)</li>
+                <li onclick="make_data('A Day In The Life')">A Day In The Life</li>
               </ol>
             </details>
           </div>
@@ -273,22 +256,20 @@
         <div class="card">
           <div class="card-header">
             <h5>Magical Mystery Tour</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/magicalmystery.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="notplayed" onclick="make_data('Magical Mystery Tour')">Magical Mystery Tour</li>
-                <li class="notplayed" onclick="make_data('The Fool On The Hill')">The Fool On The Hill</li>
-                <li class="notplayed" onclick="make_data('Flying')">Flying</li>
-                <li class="notplayed" onclick="make_data('Blue Jay Way')">Blue Jay Way</li>
-                <li class="notplayed" onclick="make_data('Your Mother Should Know')">Your Mother Should Know</li>
-                <li class="notplayed" onclick="make_data('I Am The Walrus')">I Am The Walrus</li>
-                <li class="notplayed" onclick="make_data('Hello, Goodbye')">Hello, Goodbye</li>
-                <li class="notplayed" onclick="make_data('Strawberry Fields Forever')">Strawberry Fields Forever</li>
-                <li class="played" onclick="make_data('Penny Lane')">Penny Lane</li>
-                <li class="notplayed" onclick="make_data('Baby You\'re A Rich Man')">Baby You're A Rich Man</li>
-                <li class="notplayed" onclick="make_data('All You Need Is Love')">All You Need Is Love</li>
+                <li onclick="make_data('Magical Mystery Tour')">Magical Mystery Tour</li>
+                <li onclick="make_data('The Fool On The Hill')">The Fool On The Hill</li>
+                <li onclick="make_data('Flying')">Flying</li>
+                <li onclick="make_data('Blue Jay Way')">Blue Jay Way</li>
+                <li onclick="make_data('Your Mother Should Know')">Your Mother Should Know</li>
+                <li onclick="make_data('I Am The Walrus')">I Am The Walrus</li>
+                <li onclick="make_data('Hello, Goodbye')">Hello, Goodbye</li>
+                <li onclick="make_data('Strawberry Fields Forever')">Strawberry Fields Forever</li>
+                <li onclick="make_data('Penny Lane')">Penny Lane</li>
+                <li onclick="make_data('Baby You\'re A Rich Man')">Baby You're A Rich Man</li>
+                <li onclick="make_data('All You Need Is Love')">All You Need Is Love</li>
               </ol>
             </details>
           </div>
@@ -301,43 +282,41 @@
         <div class="card">
           <div class="card-header">
             <h5>White Album</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/whitealbum.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="played" onclick="make_data('Back In The U.S.S.R.')">Back In The U.S.S.R.</li>
-                <li class="notplayed" onclick="make_data('Dear Prudence')">Dear Prudence</li>
-                <li class="notplayed" onclick="make_data('Glass Onion')">Glass Onion</li>
-                <li class="played" onclick="make_data('Ob-La-Di, Ob-La-Da')">Ob-La-Di, Ob-La-Da</li>
-                <li class="notplayed" onclick="make_data('Wild Honey Pie')">Wild Honey Pie</li>
-                <li class="notplayed" onclick="make_data('The Continuing Story Of Bungalow Bill')">The Continuing Story Of Bungalow Bill</li>
-                <li class="notplayed" onclick="make_data('While My Guitar Gently Weeps')">While My Guitar Gently Weeps</li>
-                <li class="notplayed" onclick="make_data('Happiness Is A Warm Gun')">Happiness Is A Warm Gun</li>
-                <li class="notplayed" onclick="make_data('Martha My Dear')">Martha My Dear</li>
-                <li class="notplayed" onclick="make_data('I\'m So Tired')">I'm So Tired</li>
-                <li class="played" onclick="make_data('Blackbird')">Blackbird</li>
-                <li class="notplayed" onclick="make_data('Piggies')">Piggies</li>
-                <li class="notplayed" onclick="make_data('Rocky Raccoon')">Rocky Raccoon</li>
-                <li class="notplayed" onclick="make_data('Don\'t Pass Me By')">Don't Pass Me By</li>
-                <li class="notplayed" onclick="make_data('Why Don\'t We Do It In The Road')">Why Don't We Do It In The Road</li>
-                <li class="duoplayed" onclick="make_data('I Will')">I Will</li>
-                <li class="notplayed" onclick="make_data('Julia')">Julia</li>
+                <li onclick="make_data('Back In The U.S.S.R.')">Back In The U.S.S.R.</li>
+                <li onclick="make_data('Dear Prudence')">Dear Prudence</li>
+                <li onclick="make_data('Glass Onion')">Glass Onion</li>
+                <li onclick="make_data('Ob-La-Di, Ob-La-Da')">Ob-La-Di, Ob-La-Da</li>
+                <li onclick="make_data('Wild Honey Pie')">Wild Honey Pie</li>
+                <li onclick="make_data('The Continuing Story Of Bungalow Bill')">The Continuing Story Of Bungalow Bill</li>
+                <li onclick="make_data('While My Guitar Gently Weeps')">While My Guitar Gently Weeps</li>
+                <li onclick="make_data('Happiness Is A Warm Gun')">Happiness Is A Warm Gun</li>
+                <li onclick="make_data('Martha My Dear')">Martha My Dear</li>
+                <li onclick="make_data('I\'m So Tired')">I'm So Tired</li>
+                <li onclick="make_data('Blackbird')">Blackbird</li>
+                <li onclick="make_data('Piggies')">Piggies</li>
+                <li onclick="make_data('Rocky Raccoon')">Rocky Raccoon</li>
+                <li onclick="make_data('Don\'t Pass Me By')">Don't Pass Me By</li>
+                <li onclick="make_data('Why Don\'t We Do It In The Road')">Why Don't We Do It In The Road</li>
+                <li onclick="make_data('I Will')">I Will</li>
+                <li onclick="make_data('Julia')">Julia</li>
               </ol>
               <ol>
-                <li class="played" onclick="make_data('Birthday')">Birthday</li>
-                <li class="notplayed" onclick="make_data('Yer Blues')">Yer Blues</li>
-                <li class="notplayed" onclick="make_data('Mother Nature\'s Son')">Mother Nature's Son</li>
-                <li class="notplayed" onclick="make_data('Everybody\'s Got Something To Hide Except Me And My Monkey')">Everybody's Got Something To Hide Except Me And My Monkey</li>
-                <li class="notplayed" onclick="make_data('Sexy Sadie')">Sexy Sadie</li>
-                <li class="notplayed" onclick="make_data('Helter Skelter')">Helter Skelter</li>
-                <li class="notplayed" onclick="make_data('Long, Long, Long')">Long, Long, Long</li>
-                <li class="notplayed" onclick="make_data('Revolution 1')">Revolution 1</li>
-                <li class="notplayed" onclick="make_data('Honey Pie')">Honey Pie</li>
-                <li class="notplayed" onclick="make_data('Savoy Truffle')">Savoy Truffle</li>
-                <li class="notplayed" onclick="make_data('Cry Baby Cry')">Cry Baby Cry</li>
-                <li class="notplayed" onclick="make_data('Revolution 9')">Revolution 9</li>
-                <li class="notplayed" onclick="make_data('Good Night')">Good Night</li>
+                <li onclick="make_data('Birthday')">Birthday</li>
+                <li onclick="make_data('Yer Blues')">Yer Blues</li>
+                <li onclick="make_data('Mother Nature\'s Son')">Mother Nature's Son</li>
+                <li onclick="make_data('Everybody\'s Got Something To Hide Except Me And My Monkey')">Everybody's Got Something To Hide Except Me And My Monkey</li>
+                <li onclick="make_data('Sexy Sadie')">Sexy Sadie</li>
+                <li onclick="make_data('Helter Skelter')">Helter Skelter</li>
+                <li onclick="make_data('Long, Long, Long')">Long, Long, Long</li>
+                <li onclick="make_data('Revolution 1')">Revolution 1</li>
+                <li onclick="make_data('Honey Pie')">Honey Pie</li>
+                <li onclick="make_data('Savoy Truffle')">Savoy Truffle</li>
+                <li onclick="make_data('Cry Baby Cry')">Cry Baby Cry</li>
+                <li onclick="make_data('Revolution 9')">Revolution 9</li>
+                <li onclick="make_data('Good Night')">Good Night</li>
               </ol>
             </details>
           </div>
@@ -347,15 +326,13 @@
         <div class="card">
           <div class="card-header">
             <h5>Yellow Submarine</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/yellowsubmarine.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="notplayed" onclick="make_data('Only A Northern Song')">Only A Northern Song</li>
-                <li class="notplayed" onclick="make_data('All Together Now')">All Together Now</li>
-                <li class="played" onclick="make_data('Hey Bulldog')">Hey Bulldog</li>
-                <li class="notplayed" onclick="make_data('It\'s All Too Much')">It's All Too Much</li>
+                <li onclick="make_data('Only A Northern Song')">Only A Northern Song</li>
+                <li onclick="make_data('All Together Now')">All Together Now</li>
+                <li onclick="make_data('Hey Bulldog')">Hey Bulldog</li>
+                <li onclick="make_data('It\'s All Too Much')">It's All Too Much</li>
               </ol>
             </details>
           </div>
@@ -365,28 +342,26 @@
         <div class="card">
           <div class="card-header">
             <h5>Abbey Road</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/abbeyroad.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="played" onclick="make_data('Come Together')">Come Together</li>
-                <li class="played" onclick="make_data('Something')">Something</li>
-                <li class="notplayed" onclick="make_data('Maxwell\'s Silver Hammer')">Maxwell's Silver Hammer</li>
-                <li class="notplayed" onclick="make_data('Oh! Darling')">Oh! Darling</li>
-                <li class="notplayed" onclick="make_data('Octopus\'s Garden')">Octopus's Garden</li>
-                <li class="notplayed" onclick="make_data('I Want You (She\'s So Heavy)')">I Want You (She's So Heavy)</li>
-                <li class="duoplayed" onclick="make_data('Here Comes The Sun')">Here Comes The Sun</li>
-                <li class="duoplayed" onclick="make_data('Because')">Because</li>
-                <li class="notplayed" onclick="make_data('You Never Give Me Your Money')">You Never Give Me Your Money</li>
-                <li class="notplayed" onclick="make_data('Sun King')">Sun King</li>
-                <li class="notplayed" onclick="make_data('Mean Mr. Mustard')">Mean Mr. Mustard</li>
-                <li class="notplayed" onclick="make_data('Polythene Pam')">Polythene Pam</li>
-                <li class="notplayed" onclick="make_data('She Came In Through The Bathroom Window')">She Came In Through The Bathroom Window</li>
-                <li class="notplayed" onclick="make_data('Golden Slumbers')">Golden Slumbers</li>
-                <li class="notplayed" onclick="make_data('Carry That Weight')">Carry That Weight</li>
-                <li class="notplayed" onclick="make_data('The End')">The End</li>
-                <li class="notplayed" onclick="make_data('Her Majesty')">Her Majesty</li>
+                <li onclick="make_data('Come Together')">Come Together</li>
+                <li onclick="make_data('Something')">Something</li>
+                <li onclick="make_data('Maxwell\'s Silver Hammer')">Maxwell's Silver Hammer</li>
+                <li onclick="make_data('Oh! Darling')">Oh! Darling</li>
+                <li onclick="make_data('Octopus\'s Garden')">Octopus's Garden</li>
+                <li onclick="make_data('I Want You (She\'s So Heavy)')">I Want You (She's So Heavy)</li>
+                <li onclick="make_data('Here Comes The Sun')">Here Comes The Sun</li>
+                <li onclick="make_data('Because')">Because</li>
+                <li onclick="make_data('You Never Give Me Your Money')">You Never Give Me Your Money</li>
+                <li onclick="make_data('Sun King')">Sun King</li>
+                <li onclick="make_data('Mean Mr. Mustard')">Mean Mr. Mustard</li>
+                <li onclick="make_data('Polythene Pam')">Polythene Pam</li>
+                <li onclick="make_data('She Came In Through The Bathroom Window')">She Came In Through The Bathroom Window</li>
+                <li onclick="make_data('Golden Slumbers')">Golden Slumbers</li>
+                <li onclick="make_data('Carry That Weight')">Carry That Weight</li>
+                <li onclick="make_data('The End')">The End</li>
+                <li onclick="make_data('Her Majesty')">Her Majesty</li>
               </ol>
             </details>
           </div>
@@ -399,23 +374,21 @@
         <div class="card">
           <div class="card-header">
             <h5>Let It Be</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/letitbe.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="played" onclick="make_data('Two Of Us')">Two Of Us</li>
-                <li class="played" onclick="make_data('Dig A Pony')">Dig A Pony</li>
-                <li class="notplayed" onclick="make_data('Across The Universe')">Across The Universe</li>
-                <li class="notplayed" onclick="make_data('I Me Mine')">I Me Mine</li>
-                <li class="notplayed" onclick="make_data('Dig it')">Dig it</li>
-                <li class="played" onclick="make_data('Let It Be')">Let It Be</li>
-                <li class="notplayed" onclick="make_data('Maggie Mae')">Maggie Mae</li>
-                <li class="played" onclick="make_data('I\'ve Got A Feeling')">I've Got A Feeling</li>
-                <li class="played" onclick="make_data('One After 909')">One After 909</li>
-                <li class="notplayed" onclick="make_data('The Long And Winding Road')">The Long And Winding Road</li>
-                <li class="notplayed" onclick="make_data('For You Blue')">For You Blue</li>
-                <li class="played" onclick="make_data('Get Back')">Get Back</li>
+                <li onclick="make_data('Two Of Us')">Two Of Us</li>
+                <li onclick="make_data('Dig A Pony')">Dig A Pony</li>
+                <li onclick="make_data('Across The Universe')">Across The Universe</li>
+                <li onclick="make_data('I Me Mine')">I Me Mine</li>
+                <li onclick="make_data('Dig it')">Dig it</li>
+                <li onclick="make_data('Let It Be')">Let It Be</li>
+                <li onclick="make_data('Maggie Mae')">Maggie Mae</li>
+                <li onclick="make_data('I\'ve Got A Feeling')">I've Got A Feeling</li>
+                <li onclick="make_data('One After 909')">One After 909</li>
+                <li onclick="make_data('The Long And Winding Road')">The Long And Winding Road</li>
+                <li onclick="make_data('For You Blue')">For You Blue</li>
+                <li onclick="make_data('Get Back')">Get Back</li>
               </ol>
             </details>
           </div>
@@ -425,29 +398,27 @@
         <div class="card">
           <div class="card-header">
             <h5>Past Masters 1</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/pastmasters1.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="notplayed" onclick="make_data('Love Me Do')">Love Me Do</li>
-                <li class="duoplayed" onclick="make_data('From Me To You')">From Me To You</li>
-                <li class="notplayed" onclick="make_data('Thank You Girl')">Thank You Girl</li>
-                <li class="played" onclick="make_data('She Loves You')">She Loves You</li>
-                <li class="notplayed" onclick="make_data('I\'ll Get You')">I'll Get You</li>
-                <li class="played" onclick="make_data('I Want To Hold Your Hand')">I Want To Hold Your Hand</li>
-                <li class="duoplayed" onclick="make_data('This Boy')">This Boy</li>
-                <li class="notplayed" onclick="make_data('Komm, Gib Mir Deine Hand')">Komm, Gib Mir Deine Hand</li>
-                <li class="notplayed" onclick="make_data('Sie Liebt Dich')">Sie Liebt Dich</li>
-                <li class="notplayed" onclick="make_data('Long Tall Sally')">Long Tall Sally</li>
-                <li class="played" onclick="make_data('I Call Your Name')">I Call Your Name</li>
-                <li class="notplayed" onclick="make_data('Slow Down')">Slow Down</li>
-                <li class="notplayed" onclick="make_data('Matchbox')">Matchbox</li>
-                <li class="played" onclick="make_data('I Feel Fine')">I Feel Fine</li>
-                <li class="notplayed" onclick="make_data('She\'s A Woman')">She's A Woman</li>
-                <li class="notplayed" onclick="make_data('Bad Boy')">Bad Boy</li>
-                <li class="duoplayed" onclick="make_data('Yes It Is')">Yes It Is</li>
-                <li class="notplayed" onclick="make_data('I\'m Down')">I'm Down</li>
+                <li onclick="make_data('Love Me Do')">Love Me Do</li>
+                <li onclick="make_data('From Me To You')">From Me To You</li>
+                <li onclick="make_data('Thank You Girl')">Thank You Girl</li>
+                <li onclick="make_data('She Loves You')">She Loves You</li>
+                <li onclick="make_data('I\'ll Get You')">I'll Get You</li>
+                <li onclick="make_data('I Want To Hold Your Hand')">I Want To Hold Your Hand</li>
+                <li onclick="make_data('This Boy')">This Boy</li>
+                <li onclick="make_data('Komm, Gib Mir Deine Hand')">Komm, Gib Mir Deine Hand</li>
+                <li onclick="make_data('Sie Liebt Dich')">Sie Liebt Dich</li>
+                <li onclick="make_data('Long Tall Sally')">Long Tall Sally</li>
+                <li onclick="make_data('I Call Your Name')">I Call Your Name</li>
+                <li onclick="make_data('Slow Down')">Slow Down</li>
+                <li onclick="make_data('Matchbox')">Matchbox</li>
+                <li onclick="make_data('I Feel Fine')">I Feel Fine</li>
+                <li onclick="make_data('She\'s A Woman')">She's A Woman</li>
+                <li onclick="make_data('Bad Boy')">Bad Boy</li>
+                <li onclick="make_data('Yes It Is')">Yes It Is</li>
+                <li onclick="make_data('I\'m Down')">I'm Down</li>
               </ol>
             </details>
           </div>
@@ -457,23 +428,73 @@
         <div class="card">
           <div class="card-header">
             <h5>Past Masters 2</h5>
-          </div>
-          <div class="card-body" style="background-image: url(music/jacket/pastmasters2.jpeg); background-size: 100%; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten;">
             <details>
               <summary></summary>
               <ol>
-                <li class="played" onclick="make_data('Day Tripper')">Day Tripper</li>
-                <li class="played" onclick="make_data('We Can Work It Out')">We Can Work It Out</li>
-                <li class="played" onclick="make_data('Paperback Writer')">Paperback Writer</li>
-                <li class="notplayed" onclick="make_data('Rain')">Rain</li>
-                <li class="played" onclick="make_data('Lady Madonna')">Lady Madonna</li>
-                <li class="notplayed" onclick="make_data('The Inner Light')">The Inner Light</li>
-                <li class="played" onclick="make_data('Hey Jude')">Hey Jude</li>
-                <li class="notplayed" onclick="make_data('Revolution')">Revolution</li>
-                <li class="played" onclick="make_data('Don\'t Let Me Down')">Don't Let Me Down</li>
-                <li class="notplayed" onclick="make_data('The Ballad Of John And Yoko')">The Ballad Of John And Yoko</li>
-                <li class="notplayed" onclick="make_data('Old Brown Shoe')">Old Brown Shoe</li>
-                <li class="notplayed" onclick="make_data('You Know My Name (Look Up The Number)')">You Know My Name (Look Up The Number)</li>
+                <li onclick="make_data('Day Tripper')">Day Tripper</li>
+                <li onclick="make_data('We Can Work It Out')">We Can Work It Out</li>
+                <li onclick="make_data('Paperback Writer')">Paperback Writer</li>
+                <li onclick="make_data('Rain')">Rain</li>
+                <li onclick="make_data('Lady Madonna')">Lady Madonna</li>
+                <li onclick="make_data('The Inner Light')">The Inner Light</li>
+                <li onclick="make_data('Hey Jude')">Hey Jude</li>
+                <li onclick="make_data('Revolution')">Revolution</li>
+                <li onclick="make_data('Don\'t Let Me Down')">Don't Let Me Down</li>
+                <li onclick="make_data('The Ballad Of John And Yoko')">The Ballad Of John And Yoko</li>
+                <li onclick="make_data('Old Brown Shoe')">Old Brown Shoe</li>
+                <li onclick="make_data('You Know My Name (Look Up The Number)')">You Know My Name (Look Up The Number)</li>
+              </ol>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 mt-3">
+        <div class="card">
+          <div class="card-header">
+            <h5>Others</h5>
+            <details>
+              <summary></summary>
+              <ol>
+                <li onclick="make_data('Free As A Bird')">Free As A Bird</li>
+                <li onclick="make_data('Real Love')">Real Love</li>
+                <li onclick="make_data('Now And Then')">Now And Then</li>
+              </ol>
+            </details>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-3">
+        <div class="card">
+          <div class="card-header">
+            <h5>John Solo</h5>
+            <details>
+              <summary></summary>
+              <ol>
+                <li onclick="make_data('Imagine')">Imagine</li>
+                <li onclick="make_data('Jealous Guy')">Jealous Guy</li>
+                <li onclick="make_data('Instant Karma')">Instant Karma</li>
+                <li onclick="make_data('Cold Turkey')">Cold Turkey</li>
+                <li onclick="make_data('Starting Over')">Starting Over</li>
+                <li onclick="make_data('Woman')">Thank You Girl</li>
+              </ol>
+            </details>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-3">
+        <div class="card">
+          <div class="card-header">
+            <h5>George Solo / Wings</h5>
+            <details>
+              <summary></summary>
+              <ol>
+                <li onclick="make_data('All Things Must Pass')">All Things Must Pass</li>
+                <li onclick="make_data('My Sweet Lord')">My Sweet Lord</li>
+                <li onclick="make_data('Band On The Run')">Band On The Run</li>
+                <li onclick="make_data('Jet')">Jet</li>
               </ol>
             </details>
           </div>
@@ -492,7 +513,7 @@
         曲データ：<a v-bind:href="url" target="_blank">{{url}}</a><br>
         ボーカル動画：<a v-bind:href="yt_vocal" target="_blank">{{yt_vocal}}</a><br><br>
         <div id="spotify"></div><br>
-        <div id="player"></div><br>
+        <div id="player"></div><br><br>
         <div v-html="lyrics"></div><br>
         <div id="bandscore"></div><br>
       </div>
@@ -507,10 +528,12 @@
       el: "#vue_songdata",
       data: {
         song: 'song',
+        bpm: '',
         album: 'album',
         year: 'year',
         vocal: '',
         chorus: '',
+        instruments: '',
         url: 'https://beatlesdata.info/',
         yt_vocal: '',
         lyrics: ''
