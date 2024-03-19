@@ -16,50 +16,48 @@
       <table class="table table-bordered text-center" style="width: 100%">
         <thead class="table-secondary">
           <th style="width:10%"></th>
-          <th>曲名(数字ドラッグで移動)</th>
+          <th>曲名 (数字ドラッグで移動)</th>
           <th style="width:5%"></th>
         </thead>
         <tbody id="sort_table">
           <tr>
             <th>1</th>
-            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
-            <td>
-              <button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button>
-            </td>
+            <td><input class="form-control" type="search" placeholder="入力して右から選択" list="songlist"></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>2</th>
-            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><input class="form-control" type="search" placeholder="入力して右から選択" list="songlist"></td>
             <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>3</th>
-            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><input class="form-control" type="search" placeholder="入力して右から選択" list="songlist"></td>
             <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>4</th>
-            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><input class="form-control" type="search" placeholder="入力して右から選択" list="songlist"></td>
             <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>5</th>
-            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><input class="form-control" type="search" placeholder="入力して右から選択" list="songlist"></td>
             <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>6</th>
-            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><input class="form-control" type="search" placeholder="入力して右から選択" list="songlist"></td>
             <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>7</th>
-            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><input class="form-control" type="search" placeholder="入力して右から選択" list="songlist"></td>
             <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>8</th>
-            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><input class="form-control" type="search" placeholder="入力して右から選択" list="songlist"></td>
             <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
         </tbody>
@@ -71,7 +69,7 @@
           </tr>
         </tfoot>
       </table>
-      <button type="button" class="btn btn-success" style="width: 100%" onclick="createOutput();">セットリスト出力＆コピー</button>
+      <button type="button" class="btn btn-success" id="outbut_btn" style="width: 100%" onclick="createOutput();">セットリスト出力＆コピー</button>
     </div>
     <div class="container mt-3">
       <div id="output_text"></div>
@@ -106,6 +104,18 @@
       document.getElementById("songlist").innerHTML += `<option value="${song}"></option>`
     }
 
+    function createTime(second){
+      var hour = Math.floor(second / 3600);
+      second -= hour * 3600;
+      var minute = Math.floor(second / 60);
+      second -= minute * 60
+      if(hour != 0){
+        return `${hour}:${String(minute).padStart(2, '0')}:${String(second).padStart(2, '0')}`
+      }else{
+        return `${String(minute).padStart(2, '0')}:${String(second).padStart(2, '0')}`
+      }
+    }
+
     function createOutput() {
       var inputs = document.querySelectorAll('input.form-control');
       var output_text = document.getElementById('output_text');
@@ -118,13 +128,14 @@
         var songname = inputs[i].value.trim();
         if (songname in data) {
           var second = data[songname]
-          var time = `${Math.floor(second / 60)}:${second % 60}`
           count += 1;
           second_total += second;
-          output_text.innerHTML += `${count}. ${inputs[i].value} (${time})<br>`
+          output_text.innerHTML += `${count}. ${songname} (${createTime(second)})<br>`
         }
       }
-      output_text.innerHTML += `合計：${Math.floor(second_total / 60)}:${second_total % 60}<br>`
+      output_text.innerHTML += `合計　${createTime(second_total)}<br>`
+      // scroll
+      window.scrollTo({top:outbut_btn.getBoundingClientRect().top, behavior:"smooth"});
       // copy to clipboard
       navigator.clipboard.writeText(document.getElementById('output_text').innerText.trim())
     }
@@ -137,7 +148,7 @@
       var nums = sort_table.querySelectorAll('th').length;
       sort_table.innerHTML += `<tr>\
         <th>${nums + 1}</th>\
-        <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>\
+        <td><input class="form-control" type="search" placeholder="入力して右から選択" list="songlist"></td>\
         <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>\
         </tr>`;
       // reinsert old values
