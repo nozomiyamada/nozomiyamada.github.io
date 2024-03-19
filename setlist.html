@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="js/beatlessongs.js"></script>
+</head>
+
+<body>
+  <section>
+    <div class="container mt-3">
+      <h1>セットリスト作成</h1>
+      <table class="table table-bordered text-center" style="width: 600px">
+        <thead class="table-secondary">
+          <th style="width:10%"></th>
+          <th>曲名(ドラッグで移動)</th>
+          <th style="width:20%"></th>
+        </thead>
+        <tbody id="sort_table">
+          <tr>
+            <th>1</th>
+            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td>
+              <button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button>
+            </td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+          </tr>
+          <tr>
+            <th>5</th>
+            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+          </tr>
+          <tr>
+            <th>6</th>
+            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+          </tr>
+          <tr>
+            <th>7</th>
+            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+          </tr>
+          <tr>
+            <th>8</th>
+            <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr id="row_append">
+            <td></td>
+            <td><button type="button" class="btn btn-primary" style="width:100%" onclick="appendRow()">行追加</button></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+      <button type="button" class="btn btn-success" style="width: 600px" onclick="createOutput();">セットリスト出力＆コピー</button>
+    </div>
+    <div class="container mt-3">
+      <div id="output_text"></div>
+    </div>
+  </section>
+
+  <datalist id="songlist">
+  </datalist>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+  <script>
+    function sortNumber(){
+      var nums = sortElement.querySelectorAll('th');
+      for (var i = 0; i < nums.length; i++) {
+        nums[i].innerText = i + 1;
+      }
+    }
+
+    function deleteRow(button) {
+      const tr = button.parentNode.parentNode;
+      tr.parentNode.deleteRow(tr.sectionRowIndex);
+      sortNumber();
+    }
+
+    const sortElement = document.getElementById('sort_table');
+    Sortable.create(sortElement, {
+      onSort: sortNumber
+    });
+
+    for(var song of Object.keys(data).sort()){
+      document.getElementById("songlist").innerHTML += `<option value="${song}"></option>`
+    }
+
+    function createOutput() {
+      var inputs = document.querySelectorAll('input.form-control');
+      var output_text = document.getElementById('output_text');
+      
+      output_text.innerHTML = '';
+      var count = 0;
+      var second_total = 0;
+
+      for (var i = 0; i < inputs.length; i++) {
+        var songname = inputs[i].value.trim();
+        if (songname in data) {
+          var second = data[songname]
+          var time = `${Math.floor(second / 60)}:${second % 60}`
+          count += 1;
+          second_total += second;
+          output_text.innerHTML += `${count}. ${inputs[i].value} (${time})<br>`
+        }
+      }
+      output_text.innerHTML += `合計：${Math.floor(second_total / 60)}:${second_total % 60}<br>`
+      // copy to clipboard
+      navigator.clipboard.writeText(document.getElementById('output_text').innerText.trim())
+    }
+
+    function appendRow() {
+      // keep present values to reinsert
+      var values = Array.from(document.querySelectorAll('input.form-control')).map(x => x.value)
+      // append new row
+      var sort_table = document.getElementById('sort_table');
+      var nums = sort_table.querySelectorAll('th').length;
+      sort_table.innerHTML += `<tr>\
+        <th>${nums + 1}</th>\
+        <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>\
+        <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>\
+        </tr>`;
+      // reinsert old values
+      var inputs = document.querySelectorAll('input.form-control');
+      for(var i=0; i<values.length; i++){
+        inputs[i].value = values[i];
+      }
+    }
+
+  </script>
+</body>
+
+</html>
