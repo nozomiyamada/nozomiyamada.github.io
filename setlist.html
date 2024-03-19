@@ -17,50 +17,50 @@
         <thead class="table-secondary">
           <th style="width:10%"></th>
           <th>曲名(ドラッグで移動)</th>
-          <th style="width:20%"></th>
+          <th style="width:5%"></th>
         </thead>
         <tbody id="sort_table">
           <tr>
             <th>1</th>
             <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
             <td>
-              <button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button>
+              <button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button>
             </td>
           </tr>
           <tr>
             <th>2</th>
             <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
-            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>3</th>
             <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
-            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>4</th>
             <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
-            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>5</th>
             <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
-            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>6</th>
             <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
-            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>7</th>
             <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
-            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
           <tr>
             <th>8</th>
             <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>
-            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>
           </tr>
         </tbody>
         <tfoot>
@@ -137,7 +137,7 @@
       sort_table.innerHTML += `<tr>\
         <th>${nums + 1}</th>\
         <td><input class="form-control" type="search" placeholder="曲名" list="songlist"></td>\
-        <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button></td>\
+        <td><button type="button" class="btn btn-danger" onclick="deleteRow(this)">×</button></td>\
         </tr>`;
       // reinsert old values
       var inputs = document.querySelectorAll('input.form-control');
