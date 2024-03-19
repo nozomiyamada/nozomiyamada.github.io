@@ -16,7 +16,7 @@
       <table class="table table-bordered text-center" style="width: 100%">
         <thead class="table-secondary">
           <th style="width:10%"></th>
-          <th>曲名(ドラッグで移動)</th>
+          <th>曲名(数字ドラッグで移動)</th>
           <th style="width:5%"></th>
         </thead>
         <tbody id="sort_table">
@@ -98,7 +98,8 @@
 
     const sortElement = document.getElementById('sort_table');
     Sortable.create(sortElement, {
-      onSort: sortNumber
+      onSort: sortNumber,
+      handle: 'th'
     });
 
     for(var song of Object.keys(data).sort()){
