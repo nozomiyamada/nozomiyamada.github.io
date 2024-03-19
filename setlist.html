@@ -135,7 +135,7 @@
       }
       output_text.innerHTML += `合計　${createTime(second_total)}<br>`
       // scroll
-      window.scrollTo({top:outbut_btn.getBoundingClientRect().top, behavior:"smooth"});
+      window.scrollTo(0, document.body.scrollHeight);
       // copy to clipboard
       navigator.clipboard.writeText(document.getElementById('output_text').innerText.trim())
     }
