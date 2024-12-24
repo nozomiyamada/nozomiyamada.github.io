@@ -513,7 +513,7 @@
         ボーカル：{{vocal}}<br>
         コーラス：{{chorus}}<br>
         使用楽器：{{instruments}}<br>
-        曲データ：<a v-bind:href="url" target="_blank">{{url}}</a><br>
+        曲データ：<a v-bind:href="url" target="_blank">{{database_url}}</a><br>
         ボーカル動画：<a v-bind:href="yt_vocal" target="_blank">{{yt_vocal}}</a><br><br>
         <div id="spotify"></div><br>
         <div id="player"></div><br><br>
@@ -588,24 +588,29 @@
       function onPlayerReady(event) {
         event.target.playVideo();
       }
-
-    function make_data(input){
-      if(input in SONGDATA){
-        song_input.value = input; // change the input form
-        data = SONGDATA[input];
-        vue.song = input;
+    
+    // SONGDATA	
+    // song: [
+    // 0.album 1.year 2.bpm 3.vocal 4.harmony 5.instruments
+    // 6.database_url 7.harmony_youtube 8.bass_youtube 
+    // 9.spotify 10.lyrics
+    function make_data(input_song){
+      if(input_song in SONGDATA){
+        song_input.value = input_song; // change the input form
+        data = SONGDATA[input_song];
+        vue.song = input_song;
         vue.album = data[0]
         vue.year = data[1];
         vue.bpm = data[2];
         vue.vocal = data[3];
         vue.chorus = data[4];
-        vue.instruments = data[7];
-        vue.url = data[5];
-        vue.yt_vocal = (data[6]=='')? '' : 'https://youtu.be/' + data[6];
-        player.cueVideoById({videoId: data[8]}); // instrumental youtube
-        spotify.innerHTML = `<audio controls id="audioplayer"><source src="music/${input}.mp3"></audio><iframe width="100%" src="https://open.spotify.com/embed/track/${data[9]}" allow="autoplay; clipboard-write; encrypted-media; fullscreen"></iframe>`
+        vue.instruments = data[5];
+        vue.database_url = data[6];
+        vue.yt_vocal = (data[7]=='')? '' : 'https://youtu.be/' + data[7];
+        player.cueVideoById({videoId: data[8]}); // bass youtube
+        spotify.innerHTML = `<audio controls id="audioplayer"><source src="music/${input_song}.mp3"></audio><iframe width="100%" src="https://open.spotify.com/embed/track/${data[9]}" allow="autoplay; clipboard-write; encrypted-media; fullscreen"></iframe>`
         vue.lyrics = data[10];
-        bandscore.innerHTML = (PDFs.includes(input))? `<iframe src="music/scores/${input}.pdf" width="100%" height="1200"></iframe>` : '';       
+        bandscore.innerHTML = (PDFs.includes(input_song))? `<iframe src="music/scores/${input_song}.pdf" width="100%" height="1200"></iframe>` : '';       
         
         var audio = document.getElementById("audioplayer");
         audio.volume = 0.3;
