@@ -513,7 +513,7 @@
         ボーカル：{{vocal}}<br>
         コーラス：{{chorus}}<br>
         使用楽器：{{instruments}}<br>
-        曲データ：<a v-bind:href="url" target="_blank">{{database_url}}</a><br>
+        曲データ：<a v-bind:href="database_url" target="_blank">{{database_url}}</a><br>
         ハモリ動画：<a v-bind:href="yt_vocal" target="_blank">{{yt_vocal}}</a><br><br>
         <div id="spotify"></div><br>
         <div id="player"></div><br><br>
@@ -537,7 +537,7 @@
         vocal: '',
         chorus: '',
         instruments: '',
-        url: 'https://beatlesdata.info/',
+        database_url: 'https://beatlesdata.info/',
         yt_vocal: '',
         lyrics: ''
       }
